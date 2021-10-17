@@ -123,10 +123,10 @@ variously attributed to Benjamin Disraeli, Mark Twain etc.
 ```{r eval=TRUE}
 set.seed(12345)
 x <- rnorm(50)
-sd(x)
 mean(x)
-var(x)
 median(x)
+var(x)
+sd(x)
 quantile(x)
 ```
 ---
@@ -167,6 +167,24 @@ par(mfrow=c(1,2))
 hist(wage, freq = FALSE)
 hist(log(wage), freq = FALSE)
 lines(density(log(wage)), col = 4)
+```
+---
+```{r eval=requireNamespace("AER", quietly=TRUE)}
+summary(occupation)
+pekerjaan <- table(occupation)
+prop.table(pekerjaan)
+```
+---
+```{r eval=requireNamespace("AER", quietly=TRUE)}
+par(mfrow=c(1,2))
+barplot(pekerjaan)
+pie(pekerjaan)
+```
+---
+```{r eval=requireNamespace("AER", quietly=TRUE)}
+xtabs(~ gender + occupation, data = CPS1985)
+par(mfrow=c(1,1))
+plot(gender ~ occupation, data = CPS1985)
 ```
 ---
 class: inverse, right, bottom

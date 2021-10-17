@@ -109,19 +109,19 @@ variously attributed to Benjamin Disraeli, Mark Twain etc.
 ```r
 set.seed(12345)
 x &lt;- rnorm(50)
-sd(x)
-```
-
-```
-## [1] 1.096586
-```
-
-```r
 mean(x)
 ```
 
 ```
 ## [1] 0.1795663
+```
+
+```r
+median(x)
+```
+
+```
+## [1] 0.4309081
 ```
 
 ```r
@@ -133,11 +133,11 @@ var(x)
 ```
 
 ```r
-median(x)
+sd(x)
 ```
 
 ```
-## [1] 0.4309081
+## [1] 1.096586
 ```
 
 ```r
@@ -269,6 +269,55 @@ lines(density(log(wage)), col = 4)
 ```
 
 &lt;img src="sesi1_files/figure-html/unnamed-chunk-10-1.png" width="100%" /&gt;
+---
+
+```r
+summary(occupation)
+```
+
+```
+##     worker  technical   services     office      sales management 
+##        156        105         83         97         38         55
+```
+
+```r
+pekerjaan &lt;- table(occupation)
+prop.table(pekerjaan)
+```
+
+```
+## occupation
+##     worker  technical   services     office      sales management 
+## 0.29213483 0.19662921 0.15543071 0.18164794 0.07116105 0.10299625
+```
+---
+
+```r
+par(mfrow=c(1,2))
+barplot(pekerjaan)
+pie(pekerjaan)
+```
+
+&lt;img src="sesi1_files/figure-html/unnamed-chunk-12-1.png" width="100%" /&gt;
+---
+
+```r
+xtabs(~ gender + occupation, data = CPS1985)
+```
+
+```
+##         occupation
+## gender   worker technical services office sales management
+##   male      126        53       34     21    21         34
+##   female     30        52       49     76    17         21
+```
+
+```r
+par(mfrow=c(1,1))
+plot(gender ~ occupation, data = CPS1985)
+```
+
+&lt;img src="sesi1_files/figure-html/unnamed-chunk-13-1.png" width="100%" /&gt;
 ---
 class: inverse, right, bottom
 
