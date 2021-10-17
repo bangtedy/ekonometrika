@@ -1,0 +1,146 @@
+---
+title: "Ekonometrika"
+subtitle: "Tinjauan Mata Kuliah"  
+author: "Tedy Herlambang"
+date: '`r Sys.Date()`'
+output:
+  xaringan::moon_reader:
+    css: ["uwm_nolog.css", "uwm-fonts", "extra_css.css"]
+    lib_dir: libs
+    nature:
+      slideNumberFormat: "%current%"
+      highlightStyle: github
+      highlightLines: true
+      ratio: 16:9
+      countIncrementalSlides: true
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(
+  fig.width=9, fig.height=3.5, fig.retina=3,
+  out.width = "100%",
+  cache = FALSE,
+  echo = TRUE,
+  message = FALSE, 
+  warning = FALSE,
+  hiline = TRUE
+)
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_duo_accent(
+  primary_color = "#1381B0",
+  secondary_color = "#FF961C",
+  inverse_header_color = "#FFFFFF"
+)
+```
+
+```{r load_packages, message=FALSE, warning=FALSE, include=FALSE} 
+library(fontawesome)
+```
+
+```{r xaringan-tile-view, echo=FALSE}
+xaringanExtra::use_tile_view()
+```
+
+```{r xaringan-scribble, echo=FALSE}
+xaringanExtra::use_scribble()
+```
+layout: true
+
+<div class="my-footer"><span>bangtedy.github.io</span></div>
+
+<!-- this adds the link footer to all slides, depends on my-footer class in css-->
+
+---
+
+# Apakah Ekonometrika itu?
+
+- Kebenaran teori ekonomi perlu dibuktikan secara empiris melalui riset
+- Ekonometrika adalah mata kuliah terapan yang digunakan dalam riset ekonomi.
+- Ekonometrika mencakup seperangkat teknik yang memungkinkan pengukuran dan analisis fenomena ekonomi serta memprediksi tren ekonomi masa depan.
+- Secara harfiah ekonometrika berarti 'pengukuran ekonomi' yaitu pengukuran dan analisis kuantitatif fenomena ekonomi dan bisnis aktual.
+- Ekonometrika mencoba mengkuantifikasi realitas ekonomi dan menjembatani 'gap' antara teori ekonomi yang abstrak dan dunia nyata kegiatan manusia (Studenmund, 2017)
+
+---
+
+# `r fa("book-open", fill = "blue")` Cara Belajar Ekonometrika
+
+- Mahasiswa yang mengambil ekonometrika diasumsikan sudah mengambil mata kuliah Teori Mikroekonomi dan Makroekonomi, Matematika dan Statistika Dasar.
+
+### Belajar ekonometrika seperti belajar naik sepeda. Kita akan belajar lebih banyak jika mempraktikkannya dibandingkan dengan membaca buku saja.
+
+---
+# Cakupan Materi
+
+Mata kuliah ini akan menyajikan materi yang terbagi dalam sembilan modul yaitu: 
+1. Definisi, ruang lingkup, metodologi, dan dasar-dasar statistika untuk ekonometrika
+2. Analisis regresi dengan OLS
+3. Modeling regresi dan evaluasi regresi
+4. Asumsi OLS
+5. Regresi dengan variabel dependen kualitatif
+6. Model regresi dinamis
+7. Model sistem persamaan
+8. Regresi data time series
+9. Regresi data panel
+
+---
+
+# Strategi Tutorial
+- Mahasiswa belajar aktif, 
+- Mahasiswa belajar mandiri, 
+- Mahasiswa belajar kooperatif dan kolaboratif, 
+- *Self-regulated learning*
+- Tutor adalah fasilitator, motivator, fasilitator, evaluator dan mitra pembelajaran
+- Mahasiswa aktif berpartisipasi dalam tutorial dengan berbagi informasi, pengalaman pribadi dengan cara brainstorming, Kooperatif, Kolaboratif, diskusi kelompok;
+
+- Mahasiswa secara aktif, mandiri dan tidak tergantung pada tutor untuk mengembangkan potensi dirinya untuk memiliki kekuatan spiritual keagamaan, pengendalian diri, kepribadian, kecerdasan, akhlak mulia, serta keterampilan yang diperlukan dirinya, masyarakat, bangsa dan negara. 
+
+---
+
+
+# `r fa("book-open", fill = "yellow")` Belajar Mandiri
+- Belajar mandiri dalam banyak hal ditentukan oleh kemampuan belajar secara efisien dan efektif. 
+- Kemampuan belajar bergantung pada kecepatan membaca dan kemampuan memahami isi bacaan. 
+- Untuk dapat belajar mandiri secara efisien dan efektif, mahasiswa dituntut memiliki disiplin diri, inisiatif, dan motivasi belajar yang kuat.
+- Mahasiswa juga dituntut untuk dapat mengatur waktunya dengan efisien, sehingga dapat belajar secara teratur berdasarkan jadwal belajar yang ditentukan sendiri.
+
+---
+
+# `r fa("book-open", fill = "yellow")` Cara Mempelajari Modul
+- Mempelajari tinjauan mata kuliah
+- Membaca sepintas, kemudian mengulangi dengan lebih cermat
+- Membuat catatan / rangkuman 
+- Memberi tanda pada konsep penting 
+- Menyaksikan bahan ajar non cetak
+- Mengerjakan latihan dan  tes formatif
+- Memanfaatkan kegiatan tutorial dengan menanyakan materi yang belum dipahami
+- Aktif berdiskusi pada saat kegiatan tutorial
+
+---
+
+# Rancangan Aktivitas Tutorial:
+
+- [Sesi 1: Ekonometrika: Pendahuluan](https://bangtedy.github.io/ekonometrika/sesi1#1)
+
+---
+
+### Rujukan Utama
+- Widarjono, Agus. 2018. Buku Materi Pokok (BMP) ESPA4312 Ekonometrika, Edisi 2. Penerbit Universitas Terbuka, Tangerang Selatan.
+### Rujukan Tambahan:
+- Studenmund, A.H. 2016. Using econometrics : a practical guide. Seven edition. Pearson
+- Wooldridge, Jeffrey M. 2020. Introductory Econometrics: A Modern Approach, Seventh Edition. Cengage.
+
+---
+
+class: inverse, right, middle
+
+<img class= "circle" src="https://github.com/bangtedy.png" width="150px"/>
+
+# Find me at...
+
+[`r fa(name = "twitter")` @t_hlb](http://twitter.com/t_hlb)  
+[`r fa(name = "blog")` bangtedy.github.io](https://bangtedy.github.io)
+

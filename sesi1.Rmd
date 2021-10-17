@@ -1,0 +1,179 @@
+---
+title: "Ekonometrika"
+subtitle: "SESI 1"  
+author: "Tedy Herlambang"
+date: '`r Sys.Date()`'
+output:
+  xaringan::moon_reader:
+    css: ["uwm_nolog.css", "uwm-fonts", "extra_css.css"]
+    lib_dir: libs
+    nature:
+      slideNumberFormat: "%current%"
+      highlightStyle: github
+      highlightLines: true
+      ratio: 16:9
+      countIncrementalSlides: true
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(
+  fig.width=9, fig.height=3.5, fig.retina=3,
+  out.width = "100%",
+  cache = FALSE,
+  echo = TRUE,
+  message = FALSE, 
+  warning = FALSE,
+  hiline = TRUE
+)
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_duo_accent(
+  primary_color = "#1381B0",
+  secondary_color = "#FF961C",
+  inverse_header_color = "#FFFFFF"
+)
+```
+
+```{r load_packages, message=FALSE, warning=FALSE, include=FALSE} 
+library(fontawesome)
+```
+
+```{r xaringan-tile-view, echo=FALSE}
+xaringanExtra::use_tile_view()
+```
+
+```{r xaringan-scribble, echo=FALSE}
+xaringanExtra::use_scribble()
+```
+layout: true
+
+<div class="my-footer"><span>bangtedy.github.io</span></div>
+
+<!-- this adds the link footer to all slides, depends on my-footer class in css-->
+
+---
+
+# Capaian Pembelajaran
+Setelah mempelajari modul ini Anda diharapkan mampu:
+- Menjelaskan definisi dan ruang lingkup ekonometrika serta distribusi probabilitas yang digunakan dalam uji statistika
+
+Secara khusus Anda diharapkan mampu:
+
+1. Menjelaskan definisi dan tujuan ekonometrika
+2. Langkah-langkah dalam riset ekonomi dengan menggunakan ekonometrika
+3. Merumuskan model-model ekonometrika untuk riset ekonomi
+4. Menjelaskan dasar-dasar statistika yang digunakan untuk riset dengan ekonometrika
+
+---
+# KB1: Teori Ekonomi dan Ekonometrika
+
+### Penyederhanaan perilaku manusia yang sangat kompleks, tetapi
+### Mampu menjelaskan dengan baik perilaku manusia
+
+---
+
+# Teori Ekonomi dan Ekonometrika
+
+- Teori ekonomi mungkin mengatakan bahwa terdapat hubungan antara dua variabel atau lebih (misal harga barang dengan jumlah permintaannya), 
+  + Ekonomi terapan menghendaki bukti bahwa hubungan ini nyata sekaligus bisa diamati di kehidupan sehari-hari, serta kuantifikasi hubungan antara variabel tersebut.
+- The study of the methods that enable us to quantify economic relationships using actual data is known as *econometrics* (ekonometrika).
+
+---
+
+class: middle, center
+
+
+```{r out.width = '21%', fig.align='center', echo=FALSE}
+knitr::include_graphics("img/econ_stat.png")
+```
+
+```{r out.width = '41%', fig.align='center', echo=FALSE}
+knitr::include_graphics("img/econ_stat1.png")
+```
+---
+# Metodologi Ekonometrika
+1. Teori Ekonomi (misal teori Permintaan)
+2. Model Matematika (Hukum Permintaan)
+3. Model Ekonometrika (Hukum Permintaan)
+4. Pengumpulan Data
+5. Estimasi
+6. Uji Model
+7. Prediksi dan Kebijakan
+---
+# Program Komputer
+- Stata, Eviews, Limdep, SPSS, JMP, Minitab --> berbayar, support resmi dari pabrikan
+- R (open source) --> gratis, tutorial banyak tersedia di internet
+- Mempermudah penghitungan
+
+---
+# Pertanyaan:
+### Mengapa hubungan antara variable di dalam model ekonometrika bersifat adalah hubungan bersifat statistik bukan matematis?
+
+---
+
+# KB 2: Dasar-Dasar Statistika
+
+> There are three kinds of lies: lies, damned lies and statistics — 
+variously attributed to Benjamin Disraeli, Mark Twain etc.
+
+---
+```{r eval=TRUE}
+set.seed(12345)
+x <- rnorm(50)
+sd(x)
+mean(x)
+var(x)
+median(x)
+quantile(x)
+```
+---
+```{r eval=TRUE}
+summary(x)
+```
+
+```{r  eval=TRUE}
+hist(x)
+```
+---
+```{r eval=TRUE}
+curve(dnorm(x), from=-4, to=4)
+
+```
+---
+```{r eval=requireNamespace("AER", quietly=TRUE)}
+library(AER)
+data(CPS1985)
+attach(CPS1985)
+str(CPS1985)
+```
+---
+```{r eval=requireNamespace("AER", quietly=TRUE)}
+head(CPS1985)
+```
+---
+```{r eval=requireNamespace("AER", quietly=TRUE)}
+mean(wage)
+median(wage)
+var(wage)
+sd(wage)
+summary(wage)
+```
+---
+```{r eval=requireNamespace("AER", quietly=TRUE)}
+par(mfrow=c(1,2))
+hist(wage, freq = FALSE)
+hist(log(wage), freq = FALSE)
+lines(density(log(wage)), col = 4)
+```
+---
+class: inverse, right, bottom
+
+<img class= "circle" src="https://github.com/bangtedy.png" width="150px"/>
+
+# Kso'on, find me at...
+
+[`r fa(name = "twitter")` @t_hlb](http://twitter.com/t_hlb)  
+[`r fa(name = "blog")` bangtedy.github.io](https://bangtedy.github.io)
