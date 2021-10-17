@@ -105,6 +105,11 @@ class: middle, center
 variously attributed to Benjamin Disraeli, Mark Twain etc.
 
 ---
+# Kasus 1 = simulasi data yang terdistribusi normal, t, chi atau F
+- Dengan bantuan program komputer ini sangat mudah dilakukan
+    + (juga untuk membuat data riset abal-abal)
+- Di dalam praktek data riset yang kita peroleh seringkali tidak "mulus" seperti di dalam teori.
+
 
 ```r
 set.seed(12345)
@@ -139,6 +144,7 @@ sd(x)
 ```
 ## [1] 1.096586
 ```
+---
 
 ```r
 quantile(x)
@@ -148,31 +154,34 @@ quantile(x)
 ##         0%        25%        50%        75%       100% 
 ## -2.3803581 -0.4746098  0.4309081  0.8156432  2.1968335
 ```
----
-
-```r
-summary(x)
-```
-
-```
-##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-## -2.3804 -0.4746  0.4309  0.1796  0.8156  2.1968
-```
 
 
 ```r
+par(mfrow=c(1,2))
 hist(x)
+curve(dnorm(x), from=-4, to=4)
 ```
 
 &lt;img src="sesi1_files/figure-html/unnamed-chunk-5-1.png" width="100%" /&gt;
 ---
+# Kasus 2 = [CPS1985: Determinants of Wages Data](https://rdrr.io/cran/AER/man/CPS1985.html)
 
-```r
-curve(dnorm(x), from=-4, to=4)
-```
-
-&lt;img src="sesi1_files/figure-html/unnamed-chunk-6-1.png" width="100%" /&gt;
+Deskripsi data:
+-  Data kerat lintang (*cross-section*) yang berasal dari survei populasi Mei 1985 oleh badan statistik AS.
+- Data frame terdiri dari 534 pengamatan pada 11 variabel:
+    + wage (in dollars per hour).
+    + education (Number of years of education).
+    + experience (Number of years of potential work experience (age - education - 6)).
+    + age (Age in years).
+    + ethnicity (Factor with levels "cauc", "hispanic", "other").
+    + region (Factor. Does the individual live in the South?)
+    + gender (Factor indicating gender.
+    + occupation (Factor with levels "worker" (tradesperson or assembly line worker), "technical" (technical or professional worker), "services" (service worker), "office" (office and clerical worker), "sales" (sales worker), "management" (management and administration).
+    + sector (Factor with levels "manufacturing" (manufacturing or mining), "construction", "other").
+    + union (Factor. Does the individual work on a union job?)
+    + married (Factor. Is the individual married?)
 ---
+## Data bisa dipanggil dari AER package:
 
 ```r
 library(AER)
@@ -268,7 +277,7 @@ hist(log(wage), freq = FALSE)
 lines(density(log(wage)), col = 4)
 ```
 
-&lt;img src="sesi1_files/figure-html/unnamed-chunk-10-1.png" width="100%" /&gt;
+&lt;img src="sesi1_files/figure-html/unnamed-chunk-9-1.png" width="100%" /&gt;
 ---
 
 ```r
@@ -298,7 +307,7 @@ barplot(pekerjaan)
 pie(pekerjaan)
 ```
 
-&lt;img src="sesi1_files/figure-html/unnamed-chunk-12-1.png" width="100%" /&gt;
+&lt;img src="sesi1_files/figure-html/unnamed-chunk-11-1.png" width="100%" /&gt;
 ---
 
 ```r
@@ -317,7 +326,7 @@ par(mfrow=c(1,1))
 plot(gender ~ occupation, data = CPS1985)
 ```
 
-&lt;img src="sesi1_files/figure-html/unnamed-chunk-13-1.png" width="100%" /&gt;
+&lt;img src="sesi1_files/figure-html/unnamed-chunk-12-1.png" width="100%" /&gt;
 ---
 class: inverse, right, bottom
 

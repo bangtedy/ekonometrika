@@ -120,6 +120,11 @@ knitr::include_graphics("img/econ_stat1.png")
 variously attributed to Benjamin Disraeli, Mark Twain etc.
 
 ---
+# Kasus 1: simulasi data yang terdistribusi normal, t, chi atau F
+- Dengan bantuan program komputer ini sangat mudah dilakukan
+    + (juga untuk membuat data riset abal-abal)
+- Di dalam praktek data riset yang kita peroleh seringkali tidak "mulus" seperti di dalam teori.
+
 ```{r eval=TRUE}
 set.seed(12345)
 x <- rnorm(50)
@@ -127,22 +132,37 @@ mean(x)
 median(x)
 var(x)
 sd(x)
-quantile(x)
 ```
 ---
 ```{r eval=TRUE}
-summary(x)
+quantile(x)
 ```
 
 ```{r  eval=TRUE}
+par(mfrow=c(1,2))
 hist(x)
-```
----
-```{r eval=TRUE}
 curve(dnorm(x), from=-4, to=4)
 
 ```
 ---
+# Kasus 2: [CPS1985: Determinants of Wages Data](https://rdrr.io/cran/AER/man/CPS1985.html)
+
+Deskripsi data:
+-  Data kerat lintang (*cross-section*) yang berasal dari survei populasi Mei 1985 oleh badan statistik AS.
+- Data frame terdiri dari 534 pengamatan pada 11 variabel:
+    + wage (in dollars per hour).
+    + education (Number of years of education).
+    + experience (Number of years of potential work experience (age - education - 6)).
+    + age (Age in years).
+    + ethnicity (Factor with levels "cauc", "hispanic", "other").
+    + region (Factor. Does the individual live in the South?)
+    + gender (Factor indicating gender.
+    + occupation (Factor with levels "worker" (tradesperson or assembly line worker), "technical" (technical or professional worker), "services" (service worker), "office" (office and clerical worker), "sales" (sales worker), "management" (management and administration).
+    + sector (Factor with levels "manufacturing" (manufacturing or mining), "construction", "other").
+    + union (Factor. Does the individual work on a union job?)
+    + married (Factor. Is the individual married?)
+---
+## Data bisa dipanggil dari AER package:
 ```{r eval=requireNamespace("AER", quietly=TRUE)}
 library(AER)
 data(CPS1985)
