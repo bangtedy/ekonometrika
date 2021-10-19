@@ -1,5 +1,5 @@
 ---
-title: "Regresi Linier"
+title: "Pendahuluan"
 subtitle: "SESI 1"  
 author: "Tedy Herlambang"
 date: '`r Sys.Date()`'
