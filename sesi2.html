@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Ekonometrika</title>
+    <title>Regresi Linier</title>
     <meta charset="utf-8" />
     <meta name="author" content="Tedy Herlambang" />
     <meta name="date" content="2021-10-19" />
@@ -20,8 +20,8 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# Ekonometrika
-## Tinjauan Mata Kuliah
+# Regresi Linier
+## SESI 2
 ### Tedy Herlambang
 ### 2021-10-19
 
@@ -45,102 +45,61 @@ layout: true
 
 ---
 
-# Apakah Ekonometrika itu?
-
-- Kebenaran teori ekonomi perlu dibuktikan secara empiris melalui riset
-- Ekonometrika adalah mata kuliah terapan yang digunakan dalam riset ekonomi.
-- Ekonometrika mencakup seperangkat teknik yang memungkinkan pengukuran dan analisis fenomena ekonomi serta memprediksi tren ekonomi masa depan.
-- Secara harfiah ekonometrika berarti 'pengukuran ekonomi' yaitu pengukuran dan analisis kuantitatif fenomena ekonomi dan bisnis aktual.
-- Ekonometrika mencoba mengkuantifikasi realitas ekonomi dan menjembatani 'gap' antara teori ekonomi yang abstrak dan dunia nyata kegiatan manusia (Studenmund, 2017)
+# Halaman ini sengaja dikosongkan
 
 ---
 
-# <svg aria-hidden="true" role="img" viewBox="0 0 576 512" style="height:1em;width:1.12em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:blue;overflow:visible;position:relative;"><path d="M542.22 32.05c-54.8 3.11-163.72 14.43-230.96 55.59-4.64 2.84-7.27 7.89-7.27 13.17v363.87c0 11.55 12.63 18.85 23.28 13.49 69.18-34.82 169.23-44.32 218.7-46.92 16.89-.89 30.02-14.43 30.02-30.66V62.75c.01-17.71-15.35-31.74-33.77-30.7zM264.73 87.64C197.5 46.48 88.58 35.17 33.78 32.05 15.36 31.01 0 45.04 0 62.75V400.6c0 16.24 13.13 29.78 30.02 30.66 49.49 2.6 149.59 12.11 218.77 46.95 10.62 5.35 23.21-1.94 23.21-13.46V100.63c0-5.29-2.62-10.14-7.27-12.99z"/></svg> Cara Belajar Ekonometrika
-
-- Mahasiswa yang mengambil ekonometrika diasumsikan sudah mengambil mata kuliah Teori Mikroekonomi dan Makroekonomi, Matematika dan Statistika Dasar.
-
-### Belajar ekonometrika seperti belajar naik sepeda. Kita akan belajar lebih banyak jika mempraktikkannya dibandingkan dengan membaca buku saja.
-
----
-# Cakupan Materi
-
-Mata kuliah ini akan menyajikan materi yang terbagi dalam sembilan modul yaitu: 
-1. Definisi, ruang lingkup, metodologi, dan dasar-dasar statistika untuk ekonometrika
-2. Analisis regresi dengan OLS
-3. Modeling regresi dan evaluasi regresi
-4. Asumsi OLS
-5. Regresi dengan variabel dependen kualitatif
-6. Model regresi dinamis
-7. Model sistem persamaan
-8. Regresi data time series
-9. Regresi data panel
+# Capaian Pembelajaran
+1. Menjelaskan ide dasar regresi
+2. Menjelaskan asumsi-asumsi OLS
+3. Menentukan estimator OLS yang BLUE
+4. Menentukan ketepatan estimator OLS dan kebaikan regresi metode OLS
+5. Menjelaskan arti koefisien regresi
+6. Menjelaskan teknik variabel dummy dan mengartikan koefisiennya.
 
 ---
 
-# Strategi Tutorial
-- Mahasiswa belajar aktif, 
-- Mahasiswa belajar mandiri, 
-- Mahasiswa belajar kooperatif dan kolaboratif, 
-- *Self-regulated learning*
-- Tutor adalah fasilitator, motivator, fasilitator, evaluator dan mitra pembelajaran
-- Mahasiswa aktif berpartisipasi dalam tutorial dengan berbagi informasi, pengalaman pribadi dengan cara brainstorming, Kooperatif, Kolaboratif, diskusi kelompok;
+# Regresi Linier Sederhana
 
-- Mahasiswa secara aktif, mandiri dan tidak tergantung pada tutor untuk mengembangkan potensi dirinya untuk memiliki kekuatan spiritual keagamaan, pengendalian diri, kepribadian, kecerdasan, akhlak mulia, serta keterampilan yang diperlukan dirinya, masyarakat, bangsa dan negara. 
+---
+
+# Metode OLS
+
+---
+
+# Asumsi-Asumsi OLS
+
+---
+
+# Estimator yang BLUE
+
+---
+
+# Model Regresi Linier Berganda
+
+---
+
+# Estimasi OLS Linier Berganda
+
+---
+
+# Koefisien Determinasi dan Koefisien Determinasi yang Disesuaikan
+
+---
+
+# Beberapa Model Fungsi Regresi
 
 ---
 
 
-# <svg aria-hidden="true" role="img" viewBox="0 0 576 512" style="height:1em;width:1.12em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:yellow;overflow:visible;position:relative;"><path d="M542.22 32.05c-54.8 3.11-163.72 14.43-230.96 55.59-4.64 2.84-7.27 7.89-7.27 13.17v363.87c0 11.55 12.63 18.85 23.28 13.49 69.18-34.82 169.23-44.32 218.7-46.92 16.89-.89 30.02-14.43 30.02-30.66V62.75c.01-17.71-15.35-31.74-33.77-30.7zM264.73 87.64C197.5 46.48 88.58 35.17 33.78 32.05 15.36 31.01 0 45.04 0 62.75V400.6c0 16.24 13.13 29.78 30.02 30.66 49.49 2.6 149.59 12.11 218.77 46.95 10.62 5.35 23.21-1.94 23.21-13.46V100.63c0-5.29-2.62-10.14-7.27-12.99z"/></svg> Belajar Mandiri
-- Belajar mandiri dalam banyak hal ditentukan oleh kemampuan belajar secara efisien dan efektif. 
-- Kemampuan belajar bergantung pada kecepatan membaca dan kemampuan memahami isi bacaan. 
-- Untuk dapat belajar mandiri secara efisien dan efektif, mahasiswa dituntut memiliki disiplin diri, inisiatif, dan motivasi belajar yang kuat.
-- Mahasiswa juga dituntut untuk dapat mengatur waktunya dengan efisien, sehingga dapat belajar secara teratur berdasarkan jadwal belajar yang ditentukan sendiri.
-
----
-
-# <svg aria-hidden="true" role="img" viewBox="0 0 576 512" style="height:1em;width:1.12em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:yellow;overflow:visible;position:relative;"><path d="M542.22 32.05c-54.8 3.11-163.72 14.43-230.96 55.59-4.64 2.84-7.27 7.89-7.27 13.17v363.87c0 11.55 12.63 18.85 23.28 13.49 69.18-34.82 169.23-44.32 218.7-46.92 16.89-.89 30.02-14.43 30.02-30.66V62.75c.01-17.71-15.35-31.74-33.77-30.7zM264.73 87.64C197.5 46.48 88.58 35.17 33.78 32.05 15.36 31.01 0 45.04 0 62.75V400.6c0 16.24 13.13 29.78 30.02 30.66 49.49 2.6 149.59 12.11 218.77 46.95 10.62 5.35 23.21-1.94 23.21-13.46V100.63c0-5.29-2.62-10.14-7.27-12.99z"/></svg> Cara Mempelajari Modul
-- Mempelajari tinjauan mata kuliah
-- Membaca sepintas, kemudian mengulangi dengan lebih cermat
-- Membuat catatan / rangkuman 
-- Memberi tanda pada konsep penting 
-- Menyaksikan bahan ajar non cetak
-- Mengerjakan latihan dan  tes formatif
-- Memanfaatkan kegiatan tutorial dengan menanyakan materi yang belum dipahami
-- Aktif berdiskusi pada saat kegiatan tutorial
-
----
-
-# Rancangan Aktivitas Tutorial:
-
-- [Sesi 1: Ekonometrika: Pendahuluan](https://bangtedy.github.io/ekonometrika/sesi1#1)
-- [Sesi 2: Regresi Linier](https://bangtedy.github.io/ekonometrika/sesi2#1)
-- [Sesi 3: Evaluasi Regresi dan Uji Asumsi OLS](https://bangtedy.github.io/ekonometrika/sesi3#1)
-- [Sesi 4: Regresi Linier dengan Respons Kualitatif](https://bangtedy.github.io/ekonometrika/sesi4#1)
-- [Sesi 5: Model Dinamis](https://bangtedy.github.io/ekonometrika/sesi5#1)
-- [Sesi 6: Persamaan Simultan](https://bangtedy.github.io/ekonometrika/sesi6#1)
-- [Sesi 7: Ekonometrika Time Series](https://bangtedy.github.io/ekonometrika/sesi7#1)
-- [Sesi 8: Regresi Data Panel](https://bangtedy.github.io/ekonometrika/sesi8#1)
-
----
-
-### Rujukan Utama
-- Widarjono, Agus. 2018. Buku Materi Pokok (BMP) ESPA4312 Ekonometrika, Edisi 2. Penerbit Universitas Terbuka, Tangerang Selatan.
-
-### Rujukan Tambahan:
-- Studenmund, A.H. 2016. Using Econometrics : A Practical Guide. Seventh edition. Pearson
-- Wooldridge, Jeffrey M. 2020. Introductory Econometrics: A Modern Approach, Seventh Edition. Cengage.
-
----
-
-class: inverse, right, middle
+class: inverse, right, bottom
 
 &lt;img class= "circle" src="https://github.com/bangtedy.png" width="150px"/&gt;
 
-# Find me at...
+# Kso'on, find me at...
 
 [<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg> @t_hlb](http://twitter.com/t_hlb)  
 [<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M172.2 226.8c-14.6-2.9-28.2 8.9-28.2 23.8V301c0 10.2 7.1 18.4 16.7 22 18.2 6.8 31.3 24.4 31.3 45 0 26.5-21.5 48-48 48s-48-21.5-48-48V120c0-13.3-10.7-24-24-24H24c-13.3 0-24 10.7-24 24v248c0 89.5 82.1 160.2 175 140.7 54.4-11.4 98.3-55.4 109.7-109.7 17.4-82.9-37-157.2-112.5-172.2zM209 0c-9.2-.5-17 6.8-17 16v31.6c0 8.5 6.6 15.5 15 15.9 129.4 7 233.4 112 240.9 241.5.5 8.4 7.5 15 15.9 15h32.1c9.2 0 16.5-7.8 16-17C503.4 139.8 372.2 8.6 209 0zm.3 96c-9.3-.7-17.3 6.7-17.3 16.1v32.1c0 8.4 6.5 15.3 14.8 15.9 76.8 6.3 138 68.2 144.9 145.2.8 8.3 7.6 14.7 15.9 14.7h32.2c9.3 0 16.8-8 16.1-17.3-8.4-110.1-96.5-198.2-206.6-206.7z"/></svg> bangtedy.github.io](https://bangtedy.github.io)
-
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

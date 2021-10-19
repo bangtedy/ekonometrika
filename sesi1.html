@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Ekonometrika</title>
+    <title>Regresi Linier</title>
     <meta charset="utf-8" />
     <meta name="author" content="Tedy Herlambang" />
-    <meta name="date" content="2021-10-17" />
+    <meta name="date" content="2021-10-19" />
     <script src="libs/header-attrs/header-attrs.js"></script>
-    <link href="libs/remark-css/uwm-fonts.css" rel="stylesheet" />
+    <link href="libs/remark-css/ki-fonts.css" rel="stylesheet" />
     <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
     <script src="libs/tile-view/tile-view.js"></script>
     <script src="libs/fabric/fabric.min.js"></script>
     <link href="libs/xaringanExtra-scribble/scribble.css" rel="stylesheet" />
     <script src="libs/xaringanExtra-scribble/scribble.js"></script>
     <script>document.addEventListener('DOMContentLoaded', function() { window.xeScribble = new Scribble({"pen_color":["#FF0000"],"pen_size":3,"eraser_size":30,"palette":[]}) })</script>
-    <link rel="stylesheet" href="uwm_nolog.css" type="text/css" />
+    <link rel="stylesheet" href="ki_nolog.css" type="text/css" />
     <link rel="stylesheet" href="extra_css.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# Ekonometrika
+# Regresi Linier
 ## SESI 1
 ### Tedy Herlambang
-### 2021-10-17
+### 2021-10-19
 
 ---
 
@@ -105,7 +105,7 @@ class: middle, center
 variously attributed to Benjamin Disraeli, Mark Twain etc.
 
 ---
-# Kasus 1: simulasi data yang terdistribusi normal, t, chi atau F
+# Kasus 1: simulasi data yang terdistribusi normal, t, Chi-square, F
 - Dengan bantuan program komputer ini sangat mudah dilakukan
     + (juga untuk membuat data riset abal-abal)
 - Di dalam praktek data riset yang kita peroleh seringkali tidak "mulus" seperti di dalam teori.
@@ -164,10 +164,9 @@ curve(dnorm(x), from=-4, to=4)
 
 &lt;img src="sesi1_files/figure-html/unnamed-chunk-5-1.png" width="100%" /&gt;
 ---
-# Kasus 2: [CPS1985: Determinants of Wages Data](https://rdrr.io/cran/AER/man/CPS1985.html)
-
+# Kasus 2: [CPS1985](https://rdrr.io/cran/AER/man/CPS1985.html)
 Deskripsi data:
--  Data kerat lintang (*cross-section*) yang berasal dari survei populasi Mei 1985 oleh badan statistik AS.
+- Data *cross-section* dari survei populasi Mei 1985 oleh badan statistik AS.
 - Data frame terdiri dari 534 pengamatan pada 11 variabel:
     + wage (in dollars per hour).
     + education (Number of years of education).
@@ -175,12 +174,18 @@ Deskripsi data:
     + age (Age in years).
     + ethnicity (Factor with levels "cauc", "hispanic", "other").
     + region (Factor. Does the individual live in the South?)
+
+---
+#### Lanjutan ...
+- Data frame terdiri dari 534 pengamatan pada 11 variabel
     + gender (Factor indicating gender.
-    + occupation (Factor with levels "worker" (tradesperson or assembly line worker), "technical" (technical or professional worker), "services" (service worker), "office" (office and clerical worker), "sales" (sales worker), "management" (management and administration).
-    + sector (Factor with levels "manufacturing" (manufacturing or mining), "construction", "other").
+    + occupation (Factor with levels "worker" (assembly line worker), "technical" (technical worker), "services" (service worker), "office" (office and clerical worker), "sales" (sales worker), "management" (management and administration).
+    + sector (Factor with levels "manufacturing" (manufacturing), "construction", "other").
     + union (Factor. Does the individual work on a union job?)
     + married (Factor. Is the individual married?)
+    
 ---
+
 ## Data bisa dipanggil dari AER package:
 
 ```r
@@ -234,14 +239,6 @@ mean(wage)
 
 ```
 ## [1] 9.024064
-```
-
-```r
-median(wage)
-```
-
-```
-## [1] 7.78
 ```
 
 ```r
@@ -310,20 +307,11 @@ pie(pekerjaan)
 &lt;img src="sesi1_files/figure-html/unnamed-chunk-11-1.png" width="100%" /&gt;
 ---
 
-```r
-xtabs(~ gender + occupation, data = CPS1985)
-```
-
 ```
 ##         occupation
 ## gender   worker technical services office sales management
 ##   male      126        53       34     21    21         34
 ##   female     30        52       49     76    17         21
-```
-
-```r
-par(mfrow=c(1,1))
-plot(gender ~ occupation, data = CPS1985)
 ```
 
 &lt;img src="sesi1_files/figure-html/unnamed-chunk-12-1.png" width="100%" /&gt;

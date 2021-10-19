@@ -5,7 +5,7 @@ author: "Tedy Herlambang"
 date: '`r Sys.Date()`'
 output:
   xaringan::moon_reader:
-    css: ["uwm_nolog.css", "uwm-fonts", "extra_css.css"]
+    css: ["ki_nolog.css", "ki-fonts", "extra_css.css"]
     lib_dir: libs
     nature:
       slideNumberFormat: "%current%"
@@ -124,13 +124,21 @@ Mata kuliah ini akan menyajikan materi yang terbagi dalam sembilan modul yaitu:
 # Rancangan Aktivitas Tutorial:
 
 - [Sesi 1: Ekonometrika: Pendahuluan](https://bangtedy.github.io/ekonometrika/sesi1#1)
+- [Sesi 2: Regresi Linier](https://bangtedy.github.io/ekonometrika/sesi2#1)
+- [Sesi 3: Evaluasi Regresi dan Uji Asumsi OLS](https://bangtedy.github.io/ekonometrika/sesi3#1)
+- [Sesi 4: Regresi Linier dengan Respons Kualitatif](https://bangtedy.github.io/ekonometrika/sesi4#1)
+- [Sesi 5: Model Dinamis](https://bangtedy.github.io/ekonometrika/sesi5#1)
+- [Sesi 6: Persamaan Simultan](https://bangtedy.github.io/ekonometrika/sesi6#1)
+- [Sesi 7: Ekonometrika Time Series](https://bangtedy.github.io/ekonometrika/sesi7#1)
+- [Sesi 8: Regresi Data Panel](https://bangtedy.github.io/ekonometrika/sesi8#1)
 
 ---
 
 ### Rujukan Utama
 - Widarjono, Agus. 2018. Buku Materi Pokok (BMP) ESPA4312 Ekonometrika, Edisi 2. Penerbit Universitas Terbuka, Tangerang Selatan.
+
 ### Rujukan Tambahan:
-- Studenmund, A.H. 2016. Using econometrics : a practical guide. Seven edition. Pearson
+- Studenmund, A.H. 2016. Using Econometrics : A Practical Guide. Seventh edition. Pearson
 - Wooldridge, Jeffrey M. 2020. Introductory Econometrics: A Modern Approach, Seventh Edition. Cengage.
 
 ---
