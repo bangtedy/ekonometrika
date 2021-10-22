@@ -104,7 +104,7 @@ knitr::include_graphics("img/econ_stat1.png")
 7. Prediksi dan Kebijakan
 ---
 # Program Komputer
-- Stata, Eviews, Limdep, SPSS, JMP, Minitab --> berbayar, support resmi dari pabrikan
+- Eviews, GAUSS, Limdep, Matlab, Minitab, SPSS, Stata,  --> berbayar, support resmi dari pabrikan
 - R (open source) --> gratis, tutorial banyak tersedia di internet
 - Mempermudah penghitungan
 

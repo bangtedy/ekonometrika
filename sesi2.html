@@ -4,7 +4,7 @@
     <title>Regresi Linier</title>
     <meta charset="utf-8" />
     <meta name="author" content="Tedy Herlambang" />
-    <meta name="date" content="2021-10-19" />
+    <meta name="date" content="2021-10-22" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/ki-fonts.css" rel="stylesheet" />
     <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
@@ -23,7 +23,7 @@ class: center, middle, inverse, title-slide
 # Regresi Linier
 ## SESI 2
 ### Tedy Herlambang
-### 2021-10-19
+### 2021-10-22
 
 ---
 
@@ -45,10 +45,6 @@ layout: true
 
 ---
 
-# Halaman ini sengaja dikosongkan
-
----
-
 # Capaian Pembelajaran
 1. Menjelaskan ide dasar regresi
 2. Menjelaskan asumsi-asumsi OLS
@@ -59,39 +55,272 @@ layout: true
 
 ---
 
+## Pembelajaran Sesi sebelumnya
+
+### Orang ekonomi seringkali tertarik dalam hubungan antara kuantitas berbeda, contoh:
+- Hubungan antara tingkat pendapatan rumah tangga dengan konsumsinya
+- Hubungan antara gaji seseorang dengan pendapatannya
+- Hubungan antara tingkat bunga jangka panjang dengan jangka pendek
+
+### Ekonometrika mengkuantifikasi hubungan ini dengan menggunakan:
+- Data yang tersedia
+- Menggunakan teknik statistika
+- Menginterpretasikan atau mengeksploitasi hasil secara tepat.
+
+### Ekonometrika: interaksi antara teori ekonomi, data dan metode statistika
+- Ini yang menjadi tantangan, kesulitan sekaligus menariknya ekonometrika!
+
+---
+class: center, middle
+
+&gt; ‘Econometrics is much easier without data’
+
+&gt; Belajar ekonometrika seperti belajar naik sepeda: praktik sangat penting
+
+&gt; Praktik sangat krusial dalam proses memahami berbagai metode, bagaimana dan kapan menggunakan metode-metode itu, yang benar/salah.
+
+---
+
 # Regresi Linier Sederhana
 
----
+- Kombinasi model regresi linier dengan Ordinary Least Squares (OLS) menjadi batu loncatan di dalam ekonometrika
 
-# Metode OLS
-
----
-
-# Asumsi-Asumsi OLS
+- Regresi menjadi alat yang paling penting yang dipakai ekonomi untuk memahami hubungan antara dua atau lebih variabel.
+    + Misalkan variabel-variabel tingkat pengangguran dan suku bunga, pasokan uang, inflasi, nilai tukar, neraca perdagangan, dimana hubungan antara variabel-variabel in kompleks. 
 
 ---
+## Contoh: Seorang mahasiswa mencoba membuat model harga rumah
 
-# Estimator yang BLUE
+- Hal-hal apa saja yang mempengaruhi harga rumah:
+    + luas rumah,
+    + jumlah kamar,
+    + luas tanah,
+    + lokasi rumah (dekat dengan sekolah, tempat ibadah, jalan tol, dll),
+    + jumlah kamar mandi (mungkin)
+    + dll
+    
+---
+## Notasi Teoritis
+
+`$$Y=f(X_1,X_2,X_i,..., \epsilon),$$`
+- Y: variabel dependen,
+- `\(X_1, X_2, . . ., X_i\)`: variabel variabel independen,
+- `\(\epsilon\)`: residu dari model (sebagian dari variabilitas dari variabel dependen yang tidak dijelaskan oleh model).
+
+### Jika diasumsikan hubungan antar variabel itu linier maka:
+
+`$$Y=\beta_0 + \beta_1X_1 + \beta_2X_2+ ... \beta_iX_i + \epsilon,$$`
+- `\(\beta_0, \beta_1, \beta_2\)`: koefisien model/parameter struktural yang mengkuantifikasi arah dan kekuatan hubungan statistik antara variabel independen dan dependen.
+- `\(\epsilon\)`: residu dari model 
+---
+## Catatan
+- Jika di dalam aktualitas kita bisa mengetahui nilai-nilai `\(\beta_0, \beta_1, \beta_2\)`, maka kita akan tahu hubungan antara Y dengan `\(X_i\)`.
+
+- Di dalam praktik, informasi ini tidak kita miliki
+
+- Jika di dalam model regresi hubungan antara Y dengan X memang linier, di dunia sebenarnya, kita tidak akan pernah menemukan bahwa data terletak persis pada garis lurus.
+- Model regresi selalu hanya merupakan aproksimasi/pendekatan dari hubungan yang sebenarnya (hubungan yang sebenarnya mungkin saja berbeda dari pendekatan implisit model regresi linier).
+
+- Faktor kesalahan pengukuran membuat data tersebar dekat tetapi tidak persis berada di garis regresi.
+
+---
+## Model pasti mengandung kesalahan
+
+- missing variables (karena kita tidak bisa mengamatinya)
+- kesulitan mengukur, mengumpulkan atau bahkan data tidak mungkin dikumpulkan
+- penghilangn variabel ini dari model regresi membuat model mengandung kesalahan `\(\epsilon\)`.
 
 ---
 
-# Model Regresi Linier Berganda
+# Prosedur Membangun Model Regresi&lt;sup&gt;*&lt;/sup&gt;:
+1. Menentukan variabel dependen yang perilakunya ingin dijelaskan di dalam model.
+2. Menentukan kandidat variabel independen yang relevan (variabel independen yang diperkirakan memiliki hubungan statistik dan teoritis dengan variabel dependen). 
+3. Analisis pendahuluan dan plotting data (cek pencilan, data yang hilang, salah input dll) 
+4. Membuang calon-calon variabel dependen yang *redundant* atau tidak signifikan dengan cara:
+    + Metode statistik (e.g., the procedure of “general to speciﬁc modeling”).
+    + Teori ekonomi, pendapat ahli atau penilain subyektif
+5. Estimasi final parameter model
+6. Verifikasi kebenaran dan kecocokan model dengan data aktual
+7. Penerapan model yang diperoleh
 
 ---
 
-# Estimasi OLS Linier Berganda
+# Elemen-elemen Dasar Model Regresi Linier
+### Koefisien Model:
+- Intersep/konstanta: nilai yang diharapkan dari variabel dependen jika nilai variabel independen sama dengan nol. Perpotongan garis regresi dengan sumbu axis.
+- Koefisien kemiringan/slope: kuantifikasi arah dan ukuran dampak variabel independen tertentu terhadap variabel dependen.
+
+### Standard errors of individual structural parameters
 
 ---
 
-# Koefisien Determinasi dan Koefisien Determinasi yang Disesuaikan
+## Bagaimana menentukan signifikansi statistik dari masing-masing koefisien model regresi
+### Cek t-statistics of individual coefﬁcients
+- Dihitung dengan membagi koefisien dengan standar errornya. 
 
 ---
+## Koefisien Determinasi `\(R^2\)`
 
-# Beberapa Model Fungsi Regresi
+- Mengukur goodness of ﬁt dari model dibandingkan dengan data aktual.
+- R-squared equaling zero artinya:
+- R-squared equaling unity artinya:
+- Mungkinkan di dalam riset ekonomi mendapatkan `\(R^2\)` sama dengan 0 atau 1?
+
+### Koefisien Determinasi yang Disesuaikan (the adjusted R-squared)
+---
+# Evaluasi Regresi dan Model (Sesi 3)
+- Normality of errors.
+- Homoscedasticity of Errors.
+- Absence of Outlying
 
 ---
+## [Kasus 1: Model Pengeluaran Pangan](https://rdrr.io/github/ccolonescu/PoEdata/man/food.html)
+
+### Deskripsi Kasus
+
+Data frame terdiri dari 40 pengamatan pada dua variabel yaitu: 
+- food_exp: weekly food expenditure in $
+- income: weekly income in $100
+- Data ini bisa dipanggil dari **PoEdata** R library.
+- Kita akan melihat pengaruh kenaikan pendapatan terhadap kenaikan pengeluaran pangan per minggu: 
+
+`$$food-exp=\beta_1 + \beta_2income + e$$`
+---
+## Data bisa dipanggil dari PoEdata package:
 
 
+```r
+library(PoEdata)
+data(food)
+head(food)
+```
+
+```
+##   food_exp income
+## 1   115.22   3.69
+## 2   135.98   4.39
+## 3   119.34   4.75
+## 4   114.96   6.03
+## 5   187.05  12.47
+## 6   243.92  12.98
+```
+
+```r
+dim(food)
+```
+
+```
+## [1] 40  2
+```
+---
+
+## Selanjutnya kita buat scatterplot
+
+
+```r
+library(car)
+scatterplot(food$income,food$food_exp)
+```
+
+&lt;img src="sesi2_files/figure-html/unnamed-chunk-2-1.png" width="100%" /&gt;
+---
+Estimasi model
+
+```
+## 
+## Call:
+## lm(formula = food_exp ~ income, data = food)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -223.025  -50.816   -6.324   67.879  212.044 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)   83.416     43.410   1.922   0.0622 .  
+## income        10.210      2.093   4.877 1.95e-05 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 89.52 on 38 degrees of freedom
+## Multiple R-squared:  0.385,	Adjusted R-squared:  0.3688 
+## F-statistic: 23.79 on 1 and 38 DF,  p-value: 1.946e-05
+```
+---
+
+## Jadi model yang diperoleh:
+
+## `$$food-exp = 83.416 +  10.210 income$$`
+---
+## Latihan: Perhatikan halaman 2.23 Tabel 2.1.1
+Anda diminta menghitung regresi sederhanan besarnya pengaruh pengeluaran iklan terhadap volume penjualan. Datanya adalah sebagai berikut:
+
+
+
+
+```
+## # A tibble: 8 x 3
+##   perusahaan penjualan iklan
+##        &lt;int&gt;     &lt;int&gt; &lt;int&gt;
+## 1          1       100  1000
+## 2          2        20   250
+## 3          3        60   500
+## 4          4        15   100
+## 5          5        80   750
+## 6          6        85   800
+## 7          7        50   450
+## 8          8        40   300
+```
+---
+## Plot dan Estimasi Model Iklan
+
+&lt;img src="sesi2_files/figure-html/unnamed-chunk-6-1.png" width="100%" /&gt;
+---
+
+```r
+summary(model.iklan)
+```
+
+```
+## 
+## Call:
+## lm(formula = penjualan ~ iklan, data = iklan)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -9.7414 -0.8892  0.7358  2.0880  5.5994 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 5.082276   3.881881   1.309    0.238    
+## iklan       0.098637   0.006541  15.079 5.36e-06 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 5.333 on 6 degrees of freedom
+## Multiple R-squared:  0.9743,	Adjusted R-squared:   0.97 
+## F-statistic: 227.4 on 1 and 6 DF,  p-value: 5.362e-06
+```
+---
+### Kasus: Gaji Karyawan di Indonesia
+Misalkan Anda ingin membuat model tentang faktor-faktor yang mempengaruhi gaji karyawan di Indonesia.
+
+1. Variabel-variabel independen apa yang akan Anda masukkan ke dalam model?
+2. Bagaimana perkiraan Anda tentang arah hubungan dan kekuatan pengaruh dari variabel-variabel pada no.1?
+3. Bagaimana Anda akan mengumpulkan data variabel pada pertanyaan no.1?
+
+---
+### Wooldridge, Contoh 2.3: Gaji CEO dan Return on Equity (ROE)
+
+Pada kasus ini, penulis membuat model pengaruh ROE terhadap gaji yang diterima CEO. Model yang diduga adalah `\(gaji = \beta_0 + \beta_1 roe + e\)`. Persamaan regresi linier dengan OLS yang didapatkan adalah `\(\widehat{gaji}= 963.1913 + 18.50119 roe\)`.
+
+- Asumsikan bahwa persamaan diatas sudah tepat dan signifikan. Jelaskan makna dari koefisien-koefisien yang didapat!
+- Jika ROE sebuah perusahaan adalah sebesar 10 satuan, berapa gaji yang akan didapat oleh CEO-nya?
+
+---
+### Halaman ini memang sengaja dibiarkan kosong.
+
+---
 class: inverse, right, bottom
 
 &lt;img class= "circle" src="https://github.com/bangtedy.png" width="150px"/&gt;
