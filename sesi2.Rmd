@@ -17,6 +17,8 @@ output:
 ---
 
 ```{r setup, include=FALSE}
+library(ggplot2)
+library(car)
 options(htmltools.dir.version = FALSE)
 knitr::opts_chunk$set(
   fig.width=9, fig.height=3.5, fig.retina=3,
@@ -198,22 +200,19 @@ Data frame terdiri dari 40 pengamatan pada dua variabel yaitu:
 
 $$food-exp=\beta_1 + \beta_2income + e$$
 ---
-## Data bisa dipanggil dari PoEdata package:
 
-```{r eval=requireNamespace("PoEdata", quietly=TRUE)}
+### Data bisa dipanggil dari PoEdata package, dan kita plot
+
+
+```{r plot-food, comment='#', fig.show='hide'}
 library(PoEdata)
 data(food)
-head(food)
-dim(food)
-```
----
+ggplot(food, aes(income, food_exp)) + geom_point()
 
-## Selanjutnya kita buat scatterplot
-
-```{r eval=requireNamespace("car", quietly=TRUE)}
-library(car)
-scatterplot(food$income,food$food_exp)
 ```
+
+![](`r knitr::fig_chunk("plot-food", "png")`)
+
 ---
 Estimasi model
 ```{r, echo=FALSE}
@@ -223,7 +222,7 @@ Estimasi model
 
 ## Jadi model yang diperoleh:
 
-## $$food-exp = 83.416 +  10.210 income$$
+$$food-exp = 83.416 +  10.210 income$$
 ---
 ## Latihan: Perhatikan halaman 2.23 Tabel 2.1.1
 Anda diminta menghitung regresi sederhana besarnya pengaruh pengeluaran iklan terhadap volume penjualan. Datanya adalah sebagai berikut:
@@ -246,25 +245,41 @@ iklan %>%
 
 ```
 ---
-## Plot dan Estimasi Model Iklan
+## Plot Data Penjualan dan Pengeluaran Iklan
+.pull-left[
 
-```{r, echo=FALSE}
-par(mfrow=c(1,2))
+```{r plot-iklan, fig.show='hide'}
 plot(iklan$iklan, iklan$penjualan,
 ylim=c(0, max(iklan$penjualan)),
 xlim=c(0, max(iklan$iklan)),
 xlab="Pengeluaran iklan dalam juta rupiah",
 ylab="Volume penjualan dalam juta unit",
 type = "p")
+```
+]
 
+.pull-right[
+
+![](`r knitr::fig_chunk("plot-iklan", "png")`)
+]
+
+---
+## Estimasi Model
+.pull-left[
+```{r plot-estimasi, fig.show='hide'}
 model.iklan <- lm(penjualan~iklan, data = iklan)
 plot(iklan$iklan, iklan$penjualan,
 xlab="Pengeluaran iklan dalam juta rupiah",
 ylab="Volume penjualan dalam juta unit",
 type = "p")
-abline(model.iklan) 
-
+abline(model.iklan)
 ```
+]
+
+.pull-right[
+
+![](`r knitr::fig_chunk("plot-estimasi", "png")`)
+]
 ---
 ```{r}
 summary(model.iklan)
@@ -286,7 +301,7 @@ Pada kasus ini, penulis membuat model pengaruh ROE terhadap gaji yang diterima C
 - Jika ROE sebuah perusahaan adalah sebesar 10 satuan, berapa gaji yang akan didapat oleh CEO-nya?
 
 ---
-### Halaman ini memang sengaja dibiarkan kosong.
+#### Halaman ini memang sengaja dibiarkan kosong.
 
 ---
 class: inverse, right, bottom
@@ -297,3 +312,4 @@ class: inverse, right, bottom
 
 [`r fa(name = "twitter")` @t_hlb](http://twitter.com/t_hlb)  
 [`r fa(name = "blog")` bangtedy.github.io](https://bangtedy.github.io)
+
