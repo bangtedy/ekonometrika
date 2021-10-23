@@ -4,7 +4,7 @@
     <title>Regresi Linier</title>
     <meta charset="utf-8" />
     <meta name="author" content="Tedy Herlambang" />
-    <meta name="date" content="2021-10-22" />
+    <meta name="date" content="2021-10-23" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/ki-fonts.css" rel="stylesheet" />
     <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
@@ -13,6 +13,8 @@
     <link href="libs/xaringanExtra-scribble/scribble.css" rel="stylesheet" />
     <script src="libs/xaringanExtra-scribble/scribble.js"></script>
     <script>document.addEventListener('DOMContentLoaded', function() { window.xeScribble = new Scribble({"pen_color":["#FF0000"],"pen_size":3,"eraser_size":30,"palette":[]}) })</script>
+    <script src="libs/kePrint/kePrint.js"></script>
+    <link href="libs/lightable/lightable.css" rel="stylesheet" />
     <link rel="stylesheet" href="ki_nolog.css" type="text/css" />
     <link rel="stylesheet" href="extra_css.css" type="text/css" />
   </head>
@@ -23,7 +25,7 @@ class: center, middle, inverse, title-slide
 # Regresi Linier
 ## SESI 2
 ### Tedy Herlambang
-### 2021-10-22
+### 2021-10-23
 
 ---
 
@@ -253,28 +255,69 @@ Estimasi model
 ## `$$food-exp = 83.416 +  10.210 income$$`
 ---
 ## Latihan: Perhatikan halaman 2.23 Tabel 2.1.1
-Anda diminta menghitung regresi sederhanan besarnya pengaruh pengeluaran iklan terhadap volume penjualan. Datanya adalah sebagai berikut:
+Anda diminta menghitung regresi sederhana besarnya pengaruh pengeluaran iklan terhadap volume penjualan. Datanya adalah sebagai berikut:
 
 
 
 
-```
-## # A tibble: 8 x 3
-##   perusahaan penjualan iklan
-##        &lt;int&gt;     &lt;int&gt; &lt;int&gt;
-## 1          1       100  1000
-## 2          2        20   250
-## 3          3        60   500
-## 4          4        15   100
-## 5          5        80   750
-## 6          6        85   800
-## 7          7        50   450
-## 8          8        40   300
-```
+
+
+&lt;table class=" lightable-classic table table-striped" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto; font-size: 24px; margin-left: auto; margin-right: auto;"&gt;
+&lt;caption style="font-size: initial !important;"&gt;Penjualan dan Pengeluaran Iklan Perusahaan&lt;/caption&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:right;"&gt; perusahaan &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; penjualan &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; iklan &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 100 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 20 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 250 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 60 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 500 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 15 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 100 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 80 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 750 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 6 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 85 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 800 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 7 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 50 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 450 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 8 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 40 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 300 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 ---
 ## Plot dan Estimasi Model Iklan
 
-&lt;img src="sesi2_files/figure-html/unnamed-chunk-6-1.png" width="100%" /&gt;
+&lt;img src="sesi2_files/figure-html/unnamed-chunk-7-1.png" width="100%" /&gt;
 ---
 
 ```r

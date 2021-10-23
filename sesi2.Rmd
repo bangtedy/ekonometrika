@@ -226,15 +226,24 @@ Estimasi model
 ## $$food-exp = 83.416 +  10.210 income$$
 ---
 ## Latihan: Perhatikan halaman 2.23 Tabel 2.1.1
-Anda diminta menghitung regresi sederhanan besarnya pengaruh pengeluaran iklan terhadap volume penjualan. Datanya adalah sebagai berikut:
+Anda diminta menghitung regresi sederhana besarnya pengaruh pengeluaran iklan terhadap volume penjualan. Datanya adalah sebagai berikut:
 
 ```{r, echo=FALSE}
 iklan <- read.csv("~/BLOG SOURCES/ekonometrika/iklan.csv", sep="")
 
 ```
 
-```{r eval=requireNamespace("tibble", quietly=TRUE), echo=FALSE}
-tibble::as_tibble(iklan)
+
+```{r eval=requireNamespace("dplyr", quietly=TRUE), echo=FALSE}
+library('dplyr')
+```
+
+```{r eval=requireNamespace("kableExtra", quietly=TRUE), echo=FALSE}
+library('kableExtra')
+iklan %>%
+  kbl(caption = "Penjualan dan Pengeluaran Iklan Perusahaan") %>%
+  kable_classic(full_width = F, html_font = "Cambria") %>%   kable_styling(bootstrap_options = "striped", font_size = 24)
+
 ```
 ---
 ## Plot dan Estimasi Model Iklan
