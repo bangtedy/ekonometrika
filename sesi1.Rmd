@@ -213,9 +213,8 @@ plot(gender ~ occupation, data = CPS1985)
 ---
 class: inverse, right, bottom
 
-<img class= "circle" src="https://github.com/bangtedy.png" width="150px"/>
 
-# Kso'on, find me at...
+### Kso'on, find me at...
 
 [`r fa(name = "twitter")` @t_hlb](http://twitter.com/t_hlb)  
 [`r fa(name = "blog")` bangtedy.github.io](https://bangtedy.github.io)
