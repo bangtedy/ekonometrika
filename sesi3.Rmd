@@ -49,9 +49,9 @@ class: middle, title-slide
 
 <hr width="100%" align="left" size="0.3" color="yellow"></hr>
 
-## <span style="color:yellow">Sesi 3</span>
+## <span style="color:yellow">Ekonometrika Sesi 3</span>
 
-### Tedy Herlambang .small[<br> + Ekonometrika]
+### Tedy Herlambang .small[<br> ]
 
 <br><br><br><br><br>
 [<i class="fas fa-blog" style="color:#e7e8e2"></i> bangtedy](https://bangtedy.github.io)
@@ -137,23 +137,13 @@ class: middle, center, inverse
 2. 
 
 ---
-
+Halaman ini memang sengaja dibiarkan kosong.
 
 ---
-class: inverse
+class: inverse, right, bottom
 
-.pull-left1[
-<br>
+# Matur nuwun, find me at...
+<hr width="45%" align="right" size="0.3" color="orange"></hr>
 
-# Terima Kasih
-
-<hr width="100%" align="left" size="0.3" color="yellow"></hr>
-<br><br><br><br><br><br><br><br>
-
-
-]
-
-.pull-right1[
-<br>
-![:scale 90%]()
-]
+[<i class="fa fa-twitter fa-lg" style="color:#fc911e"></i> <span style="color:#fc911e"> @t_hlb </span>](https://twitter.com/t_hlb)
+[<i class="fas fa-blog" style="color:#fc911e"></i><span style="color:#fc911e"> bangtedy.github.io</span>](https://bangtedy.github.io)
