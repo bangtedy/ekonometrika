@@ -139,12 +139,9 @@ mean(x)
 median(x)
 var(x)
 sd(x)
-```
----
-```{r eval=TRUE}
 quantile(x)
 ```
-
+---
 ```{r  eval=TRUE}
 par(mfrow=c(1,2))
 hist(x)
@@ -175,18 +172,12 @@ Deskripsi data:
 ---
 
 # Data bisa dipanggil dari AER package:
+
 ```{r eval=requireNamespace("AER", quietly=TRUE)}
 library(AER)
 data(CPS1985)
 attach(CPS1985)
 str(CPS1985)
-```
-
-```{r eval=requireNamespace("AER", quietly=TRUE)}
-head(CPS1985)
-```
----
-```{r eval=requireNamespace("AER", quietly=TRUE)}
 mean(wage)
 var(wage)
 sd(wage)
@@ -204,9 +195,6 @@ lines(density(log(wage)), col = 4)
 summary(occupation)
 pekerjaan <- table(occupation)
 prop.table(pekerjaan)
-```
----
-```{r eval=requireNamespace("AER", quietly=TRUE)}
 par(mfrow=c(1,2))
 barplot(pekerjaan)
 pie(pekerjaan)
@@ -219,7 +207,6 @@ plot(gender ~ occupation, data = CPS1985)
 ```
 ---
 class: inverse, right, bottom
-
 
 # Kso'on, find me at...
 <hr width="45%" align="right" size="0.3" color="orange"></hr>
