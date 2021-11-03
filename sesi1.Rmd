@@ -133,19 +133,19 @@ variously attributed to Benjamin Disraeli, Mark Twain etc.
 - Di dalam praktek data riset yang kita peroleh seringkali tidak "mulus" seperti di dalam teori.
 
 ```{r eval=TRUE}
-set.seed(12345)
-x <- rnorm(50)
-mean(x)
-median(x)
-var(x)
-sd(x)
-quantile(x)
+set.seed(12345) # jika ingin mendapatkan hasil sama gunakan seed yang sama
+x <- rnorm(1000) # membuat angka acak sebanyak 1000 tersebar normal
+mean(x) # menghitung rata-rata
+median(x) # menghitung nilai median
+var(x) # menghitung nilai varians
+sd(x) # menghitung nilai simpangan baku/standard deviasi
+quantile(x) # menghitung quantile
 ```
 ---
 ```{r  eval=TRUE}
-par(mfrow=c(1,2))
-hist(x)
-curve(dnorm(x), from=-4, to=4)
+par(mfrow=c(1,2)) # membagi layar menjadi 1 X 2 bidang
+hist(x, col="#00ff80") # membuat histogram x dengan warna
+curve(dnorm(x), from=-4, to=4) # membuat kurva normal x
 
 ```
 ---
@@ -174,21 +174,21 @@ Deskripsi data:
 # Data bisa dipanggil dari AER package:
 
 ```{r eval=requireNamespace("AER", quietly=TRUE)}
-library(AER)
-data(CPS1985)
-attach(CPS1985)
-str(CPS1985)
-mean(wage)
-var(wage)
-sd(wage)
-summary(wage)
+library(AER) # memanggil library AER
+data(CPS1985) # memanggil data CPS1985
+attach(CPS1985) # melampirkan data CPS1985
+str(CPS1985) # menampilkan struktur data CPS1985
+mean(wage) # menghitung nilai rata-rata upah pada data CPS1985
+var(wage) # menghitung nilai ragam upah pada data CPS1985
+sd(wage) # menghitung simpangan baku upah pada data CPS1985
+summary(wage) # menampilkan kesimpulan data upah
 ```
 ---
 ```{r eval=requireNamespace("AER", quietly=TRUE)}
 par(mfrow=c(1,2))
-hist(wage, freq = FALSE)
-hist(log(wage), freq = FALSE)
-lines(density(log(wage)), col = 4)
+hist(wage, freq = FALSE, col="#b091c3")
+hist(log(wage), freq = FALSE, col="#91c3b0")
+lines(density(log(wage)), col = "#ff0000")
 ```
 ---
 ```{r eval=requireNamespace("AER", quietly=TRUE)}
@@ -196,8 +196,8 @@ summary(occupation)
 pekerjaan <- table(occupation)
 prop.table(pekerjaan)
 par(mfrow=c(1,2))
-barplot(pekerjaan)
-pie(pekerjaan)
+barplot(pekerjaan) # membuat barplot data pekerjaan
+pie(pekerjaan) # membuat pie chart data pekerjaan
 ```
 ---
 ```{r eval=requireNamespace("AER", quietly=TRUE), echo=FALSE}

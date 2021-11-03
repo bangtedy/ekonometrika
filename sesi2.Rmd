@@ -277,7 +277,7 @@ plot(iklan$iklan, iklan$penjualan,
 xlab="Pengeluaran iklan dalam juta rupiah",
 ylab="Volume penjualan dalam juta unit",
 type = "p")
-abline(model.iklan)
+abline(model.iklan, col="blue")
 ```
 ]
 
