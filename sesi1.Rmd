@@ -1,58 +1,65 @@
 ---
-title: "Pendahuluan"
-subtitle: "SESI 1"  
-author: "Tedy Herlambang"
-date: '`r Sys.Date()`'
+title: Tedy Herlambang/ekonometrika
 output:
   xaringan::moon_reader:
-    css: ["useR_nolog.css", "uwm-fonts", "extra_css.css"]
+  #  self_contained: TRUE
+    includes:
+      in_header: conf/style-header.html
     lib_dir: libs
+    seal: false
+    css: ["default", "conf/css/style.css", "conf/css/fonts.css"]
     nature:
-      slideNumberFormat: "%current%"
-      highlightStyle: github
-      highlightLines: true
+      beforeInit: ["conf/js/gifffer.min.js", "conf/js/style-macros.js"]
       ratio: 16:9
-      countIncrementalSlides: true
 ---
 
-```{r setup, include=FALSE}
-options(htmltools.dir.version = FALSE)
+```{r setup, echo = F}
 knitr::opts_chunk$set(
-  fig.width=9, fig.height=3.5, fig.retina=3,
-  out.width = "100%",
-  cache = FALSE,
-  echo = TRUE,
-  message = FALSE, 
+  comment = "#",
+  #cache = TRUE,
+  collapse = TRUE,
   warning = FALSE,
-  hiline = TRUE
+  message = FALSE,
+  fig.width = 7,
+  fig.height = 5.25,
+  fig.align = 'center',
+  fig.retina = 3
 )
-```
 
-```{r xaringan-themer, include=FALSE, warning=FALSE}
-library(xaringanthemer)
-style_duo_accent(
-  primary_color = "#1381B0",
-  secondary_color = "#FF961C",
-  inverse_header_color = "#FFFFFF"
+# base plot layout
+mypar = list(mar = c(3,3,0.5,0.5), mgp = c(1.5, 0.3, 0), tck = -.008)
+
+# xaringan Extra
+xaringanExtra::use_xaringan_extra(c("tile_view", "animate_css", "tachyons"))
+xaringanExtra::use_extra_styles(
+  hover_code_line = TRUE,         #<<
+  mute_unhighlighted_code = TRUE  #<<
 )
-```
-
-```{r load_packages, message=FALSE, warning=FALSE, include=FALSE} 
-library(fontawesome)
-```
-
-```{r xaringan-tile-view, echo=FALSE}
-xaringanExtra::use_tile_view()
-```
-
-```{r xaringan-scribble, echo=FALSE}
+xaringanExtra::use_editable(expires = 1)
+xaringanExtra::use_panelset()
 xaringanExtra::use_scribble()
+
 ```
-layout: true
 
-<div class="my-footer"><span>bangtedy.github.io</span></div>
 
-<!-- this adds the link footer to all slides, depends on my-footer class in css-->
+class: middle, title-slide
+
+<!-- top logo (comment to remove or edit on `conf/css/style.css:23`) -->
+<div class="lab-logo"></div>
+<!-- <div class="uni-logo"></div> -->
+
+# Pendahuluan
+
+<hr width="100%" align="left" size="1.3" color="gold"></hr>
+
+## <span style="color:gold">Ekonometrika Sesi 1</span>
+
+### Tedy Herlambang .small[<br> ]
+
+<br><br><br><br><br>
+[<i class="fas fa-blog" style="color:#e7e8e2"></i> bangtedy](https://bangtedy.github.io)
+
+[<i class="fa fa-twitter fa-lg" style="color:#e7e8e2"></i> @t_hlb](https://twitter.com/t_hlb)
 
 ---
 
@@ -70,8 +77,8 @@ Secara khusus Anda diharapkan mampu:
 ---
 # KB1: Teori Ekonomi dan Ekonometrika
 
-### Penyederhanaan perilaku manusia yang sangat kompleks, tetapi
-### Mampu menjelaskan dengan baik perilaku manusia
+> Penyederhanaan perilaku manusia yang sangat kompleks, tetapi
+mampu menjelaskan dengan baik perilaku manusia
 
 ---
 
@@ -110,13 +117,13 @@ knitr::include_graphics("img/econ_stat1.png")
 
 ---
 # Pertanyaan:
-### Mengapa hubungan antara variable di dalam model ekonometrika bersifat adalah hubungan bersifat statistik bukan matematis?
+.font150[Mengapa hubungan antara variable di dalam model ekonometrika bersifat statistik bukan matematis?]
 
 ---
 
 # KB 2: Dasar-Dasar Statistika
 
-> There are three kinds of lies: lies, damned lies and statistics — 
+.font150[There are three kinds of lies: lies, damned lies and statistics] — 
 variously attributed to Benjamin Disraeli, Mark Twain etc.
 
 ---
@@ -167,14 +174,14 @@ Deskripsi data:
     
 ---
 
-## Data bisa dipanggil dari AER package:
+# Data bisa dipanggil dari AER package:
 ```{r eval=requireNamespace("AER", quietly=TRUE)}
 library(AER)
 data(CPS1985)
 attach(CPS1985)
 str(CPS1985)
 ```
----
+
 ```{r eval=requireNamespace("AER", quietly=TRUE)}
 head(CPS1985)
 ```
@@ -214,7 +221,8 @@ plot(gender ~ occupation, data = CPS1985)
 class: inverse, right, bottom
 
 
-### Kso'on, find me at...
+# Kso'on, find me at...
+<hr width="45%" align="right" size="0.3" color="orange"></hr>
 
-[`r fa(name = "twitter")` @t_hlb](http://twitter.com/t_hlb)  
-[`r fa(name = "blog")` bangtedy.github.io](https://bangtedy.github.io)
+[<i class="fa fa-twitter fa-lg" style="color:#99052f"></i> <span style="color:#fc911e"> @t_hlb </span>](https://twitter.com/t_hlb)
+[<i class="fas fa-blog" style="color:#fc911e"></i><span style="color:#99052f"> bangtedy.github.io</span>](https://bangtedy.github.io)
