@@ -1,58 +1,62 @@
 ---
-title: "Ekonometrika"
-subtitle: "Tinjauan Mata Kuliah"  
-author: "Tedy Herlambang"
-date: '`r Sys.Date()`'
+title: Tedy Herlambang/ekonometrika
 output:
   xaringan::moon_reader:
-    css: ["useR_nolog.css", "uwm-fonts", "extra_css.css"]
+  #  self_contained: TRUE
+    includes:
+      in_header: conf/style-header.html
     lib_dir: libs
+    seal: false
+    css: ["default", "conf/css/style.css", "conf/css/fonts.css"]
     nature:
-      slideNumberFormat: "%current%"
-      highlightStyle: github
-      highlightLines: true
+      beforeInit: ["conf/js/gifffer.min.js", "conf/js/style-macros.js"]
       ratio: 16:9
-      countIncrementalSlides: true
 ---
 
-```{r setup, include=FALSE}
-options(htmltools.dir.version = FALSE)
+```{r setup, echo = F}
 knitr::opts_chunk$set(
-  fig.width=9, fig.height=3.5, fig.retina=3,
-  out.width = "100%",
-  cache = FALSE,
-  echo = TRUE,
-  message = FALSE, 
+  comment = "#",
+  #cache = TRUE,
+  collapse = TRUE,
   warning = FALSE,
-  hiline = TRUE
+  message = FALSE,
+  fig.width = 7,
+  fig.height = 5.25,
+  fig.align = 'center',
+  fig.retina = 3
 )
-```
 
-```{r xaringan-themer, include=FALSE, warning=FALSE}
-library(xaringanthemer)
-style_duo_accent(
-  primary_color = "#1381B0",
-  secondary_color = "#FF961C",
-  inverse_header_color = "#FFFFFF"
+# base plot layout
+mypar = list(mar = c(3,3,0.5,0.5), mgp = c(1.5, 0.3, 0), tck = -.008)
+
+# xaringan Extra
+xaringanExtra::use_xaringan_extra(c("tile_view", "animate_css", "tachyons"))
+xaringanExtra::use_extra_styles(
+  hover_code_line = TRUE,         #<<
+  mute_unhighlighted_code = TRUE  #<<
 )
-```
-
-```{r load_packages, message=FALSE, warning=FALSE, include=FALSE} 
-library(fontawesome)
-```
-
-```{r xaringan-tile-view, echo=FALSE}
-xaringanExtra::use_tile_view()
-```
-
-```{r xaringan-scribble, echo=FALSE}
+xaringanExtra::use_editable(expires = 1)
+xaringanExtra::use_panelset()
 xaringanExtra::use_scribble()
 ```
-layout: true
+class: middle, title-slide
 
-<div class="my-footer"><span>bangtedy.github.io</span></div>
+<!-- top logo (comment to remove or edit on `conf/css/style.css:23`) -->
+<div class="lab-logo"></div>
+<!-- <div class="uni-logo"></div> -->
 
-<!-- this adds the link footer to all slides, depends on my-footer class in css-->
+# Tinjauan Mata Kuliah
+
+<hr width="100%" align="left" size="0.3" color="gold"></hr>
+
+## <span style="color:yellow">Ekonometrika</span>
+
+### Tedy Herlambang .small[<br> ]
+
+<br><br><br><br><br>
+[<i class="fas fa-blog" style="color:#e7e8e2"></i> bangtedy.github.io](https://bangtedy.github.io)
+
+[<i class="fa fa-twitter fa-lg" style="color:#e7e8e2"></i> @t_hlb](https://twitter.com/t_hlb)
 
 ---
 
@@ -66,11 +70,11 @@ layout: true
 
 ---
 
-# `r fa("book-open", fill = "blue")` Cara Belajar Ekonometrika
+# <i class="fas fa-book-open" style="color:#1109ed"></i> Cara Belajar Ekonometrika
 
 - Mahasiswa yang mengambil ekonometrika diasumsikan sudah mengambil mata kuliah Teori Mikroekonomi dan Makroekonomi, Matematika dan Statistika Dasar.
 
-### Belajar ekonometrika seperti belajar naik sepeda. Kita akan belajar lebih banyak jika mempraktikkannya dibandingkan dengan membaca buku saja.
+> Belajar ekonometrika seperti belajar naik sepeda. Kita akan belajar lebih banyak jika mempraktikkannya dibandingkan dengan membaca buku saja.
 
 ---
 # Cakupan Materi
@@ -88,7 +92,7 @@ Mata kuliah ini akan menyajikan materi yang terbagi dalam sembilan modul yaitu:
 
 ---
 
-# Strategi Tutorial
+# <i class="fas fa-chess-board"></i> Strategi Tutorial
 - Mahasiswa belajar aktif, 
 - Mahasiswa belajar mandiri, 
 - Mahasiswa belajar kooperatif dan kolaboratif, 
@@ -101,7 +105,7 @@ Mata kuliah ini akan menyajikan materi yang terbagi dalam sembilan modul yaitu:
 ---
 
 
-# `r fa("book-open", fill = "yellow")` Belajar Mandiri
+# <i class="fas fa-book-open" style="color:#edd209"></i> Belajar Mandiri
 - Belajar mandiri dalam banyak hal ditentukan oleh kemampuan belajar secara efisien dan efektif. 
 - Kemampuan belajar bergantung pada kecepatan membaca dan kemampuan memahami isi bacaan. 
 - Untuk dapat belajar mandiri secara efisien dan efektif, mahasiswa dituntut memiliki disiplin diri, inisiatif, dan motivasi belajar yang kuat.
@@ -109,7 +113,7 @@ Mata kuliah ini akan menyajikan materi yang terbagi dalam sembilan modul yaitu:
 
 ---
 
-# `r fa("book-open", fill = "yellow")` Cara Mempelajari Modul
+# <i class="fas fa-book-open" style="color:#edd209"></i> Cara Mempelajari Modul
 - Mempelajari tinjauan mata kuliah
 - Membaca sepintas, kemudian mengulangi dengan lebih cermat
 - Membuat catatan / rangkuman 
@@ -125,28 +129,20 @@ Mata kuliah ini akan menyajikan materi yang terbagi dalam sembilan modul yaitu:
 
 - [Sesi 1: Ekonometrika: Pendahuluan](https://bangtedy.github.io/ekonometrika/sesi1#1)
 - [Sesi 2: Regresi Linier](https://bangtedy.github.io/ekonometrika/sesi2#1)
-- [Sesi 3: Evaluasi Regresi dan Uji Asumsi OLS](https://bangtedy.github.io/ekonometrika/sesi3#1)
-- [Sesi 4: Regresi Linier dengan Respons Kualitatif](https://bangtedy.github.io/ekonometrika/sesi4#1)
-- [Sesi 5: Model Dinamis](https://bangtedy.github.io/ekonometrika/sesi5#1)
-- [Sesi 6: Persamaan Simultan](https://bangtedy.github.io/ekonometrika/sesi6#1)
-- [Sesi 7: Ekonometrika Time Series](https://bangtedy.github.io/ekonometrika/sesi7#1)
-- [Sesi 8: Regresi Data Panel](https://bangtedy.github.io/ekonometrika/sesi8#1)
+- [Sesi 3: Evaluasi Regresi](https://bangtedy.github.io/ekonometrika/sesi3#1)
+- [Sesi 4: Uji Asumsi Ordinary Least Squares](https://bangtedy.github.io/ekonometrika/sesi4#1)
+- [Sesi 5: Regresi dengan Respons Kualitatif](https://bangtedy.github.io/ekonometrika/sesi5#1)
+- [Sesi 6: Model Dinamis](https://bangtedy.github.io/ekonometrika/sesi6#1)
+- [Sesi 7: Persamaan Simultan](https://bangtedy.github.io/ekonometrika/sesi7#1)
+- [Sesi 8: Ekonometrika Time Series dan Regresi Data Panel](https://bangtedy.github.io/ekonometrika/sesi8#1)
 
 ---
 
-### Rujukan Utama
+### Rujukan Utama:
 - Widarjono, Agus. 2018. Buku Materi Pokok (BMP) ESPA4312 Ekonometrika, Edisi 2. Penerbit Universitas Terbuka, Tangerang Selatan.
 
 ### Rujukan Tambahan:
 - Studenmund, A.H. 2016. Using Econometrics : A Practical Guide. Seventh edition. Pearson
 - Wooldridge, Jeffrey M. 2020. Introductory Econometrics: A Modern Approach, Seventh Edition. Cengage.
 
----
-
-class: inverse, right, middle
-
-# Matur nuwun, find me at...
-
-[`r fa(name = "twitter")` @t_hlb](http://twitter.com/t_hlb)  
-[`r fa(name = "blog")` bangtedy.github.io](https://bangtedy.github.io)
 
