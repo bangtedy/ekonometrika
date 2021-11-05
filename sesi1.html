@@ -10,7 +10,7 @@
     <link href="libs/animate.css-3.7.2/animate.xaringan.css" rel="stylesheet" />
     <link href="libs/tachyons-4.12.0/tachyons.min.css" rel="stylesheet" />
     <link href="libs/xaringanExtra-extra-styles-0.2.6/xaringanExtra-extra-styles.css" rel="stylesheet" />
-    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"x1e8d8c45b7840f8a9a636bddb4d1613","expires":1}</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"c7f1c541a4a34305a820133edad3a0f6","expires":1}</script>
     <script src="libs/himalaya-1.1.0/himalaya.js"></script>
     <script src="libs/js-cookie-3.0.0/js.cookie.js"></script>
     <link href="libs/editable-0.2.6/editable.css" rel="stylesheet" />
@@ -221,18 +221,21 @@ prop.table(pekerjaan)
 #     worker  technical   services     office      sales management 
 # 0.29213483 0.19662921 0.15543071 0.18164794 0.07116105 0.10299625
 par(mfrow=c(1,2))
-barplot(pekerjaan) # membuat barplot data pekerjaan
+barplot(pekerjaan, col="khaki3") # membuat barplot data pekerjaan
 pie(pekerjaan) # membuat pie chart data pekerjaan
 ```
 
 &lt;img src="sesi1_files/figure-html/unnamed-chunk-7-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ---
 
-```
+```r
+xtabs(~ gender + occupation, data = CPS1985)
 #         occupation
 # gender   worker technical services office sales management
 #   male      126        53       34     21    21         34
 #   female     30        52       49     76    17         21
+par(mfrow=c(1,1))
+plot(gender ~ occupation, data = CPS1985, col=c("blue", "gold"))
 ```
 
 &lt;img src="sesi1_files/figure-html/unnamed-chunk-8-1.png" width="504" style="display: block; margin: auto;" /&gt;

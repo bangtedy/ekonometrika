@@ -196,14 +196,14 @@ summary(occupation)
 pekerjaan <- table(occupation)
 prop.table(pekerjaan)
 par(mfrow=c(1,2))
-barplot(pekerjaan) # membuat barplot data pekerjaan
+barplot(pekerjaan, col="khaki3") # membuat barplot data pekerjaan
 pie(pekerjaan) # membuat pie chart data pekerjaan
 ```
 ---
-```{r eval=requireNamespace("AER", quietly=TRUE), echo=FALSE}
+```{r eval=requireNamespace("AER", quietly=TRUE)}
 xtabs(~ gender + occupation, data = CPS1985)
 par(mfrow=c(1,1))
-plot(gender ~ occupation, data = CPS1985)
+plot(gender ~ occupation, data = CPS1985, col=c("blue", "gold"))
 ```
 ---
 class: inverse, right, bottom
