@@ -81,17 +81,26 @@ class: middle, center, inverse
 
 
 ---
+# Heteroskedastisitas: 
+- *when error terms doesn't have the same variance*
+- Sering muncul pada data cross section
+- standard error OLS tidak bisa lagi dipercaya kebenarannya karena varian tidak minimum
+- evaluasi hasil regresi dengan t dan F menjadi tidak akurat
+---
 # MENDETEKSI HETEROSKEDASTISITAS
 
 1. Metode Park dan Glejser
 2. Metode Korelasi Spearman
 3. Metode White
+
+<span style="color:#c391a4">.font150[Perhatikan contoh dan praktekkan cara mendeteksi heteroskedastisitas dengan menggunakan komputer yang ditunjukkan oleh Tutor]</span>
 ---
 # MENGATASI HETEROSKEDASTISITAS
 
 1. Metode White
 2. Mengetahui Pola Heteroskedastisitas
 
+<span style="color:#91c3b0">.font150[Perhatikan contoh dan praktekkan cara mengatasi heteroskedastisitas dengan menggunakan komputer yang ditunjukkan oleh Tutor]</span>
 ---
 class: middle, center, inverse
 
@@ -105,6 +114,7 @@ class: middle, center, inverse
 1. Metode Durbin-Watson (DW)
 2. Metode Breusch-Godfrey
 
+<span style="color:#91c397">.font150[Perhatikan contoh dan praktekkan cara mendeteksi autokorelasi dengan menggunakan komputer yang ditunjukkan oleh Tutor]</span>
 ---
 # MENGATASI MASALAH AUTOKORELASI
 1. Menguji Kesalahan Spesifikasi Model
@@ -112,6 +122,7 @@ class: middle, center, inverse
 3. Estimasi dengan model Autoregressive (AR)
 4. Metode Newey, Whitney dan Kenneth
 
+<span style="color:#c391bd">.font150[Perhatikan contoh dan praktekkan cara mengatasi autokorelasi dengan menggunakan komputer yang ditunjukkan oleh Tutor]</span>
 ---
 
 class: middle, center, inverse
@@ -129,12 +140,14 @@ class: middle, center, inverse
 2. Metode Deteksi Klien
 3. Variance Inflation Factor dan Tolerance
 
+<span style="color:#f14c1b">.font150[Perhatikan contoh dan praktekkan cara mendeteksi multikolinieritas dengan menggunakan komputer yang ditunjukkan oleh Tutor]</span>
 ---
 # MENGATASI MASALAH MULTIKOLINIERITAS
 1. Menghilangkan Variabel Independen
 2. Transformasi Variabel
 3. Penambahan Data
 
+<span style="color:#1bc0f1">.font150[Perhatikan contoh dan praktekkan cara mengatasi multikolinieritas yang ditunjukkan oleh Tutor]</span>
 ---
 
 # UJI NORMALITAS
@@ -145,15 +158,20 @@ class: middle, center, inverse
 ---
 # UJI JARQUE-BERA
 
+<span style="color:#1bc0f1">.font150[Perhatikan contoh dan praktekkan cara menguji normalitas dengan uji Jarque-Bera]</span>
+
 ---
 # UJI LINIERITAS RAMSEY
+
+<span style="color:#f11b55">.font150[Perhatikan contoh]</span>
 
 ---
 
 class: inverse, right, bottom
 
-# Matur nuwun, find me at...
-<hr width="45%" align="right" size="0.3" color="orange"></hr>
+Matur nuwun, find me at...
+
+<hr width="25%" align="right" size="0.3" color="#f11b55"></hr>
 
 [<i class="fa fa-twitter fa-lg" style="color:#fc911e"></i> <span style="color:#fc911e"> @t_hlb </span>](https://twitter.com/t_hlb)
 
