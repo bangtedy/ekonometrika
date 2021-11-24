@@ -88,7 +88,7 @@ class: middle, center, inverse
 - Atau jika dibalik: variabel dependen Yt dipengaruhi oleh Xt, Xt-1, Xt-2, dst.
 - Model yang memasukkan nilai current dan juga kelambanan disebut model kelambanan (*distributed-lag model*):
 
-$$ Y_t = \alpha + \beta_0X_t + \beta_1X_{t-1} + \beta_2X_{t-2} + ... + \beta_kX_{t-k} + \epsilon_t $$
+$$ Y_t = \alpha+\beta_0X_t +\beta_1X_{t-1}+\beta_2X_{t-2} + ... + \beta_kX_{t-k} + \epsilon_t $$
 
 ---
 # Model Kelambanan Geometrik
