@@ -83,16 +83,14 @@ class: middle, center, inverse
 
 ---
 # Model Kelambanan
-
 - Pengaruh kebijakan fiskal dan moneter tidak instan --> perlu waktu 6-12 bulan
-- Kebijakan ekonomi $X_t$ mempunyai dampak ekonomi $Y_t$, $Y_{t+1}$, $Y_{t+2}$, dst.
-- Atau jika dibalik: variabel dependen $Y_t$ dipengaruhi oleh $X_t$, $X_{t-1}$, $X_{t-2}$, dst.
-- Model yang memasukkan nilai current dan juga kelambanan disebut model kelambanan/*distributed-lag model*:
+- Kebijakan ekonomi Xt mempunyai dampak ekonomi Yt, Yt+1, Yt+2, dst.
+- Atau jika dibalik: variabel dependen Yt dipengaruhi oleh Xt, Xt-1, Xt-2, dst.
+- Model yang memasukkan nilai current dan juga kelambanan disebut model kelambanan (*distributed-lag model*):
 
-$$Y_t = \alpha+\beta_0X_t+\beta_1X_{t-1}+\beta_2X_{t-2}+...+\beta_kX_{t-k}+\epsilon$$
+$$ Y_t = \alpha + \beta_0X_t + \beta_1X_[t-1} + \beta_2X_{t-2} + ... + \beta_kX_{t-k} + \epsilon$$
 
 ---
-
 # Model Kelambanan Geometrik
 
 - Dibentuk dari pendekatan matematis dimana setiap variabel ekonomi akan mempunyai pengaruh yang semakin mengecil

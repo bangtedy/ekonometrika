@@ -10,7 +10,7 @@
     <link href="libs/animate.css-3.7.2/animate.xaringan.css" rel="stylesheet" />
     <link href="libs/tachyons-4.12.0/tachyons.min.css" rel="stylesheet" />
     <link href="libs/xaringanExtra-extra-styles-0.2.6/xaringanExtra-extra-styles.css" rel="stylesheet" />
-    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"e8f833c598cc4f33a9c36bddf32e5cf7","expires":1}</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"xa90b0750d89426bbc35ed3596024c96","expires":1}</script>
     <script src="libs/himalaya-1.1.0/himalaya.js"></script>
     <script src="libs/js-cookie-3.0.0/js.cookie.js"></script>
     <link href="libs/editable-0.2.6/editable.css" rel="stylesheet" />
@@ -77,14 +77,16 @@ class: middle, center, inverse
 
 ---
 # Model Kelambanan
-- Pengaruh kebijakan fiskal dan moneter tidak instan --&gt; perlu waktu 6-12 bulan
-- Kebijakan ekonomi Xt mempunyai dampak ekonomi Yt, Yt+1, Yt+2, dst.
-- Atau jika dibalik: variabel dependen Yt dipengaruhi oleh Xt, Xt-1, Xt-2, dst.
-- Model yang memasukkan nilai current dan juga kelambanan disebut model kelambanan (*distributed-lag model*):
 
-$$ Y_t = \alpha+\beta_0X_t +\beta_1X_{t-1}+\beta_2X_{t-2} + ... + \beta_kX_{t-k} + \epsilon_t $$
+- Pengaruh kebijakan fiskal dan moneter tidak instan --&gt; perlu waktu 6-12 bulan
+- Kebijakan ekonomi `\(X_t\)` mempunyai dampak ekonomi `\(Y_t\)`, `\(Y_{t+1}\)`, `\(Y_{t+2}\)`, dst.
+- Atau jika dibalik: variabel dependen `\(Y_t\)` dipengaruhi oleh `\(X_t\)`, `\(X_{t-1}\)`, `\(X_{t-2}\)`, dst.
+- Model yang memasukkan nilai current dan juga kelambanan disebut model kelambanan/*distributed-lag model*:
+
+`$$Y_t = \alpha+\beta_0X_t+\beta_1X_{t-1}+\beta_2X_{t-2}+...+\beta_kX_{t-k}+\epsilon$$`
 
 ---
+
 # Model Kelambanan Geometrik
 
 - Dibentuk dari pendekatan matematis dimana setiap variabel ekonomi akan mempunyai pengaruh yang semakin mengecil
