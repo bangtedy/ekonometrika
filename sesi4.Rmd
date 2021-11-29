@@ -100,7 +100,7 @@ class: middle, center, inverse
 1. Metode White
 2. Mengetahui Pola Heteroskedastisitas
 
-<span style="color:#91c3b0">.font100[Praktekkan mengatasi heteroskedastisitas]</span>
+<span style="color:#91c3b0">.font100[Praktek mengatasi heteroskedastisitas]</span>
 ---
 class: middle, center, inverse
 
