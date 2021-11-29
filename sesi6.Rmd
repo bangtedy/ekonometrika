@@ -2,6 +2,7 @@
 title: Tedy Herlambang/ekonometrika
 output:
   xaringan::moon_reader:
+    chakra: libs/remark-latest.min.js
   #  self_contained: TRUE
     includes:
       in_header: conf/style-header.html
@@ -49,7 +50,7 @@ class: middle, title-slide
 
 <hr width="100%" align="left" size="0.3" color="gold"></hr>
 
-## <span style="color:gold">Ekonometrika Sesi 6</span>
+## <span style="color:gold">Ekonometrika Sesi 7</span>
 
 ### Tedy Herlambang .small[<br> ]
 
