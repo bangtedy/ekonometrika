@@ -63,13 +63,12 @@ class: middle, title-slide
 
 # Pendahuluan
 
-Dengan mempeljari modul 6, Anda diharapkan dapat secara umum mampu mengidentifikasi dan mengestimasi persamaan simultan.
-Secar khusus Anda diharapkan mampu:
+Dengan mempelajari modul 7, Anda diharapkan dapat secara umum mampu mengidentifikasi dan mengestimasi persamaan simultan. Secara khusus Anda diharapkan mampu:
 
 1. Mengidentifikasi model persamaan simultan
-2. Mencari persamaan bentuk turunan (reduced form) 
+2. Mencari persamaan bentuk turunan (*reduced form*) 
 3. Mengidentifikasi persamaan simultan melalui order condition dan rank condition
-4. Mengestimasi persamaan simultan dengan metode indirect least squares dan two-stage least squares
+4. Mengestimasi persamaan simultan dengan metode indirect least squares (ILS) dan two-stage least squares (TSLS)
 5. Melakukan uji simultanitas dan uji eksogenitas 
 ---
 
@@ -83,7 +82,8 @@ class: middle, center, inverse
 # Basic Deﬁnitions
 
 - All econometric models covered so far have dealt with a single dependent variable and estimations of single equations. 
-- However, in modern world economics, interdependence is frequently encountered. - Several dependent variables are determined simultaneously, therefore appearing both as dependent and explanatory variables in a set of different equations.
+- However, in modern world economics, interdependence is frequently encountered. 
+- Several dependent variables are determined simultaneously, therefore appearing both as dependent and explanatory variables in a set of different equations.
 
 ---
 
@@ -136,7 +136,8 @@ $$
 
 # The rank condition
 
-- construct a table with a column for each variable and a row for each equation. - For each equation put a $\checkmark$ in the column if the variable that corresponds to this column is included in the equation, otherwise put a 0.
+- construct a table with a column for each variable and a row for each equation. 
+- For each equation put a $\checkmark$ in the column if the variable that corresponds to this column is included in the equation, otherwise put a 0.
 - This gives an array of $\checkmark$s and 0s for each equation.
 - Then, for a particular equation:
 
