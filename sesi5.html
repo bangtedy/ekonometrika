@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Tedy Herlambang/ekonometrika</title>
+    <meta charset="utf-8" />
+    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view-0.2.6/tile-view.js"></script>
+    <link href="libs/animate.css-3.7.2/animate.xaringan.css" rel="stylesheet" />
+    <link href="libs/tachyons-4.12.0/tachyons.min.css" rel="stylesheet" />
+    <link href="libs/xaringanExtra-extra-styles-0.2.6/xaringanExtra-extra-styles.css" rel="stylesheet" />
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"e55579218bc5405dba11f6b600beb6df","expires":1}</script>
+    <script src="libs/himalaya-1.1.0/himalaya.js"></script>
+    <script src="libs/js-cookie-3.0.0/js.cookie.js"></script>
+    <link href="libs/editable-0.2.6/editable.css" rel="stylesheet" />
+    <script src="libs/editable-0.2.6/editable.js"></script>
+    <link href="libs/panelset-0.2.6/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset-0.2.6/panelset.js"></script>
+    <script src="libs/fabric-4.3.1/fabric.min.js"></script>
+    <link href="libs/xaringanExtra-scribble-0.0.1/scribble.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-scribble-0.0.1/scribble.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', function() { window.xeScribble = new Scribble({"pen_color":["#FF0000"],"pen_size":3,"eraser_size":30,"palette":[]}) })</script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/v4-shims.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+    <!--hauisdhah087hbdu1h0781gd10gdasdgh0172gd1d8h0781dgiqubsdoqusgd9712gdqiudh917gdqiuhxb0182gd12gs9712g-->
+    <link rel="stylesheet" href="conf/css/style.css" type="text/css" />
+    <link rel="stylesheet" href="conf/css/fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+class: middle, title-slide
+
+&lt;!-- top logo (comment to remove or edit on `conf/css/style.css:23`) --&gt;
+&lt;div class="lab-logo"&gt;&lt;/div&gt;
+&lt;!-- &lt;div class="uni-logo"&gt;&lt;/div&gt; --&gt;
+
+# REGRESI DENGAN RESPONS KUALITATIF
+
+&lt;hr width="100%" align="left" size="0.3" color="gold"&gt;&lt;/hr&gt;
+
+## &lt;span style="color:gold"&gt;Ekonometrika Sesi 5&lt;/span&gt;
+
+### Tedy Herlambang .small[&lt;br&gt; ]
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+[&lt;i class="fas fa-blog" style="color:#e7e8e2"&gt;&lt;/i&gt; bangtedy.github.io](https://bangtedy.github.io)
+
+[&lt;i class="fa fa-twitter fa-lg" style="color:#e7e8e2"&gt;&lt;/i&gt; @t_hlb](https://twitter.com/t_hlb)
+
+---
+
+# Pendahuluan
+
+Dengan mempelajari modul 5, Anda diharapkan dapat secara umum mampu mengestimasi mengevaluasi hasil regresi respon kualitatif. Secara khusus Anda diharapkan mampu:
+
+1. Mengestimasi dan mengevaluasi linear probability model (LPM) dengan metode OLS
+2. Mengestimasi regresi respon kualitatif dengan menggunakan metode maximum likelihood 
+3. Mengestimasi model logit
+4. Mengestimasi model probit
+5. Mengevaluasi kelayakan model regresi respon kualitatif metode maximum likelihood dengan menggunakan uji likelihood ratio test (LR)
+6. Mengevaluasi uji signifikansi model regresi respon kualitatif metode maximum likelihood dengan menggunakan uji Z atau Wald
+
+---
+
+class: middle, center, inverse
+
+# KB1: MODEL PROBABILITAS LINIER (LPM)
+&lt;hr width="100%" align="left" size="0.3" color="#F1C9C2"&gt;&lt;/hr&gt;
+
+---
+
+# MODEL PROBABILITAS LINIER
+
+- In economics, there are frequently cases in which the dependent variable is of a qualitative nature. 
+- The dummy is being used in the left-hand side of the regression model.
+- For example, the ratings of various goods from consumer surveys taking the form of strongly disagree, disagree, indifferent, agree, strongly agree.
+  
+---
+
+# One simplest possible model
+
+- The decision to go out to work or not is affected by only one explanatory variable `\((X_{2i})\)` – average wage rate
+- The model is `$$Y_i = β_1 + β_2X_{2i} + u_i$$` 
+- Since `\(Y_i\)` is a dummy variable, we can rewrite the model as: `$$D_i = β_1 + β_2X_{2i} + u_i$$`
+  - where `\(X_{2i}\)` is the average of wage rate (a continuous variable); 
+  - `\(D_i\)` is a dichotomous dummy deﬁned as
+     + 1 if the ith individual is working
+     + 0 if the ith individual is not working
+     + `\(u_i\)` is the disturbance.
+  
+---
+
+# Problems with the linear probability model
+
+- `\(D_i\)` is not bounded by the (0,1) range
+- Non-normality and heteroskedasticity of the disturbances
+- The coefficient of determination as a measure of overall fit
+
+---
+
+
+class: middle, center, inverse
+
+# KB2: MODEL LOGIT
+&lt;hr width="100%" align="left" size="0.3" color="#FF3747"&gt;&lt;/hr&gt;
+
+---
+
+# Model Logit
+
+- In the LPM, the dependent variable `\(D_i\)`, which reﬂects the probability `\(P_i\)` can take any real value and is not limited to being in the correct range of probabilities – the (0,1) range.
+- To resolve this problem:
+  - Transform the dependent variable, `\(D_i\)`, into odds: the ratio of the probability of success to its complement (the probability of failure)
+  
+  $$ odds_i = \frac {P_i}{1-P_i}$$
+  
+  - Use a linear regression to obtain the logit model
+- The logit model maps probabilities from the range (0,1) to the entire real line.
+
+---
+
+
+class: middle, center, inverse
+
+# KB3: MODEL PROBIT
+&lt;hr width="100%" align="left" size="0.3" color="#FF8B0F"&gt;&lt;/hr&gt;
+
+
+---
+
+# Model Probit
+
+- The probit model is an alternative method of resolving the problem faced by the linear probability model of having values beyond the acceptable (0,1) range of probabilities.
+- Use a sigmoid function similar to that of the logit model by using
+the cumulative normal distribution, which by definition has an S-shape asymptotical to the (0,1) range.
+- The logit and probit procedures are so closely related that they rarely produce results that are significantly different. 
+- The probit model is seen to be more suitable than the logit model as most economic variables follow the normal distribution
+  - Hence it is better to examine them through the cumulative normal distribution.
+
+---
+
+class: inverse, right, bottom
+
+Matur nuwun, find me at...
+
+&lt;hr width="25%" align="right" size="0.3" color="#f11b55"&gt;&lt;/hr&gt;
+
+[&lt;i class="fa fa-twitter fa-lg" style="color:#fc911e"&gt;&lt;/i&gt; &lt;span style="color:#fc911e"&gt; @t_hlb &lt;/span&gt;](https://twitter.com/t_hlb)
+
+[&lt;i class="fas fa-blog" style="color:#fc911e"&gt;&lt;/i&gt;&lt;span style="color:#fc911e"&gt; bangtedy.github.io&lt;/span&gt;](https://bangtedy.github.io)
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="libs/remark-latest.min.js"></script>
+<script src="conf/js/gifffer.min.js"></script>
+<script src="conf/js/style-macros.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

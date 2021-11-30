@@ -1,0 +1,162 @@
+---
+title: Tedy Herlambang/ekonometrika
+output:
+  xaringan::moon_reader:
+    chakra: libs/remark-latest.min.js
+  #  self_contained: TRUE
+    includes:
+      in_header: conf/style-header.html
+    lib_dir: libs
+    seal: false
+    css: ["default", "conf/css/style.css", "conf/css/fonts.css"]
+    nature:
+      beforeInit: ["conf/js/gifffer.min.js", "conf/js/style-macros.js"]
+      ratio: 16:9
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(
+  comment = "#",
+  #cache = TRUE,
+  collapse = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  fig.width = 7,
+  fig.height = 5.25,
+  fig.align = 'center',
+  fig.retina = 3
+)
+
+# base plot layout
+mypar = list(mar = c(3,3,0.5,0.5), mgp = c(1.5, 0.3, 0), tck = -.008)
+
+# xaringan Extra
+xaringanExtra::use_xaringan_extra(c("tile_view", "animate_css", "tachyons"))
+xaringanExtra::use_extra_styles(
+  hover_code_line = TRUE,         #<<
+  mute_unhighlighted_code = TRUE  #<<
+)
+xaringanExtra::use_editable(expires = 1)
+xaringanExtra::use_panelset()
+xaringanExtra::use_scribble()
+```
+class: middle, title-slide
+
+<!-- top logo (comment to remove or edit on `conf/css/style.css:23`) -->
+<div class="lab-logo"></div>
+<!-- <div class="uni-logo"></div> -->
+
+# REGRESI DENGAN RESPONS KUALITATIF
+
+<hr width="100%" align="left" size="0.3" color="gold"></hr>
+
+## <span style="color:gold">Ekonometrika Sesi 5</span>
+
+### Tedy Herlambang .small[<br> ]
+
+<br><br><br><br><br>
+[<i class="fas fa-blog" style="color:#e7e8e2"></i> bangtedy.github.io](https://bangtedy.github.io)
+
+[<i class="fa fa-twitter fa-lg" style="color:#e7e8e2"></i> @t_hlb](https://twitter.com/t_hlb)
+
+---
+
+# Pendahuluan
+
+Dengan mempelajari modul 5, Anda diharapkan dapat secara umum mampu mengestimasi mengevaluasi hasil regresi respon kualitatif. Secara khusus Anda diharapkan mampu:
+
+1. Mengestimasi dan mengevaluasi linear probability model (LPM) dengan metode OLS
+2. Mengestimasi regresi respon kualitatif dengan menggunakan metode maximum likelihood 
+3. Mengestimasi model logit
+4. Mengestimasi model probit
+5. Mengevaluasi kelayakan model regresi respon kualitatif metode maximum likelihood dengan menggunakan uji likelihood ratio test (LR)
+6. Mengevaluasi uji signifikansi model regresi respon kualitatif metode maximum likelihood dengan menggunakan uji Z atau Wald
+
+---
+
+class: middle, center, inverse
+
+# KB1: MODEL PROBABILITAS LINIER (LPM)
+<hr width="100%" align="left" size="0.3" color="#F1C9C2"></hr>
+
+---
+
+# MODEL PROBABILITAS LINIER
+
+- In economics, there are frequently cases in which the dependent variable is of a qualitative nature. 
+- The dummy is being used in the left-hand side of the regression model.
+- For example, the ratings of various goods from consumer surveys taking the form of strongly disagree, disagree, indifferent, agree, strongly agree.
+  
+---
+
+# One simplest possible model
+
+- The decision to go out to work or not is affected by only one explanatory variable $(X_{2i})$ – average wage rate
+- The model is $$Y_i = β_1 + β_2X_{2i} + u_i$$ 
+- Since $Y_i$ is a dummy variable, we can rewrite the model as: $$D_i = β_1 + β_2X_{2i} + u_i$$
+  - where $X_{2i}$ is the average of wage rate (a continuous variable); 
+  - $D_i$ is a dichotomous dummy deﬁned as
+     + 1 if the ith individual is working
+     + 0 if the ith individual is not working
+     + $u_i$ is the disturbance.
+  
+---
+
+# Problems with the linear probability model
+
+- $D_i$ is not bounded by the (0,1) range
+- Non-normality and heteroskedasticity of the disturbances
+- The coefficient of determination as a measure of overall fit
+
+---
+
+
+class: middle, center, inverse
+
+# KB2: MODEL LOGIT
+<hr width="100%" align="left" size="0.3" color="#FF3747"></hr>
+
+---
+
+# Model Logit
+
+- In the LPM, the dependent variable $D_i$, which reﬂects the probability $P_i$ can take any real value and is not limited to being in the correct range of probabilities – the (0,1) range.
+- To resolve this problem:
+  - Transform the dependent variable, $D_i$, into odds: the ratio of the probability of success to its complement (the probability of failure)
+  
+  $$ odds_i = \frac {P_i}{1-P_i}$$
+  
+  - Use a linear regression to obtain the logit model
+- The logit model maps probabilities from the range (0,1) to the entire real line.
+
+---
+
+
+class: middle, center, inverse
+
+# KB3: MODEL PROBIT
+<hr width="100%" align="left" size="0.3" color="#FF8B0F"></hr>
+
+
+---
+
+# Model Probit
+
+- The probit model is an alternative method of resolving the problem faced by the linear probability model of having values beyond the acceptable (0,1) range of probabilities.
+- Use a sigmoid function similar to that of the logit model by using
+the cumulative normal distribution, which by definition has an S-shape asymptotical to the (0,1) range.
+- The logit and probit procedures are so closely related that they rarely produce results that are significantly different. 
+- The probit model is seen to be more suitable than the logit model as most economic variables follow the normal distribution
+  - Hence it is better to examine them through the cumulative normal distribution.
+
+---
+
+class: inverse, right, bottom
+
+Matur nuwun, find me at...
+
+<hr width="25%" align="right" size="0.3" color="#f11b55"></hr>
+
+[<i class="fa fa-twitter fa-lg" style="color:#fc911e"></i> <span style="color:#fc911e"> @t_hlb </span>](https://twitter.com/t_hlb)
+
+[<i class="fas fa-blog" style="color:#fc911e"></i><span style="color:#fc911e"> bangtedy.github.io</span>](https://bangtedy.github.io)
