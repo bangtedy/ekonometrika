@@ -50,7 +50,7 @@ class: middle, title-slide
 
 <hr width="100%" align="left" size="0.3" color="gold"></hr>
 
-## <span style="color:gold">Ekonometrika Sesi 7</span>
+## <span style="color:gold">Ekonometrika Sesi 6</span>
 
 ### Tedy Herlambang .small[<br> ]
 
