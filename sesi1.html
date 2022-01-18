@@ -5,12 +5,16 @@
     <meta charset="utf-8" />
     <script src="libs/header-attrs-2.11/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <meta name="citation_title" content="Pendahuluan: Definisi dan Ruang Lingkup Ekonometrika"/>
+    <meta name="citation_author" content="Tedy Herlambang"/>
+    <meta name="citation_publication_date" content="2021"/>
+    <meta name="citation_isbn" content=""/>
     <link href="libs/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
     <script src="libs/tile-view-0.2.6/tile-view.js"></script>
     <link href="libs/animate.css-3.7.2/animate.xaringan.css" rel="stylesheet" />
     <link href="libs/tachyons-4.12.0/tachyons.min.css" rel="stylesheet" />
     <link href="libs/xaringanExtra-extra-styles-0.2.6/xaringanExtra-extra-styles.css" rel="stylesheet" />
-    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"c7f1c541a4a34305a820133edad3a0f6","expires":1}</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"xb6aaeec5fbc418088aca9b467567d7c","expires":1}</script>
     <script src="libs/himalaya-1.1.0/himalaya.js"></script>
     <script src="libs/js-cookie-3.0.0/js.cookie.js"></script>
     <link href="libs/editable-0.2.6/editable.css" rel="stylesheet" />
@@ -30,6 +34,8 @@
   </head>
   <body>
     <textarea id="source">
+
+
 
 
 
@@ -145,7 +151,7 @@ hist(x, col="#00ff80") # membuat histogram x dengan warna
 curve(dnorm(x), from=-4, to=4) # membuat kurva normal x
 ```
 
-&lt;img src="sesi1_files/figure-html/unnamed-chunk-4-1.png" width="504" style="display: block; margin: auto;" /&gt;
+&lt;img src="sesi1_files/figure-html/unnamed-chunk-5-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ---
 # Kasus 2: [CPS1985](https://rdrr.io/cran/AER/man/CPS1985.html)
 Deskripsi data:
@@ -208,7 +214,7 @@ hist(log(wage), freq = FALSE, col="#91c3b0")
 lines(density(log(wage)), col = "#ff0000")
 ```
 
-&lt;img src="sesi1_files/figure-html/unnamed-chunk-6-1.png" width="504" style="display: block; margin: auto;" /&gt;
+&lt;img src="sesi1_files/figure-html/unnamed-chunk-7-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ---
 
 ```r
@@ -225,7 +231,7 @@ barplot(pekerjaan, col="khaki3") # membuat barplot data pekerjaan
 pie(pekerjaan) # membuat pie chart data pekerjaan
 ```
 
-&lt;img src="sesi1_files/figure-html/unnamed-chunk-7-1.png" width="504" style="display: block; margin: auto;" /&gt;
+&lt;img src="sesi1_files/figure-html/unnamed-chunk-8-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ---
 
 ```r
@@ -238,7 +244,7 @@ par(mfrow=c(1,1))
 plot(gender ~ occupation, data = CPS1985, col=c("blue", "gold"))
 ```
 
-&lt;img src="sesi1_files/figure-html/unnamed-chunk-8-1.png" width="504" style="display: block; margin: auto;" /&gt;
+&lt;img src="sesi1_files/figure-html/unnamed-chunk-9-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ---
 class: inverse, right, bottom
 
