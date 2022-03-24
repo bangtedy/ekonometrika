@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Tedy Herlambang/ekonometrika</title>
+    <meta charset="utf-8" />
+    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <meta name="citation_title" content="Pendahuluan: Definisi dan Ruang Lingkup Ekonometrika"/>
+    <meta name="citation_author" content="Tedy Herlambang"/>
+    <meta name="citation_publication_date" content="2021"/>
+    <meta name="citation_isbn" content=""/>
+    <link href="libs/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view-0.2.6/tile-view.js"></script>
+    <link href="libs/animate.css-3.7.2/animate.xaringan.css" rel="stylesheet" />
+    <link href="libs/tachyons-4.12.0/tachyons.min.css" rel="stylesheet" />
+    <link href="libs/xaringanExtra-extra-styles-0.2.6/xaringanExtra-extra-styles.css" rel="stylesheet" />
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"xb6aaeec5fbc418088aca9b467567d7c","expires":1}</script>
+    <script src="libs/himalaya-1.1.0/himalaya.js"></script>
+    <script src="libs/js-cookie-3.0.0/js.cookie.js"></script>
+    <link href="libs/editable-0.2.6/editable.css" rel="stylesheet" />
+    <script src="libs/editable-0.2.6/editable.js"></script>
+    <link href="libs/panelset-0.2.6/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset-0.2.6/panelset.js"></script>
+    <script src="libs/fabric-4.3.1/fabric.min.js"></script>
+    <link href="libs/xaringanExtra-scribble-0.0.1/scribble.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-scribble-0.0.1/scribble.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', function() { window.xeScribble = new Scribble({"pen_color":["#FF0000"],"pen_size":3,"eraser_size":30,"palette":[]}) })</script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/v4-shims.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+    <!--hauisdhah087hbdu1h0781gd10gdasdgh0172gd1d8h0781dgiqubsdoqusgd9712gdqiudh917gdqiuhxb0182gd12gs9712g-->
+    <link rel="stylesheet" href="conf/css/style.css" type="text/css" />
+    <link rel="stylesheet" href="conf/css/fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+
+class: middle, title-slide
+
+&lt;!-- top logo (comment to remove or edit on `conf/css/style.css:23`) --&gt;
+&lt;div class="lab-logo"&gt;&lt;/div&gt;
+&lt;!-- &lt;div class="uni-logo"&gt;&lt;/div&gt; --&gt;
+
+# Pendahuluan
+
+&lt;hr width="100%" align="left" size="1.3" color="gold"&gt;&lt;/hr&gt;
+
+## &lt;span style="color:gold"&gt;Ekonometrika Sesi 1&lt;/span&gt;
+
+### Tedy Herlambang .small[&lt;br&gt; ]
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+[&lt;i class="fas fa-blog" style="color:#e7e8e2"&gt;&lt;/i&gt; bangtedy](https://bangtedy.github.io)
+
+[&lt;i class="fa fa-twitter fa-lg" style="color:#e7e8e2"&gt;&lt;/i&gt; @t_hlb](https://twitter.com/t_hlb)
+
+---
+
+# Capaian Pembelajaran
+Setelah mempelajari modul ini Anda diharapkan mampu:
+- Menjelaskan definisi dan ruang lingkup ekonometrika serta distribusi probabilitas yang digunakan dalam uji statistika
+
+Secara khusus Anda diharapkan mampu:
+
+1. Menjelaskan definisi dan tujuan ekonometrika
+2. Langkah-langkah dalam riset ekonomi dengan menggunakan ekonometrika
+3. Merumuskan model-model ekonometrika untuk riset ekonomi
+4. Menjelaskan dasar-dasar statistika yang digunakan untuk riset dengan ekonometrika
+
+---
+# KB1: Teori Ekonomi dan Ekonometrika
+
+&gt; Penyederhanaan perilaku manusia yang sangat kompleks, tetapi
+mampu menjelaskan dengan baik perilaku manusia
+
+---
+
+# Teori Ekonomi dan Ekonometrika
+
+- Teori ekonomi mungkin mengatakan bahwa terdapat hubungan antara dua variabel atau lebih (misal harga barang dengan jumlah permintaannya), 
+  + Ekonomi terapan menghendaki bukti bahwa hubungan ini nyata sekaligus bisa diamati di kehidupan sehari-hari, serta kuantifikasi hubungan antara variabel tersebut.
+- The study of the methods that enable us to quantify economic relationships using actual data is known as *econometrics* (ekonometrika).
+
+---
+
+class: middle, center
+
+
+&lt;img src="img/econ_stat.png" width="21%" style="display: block; margin: auto;" /&gt;
+
+&lt;img src="img/econ_stat1.png" width="41%" style="display: block; margin: auto;" /&gt;
+---
+# Metodologi Ekonometrika
+1. Teori Ekonomi (misal teori Permintaan)
+2. Model Matematika (Hukum Permintaan)
+3. Model Ekonometrika (Hukum Permintaan)
+4. Pengumpulan Data
+5. Estimasi
+6. Uji Model
+7. Prediksi dan Kebijakan
+---
+# Program Komputer
+- Eviews, GAUSS, Limdep, Matlab, Minitab, SPSS, Stata,  --&gt; berbayar, support resmi dari pabrikan
+- R (open source) --&gt; gratis, tutorial banyak tersedia di internet
+- Mempermudah penghitungan
+
+---
+# Pertanyaan:
+.font150[Mengapa hubungan antara variable di dalam model ekonometrika bersifat statistik bukan matematis?]
+
+---
+
+# KB 2: Dasar-Dasar Statistika
+
+.font150[There are three kinds of lies: lies, damned lies and statistics] — 
+variously attributed to Benjamin Disraeli, Mark Twain etc.
+
+---
+# Kasus 1: simulasi data yang terdistribusi normal, t, Chi-square, F
+- Dengan bantuan program komputer ini sangat mudah dilakukan
+    + (juga untuk membuat data riset abal-abal)
+- Di dalam praktek data riset yang kita peroleh seringkali tidak "mulus" seperti di dalam teori.
+
+
+```r
+set.seed(12345) # jika ingin mendapatkan hasil sama gunakan seed yang sama
+x &lt;- rnorm(1000) # membuat angka acak sebanyak 1000 tersebar normal
+mean(x) # menghitung rata-rata
+# [1] 0.04619816
+median(x) # menghitung nilai median
+# [1] 0.04621674
+var(x) # menghitung nilai varians
+# [1] 0.9974968
+sd(x) # menghitung nilai simpangan baku/standard deviasi
+# [1] 0.9987476
+quantile(x) # menghitung quantile
+#          0%         25%         50%         75%        100% 
+# -2.77832551 -0.59597347  0.04621674  0.68856728  3.33073331
+```
+---
+
+```r
+par(mfrow=c(1,2)) # membagi layar menjadi 1 X 2 bidang
+hist(x, col="#00ff80") # membuat histogram x dengan warna
+curve(dnorm(x), from=-4, to=4) # membuat kurva normal x
+```
+
+&lt;img src="sesi1_files/figure-html/unnamed-chunk-5-1.png" width="504" style="display: block; margin: auto;" /&gt;
+---
+# Kasus 2: [CPS1985](https://rdrr.io/cran/AER/man/CPS1985.html)
+Deskripsi data:
+- Data *cross-section* dari survei populasi Mei 1985 oleh badan statistik AS.
+- Data frame terdiri dari 534 pengamatan pada 11 variabel:
+    + wage (in dollars per hour).
+    + education (Number of years of education).
+    + experience (Number of years of potential work experience (age - education - 6)).
+    + age (Age in years).
+    + ethnicity (Factor with levels "cauc", "hispanic", "other").
+    + region (Factor. Does the individual live in the South?)
+
+---
+#### Lanjutan ...
+- Data frame terdiri dari 534 pengamatan pada 11 variabel
+    + gender (Factor indicating gender.
+    + occupation (Factor with levels "worker" (assembly line worker), "technical" (technical worker), "services" (service worker), "office" (office and clerical worker), "sales" (sales worker), "management" (management and administration).
+    + sector (Factor with levels "manufacturing" (manufacturing), "construction", "other").
+    + union (Factor. Does the individual work on a union job?)
+    + married (Factor. Is the individual married?)
+    
+---
+
+# Data bisa dipanggil dari AER package:
+
+
+```r
+library(AER) # memanggil library AER
+data(CPS1985) # memanggil data CPS1985
+attach(CPS1985) # melampirkan data CPS1985
+str(CPS1985) # menampilkan struktur data CPS1985
+# 'data.frame':	534 obs. of  11 variables:
+#  $ wage      : num  5.1 4.95 6.67 4 7.5 ...
+#  $ education : num  8 9 12 12 12 13 10 12 16 12 ...
+#  $ experience: num  21 42 1 4 17 9 27 9 11 9 ...
+#  $ age       : num  35 57 19 22 35 28 43 27 33 27 ...
+#  $ ethnicity : Factor w/ 3 levels "cauc","hispanic",..: 2 1 1 1 1 1 1 1 1 1 ...
+#  $ region    : Factor w/ 2 levels "south","other": 2 2 2 2 2 2 1 2 2 2 ...
+#  $ gender    : Factor w/ 2 levels "male","female": 2 2 1 1 1 1 1 1 1 1 ...
+#  $ occupation: Factor w/ 6 levels "worker","technical",..: 1 1 1 1 1 1 1 1 1 1 ...
+#  $ sector    : Factor w/ 3 levels "manufacturing",..: 1 1 1 3 3 3 3 3 1 3 ...
+#  $ union     : Factor w/ 2 levels "no","yes": 1 1 1 1 1 2 1 1 1 1 ...
+#  $ married   : Factor w/ 2 levels "no","yes": 2 2 1 1 2 1 1 1 2 1 ...
+mean(wage) # menghitung nilai rata-rata upah pada data CPS1985
+# [1] 9.024064
+var(wage) # menghitung nilai ragam upah pada data CPS1985
+# [1] 26.41032
+sd(wage) # menghitung simpangan baku upah pada data CPS1985
+# [1] 5.139097
+summary(wage) # menampilkan kesimpulan data upah
+#    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+#   1.000   5.250   7.780   9.024  11.250  44.500
+```
+---
+
+```r
+par(mfrow=c(1,2))
+hist(wage, freq = FALSE, col="#b091c3")
+hist(log(wage), freq = FALSE, col="#91c3b0")
+lines(density(log(wage)), col = "#ff0000")
+```
+
+&lt;img src="sesi1_files/figure-html/unnamed-chunk-7-1.png" width="504" style="display: block; margin: auto;" /&gt;
+---
+
+```r
+summary(occupation)
+#     worker  technical   services     office      sales management 
+#        156        105         83         97         38         55
+pekerjaan &lt;- table(occupation)
+prop.table(pekerjaan)
+# occupation
+#     worker  technical   services     office      sales management 
+# 0.29213483 0.19662921 0.15543071 0.18164794 0.07116105 0.10299625
+par(mfrow=c(1,2))
+barplot(pekerjaan, col="khaki3") # membuat barplot data pekerjaan
+pie(pekerjaan) # membuat pie chart data pekerjaan
+```
+
+&lt;img src="sesi1_files/figure-html/unnamed-chunk-8-1.png" width="504" style="display: block; margin: auto;" /&gt;
+---
+
+```r
+xtabs(~ gender + occupation, data = CPS1985)
+#         occupation
+# gender   worker technical services office sales management
+#   male      126        53       34     21    21         34
+#   female     30        52       49     76    17         21
+par(mfrow=c(1,1))
+plot(gender ~ occupation, data = CPS1985, col=c("blue", "gold"))
+```
+
+&lt;img src="sesi1_files/figure-html/unnamed-chunk-9-1.png" width="504" style="display: block; margin: auto;" /&gt;
+---
+class: inverse, right, bottom
+
+# Kso'on, find me at...
+&lt;hr width="45%" align="right" size="0.3" color="orange"&gt;&lt;/hr&gt;
+
+[&lt;i class="fa fa-twitter fa-lg" style="color:#99052f"&gt;&lt;/i&gt; &lt;span style="color:#fc911e"&gt; @t_hlb &lt;/span&gt;](https://twitter.com/t_hlb)
+[&lt;i class="fas fa-blog" style="color:#fc911e"&gt;&lt;/i&gt;&lt;span style="color:#99052f"&gt; bangtedy.github.io&lt;/span&gt;](https://bangtedy.github.io)
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="conf/js/gifffer.min.js"></script>
+<script src="conf/js/style-macros.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Tedy Herlambang/ekonometrika</title>
+    <meta charset="utf-8" />
+    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <meta name="citation_title" content="Regresi Linier"/>
+    <meta name="citation_author" content="Tedy Herlambang"/>
+    <meta name="citation_publication_date" content="2021"/>
+    <meta name="citation_isbn" content=""/>
+    <link href="libs/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view-0.2.6/tile-view.js"></script>
+    <link href="libs/animate.css-3.7.2/animate.xaringan.css" rel="stylesheet" />
+    <link href="libs/tachyons-4.12.0/tachyons.min.css" rel="stylesheet" />
+    <link href="libs/xaringanExtra-extra-styles-0.2.6/xaringanExtra-extra-styles.css" rel="stylesheet" />
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"x8eed029eabe491b8dfec22e28da2473","expires":1}</script>
+    <script src="libs/himalaya-1.1.0/himalaya.js"></script>
+    <script src="libs/js-cookie-3.0.0/js.cookie.js"></script>
+    <link href="libs/editable-0.2.6/editable.css" rel="stylesheet" />
+    <script src="libs/editable-0.2.6/editable.js"></script>
+    <link href="libs/panelset-0.2.6/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset-0.2.6/panelset.js"></script>
+    <script src="libs/fabric-4.3.1/fabric.min.js"></script>
+    <link href="libs/xaringanExtra-scribble-0.0.1/scribble.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-scribble-0.0.1/scribble.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', function() { window.xeScribble = new Scribble({"pen_color":["#FF0000"],"pen_size":3,"eraser_size":30,"palette":[]}) })</script>
+    <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+    <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/v4-shims.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+    <!--hauisdhah087hbdu1h0781gd10gdasdgh0172gd1d8h0781dgiqubsdoqusgd9712gdqiudh917gdqiuhxb0182gd12gs9712g-->
+    <link rel="stylesheet" href="conf/css/style.css" type="text/css" />
+    <link rel="stylesheet" href="conf/css/fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+
+class: middle, title-slide
+
+&lt;!-- top logo (comment to remove or edit on `conf/css/style.css:23`) --&gt;
+&lt;div class="lab-logo"&gt;&lt;/div&gt;
+&lt;!-- &lt;div class="uni-logo"&gt;&lt;/div&gt; --&gt;
+
+# Regresi Linier
+
+&lt;hr width="100%" align="left" size="1.3" color="gold"&gt;&lt;/hr&gt;
+
+## &lt;span style="color:gold"&gt;Ekonometrika Sesi 2&lt;/span&gt;
+
+### Tedy Herlambang .small[&lt;br&gt; ]
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+[&lt;i class="fas fa-blog" style="color:#e7e8e2"&gt;&lt;/i&gt; bangtedy](https://bangtedy.github.io)
+
+[&lt;i class="fa fa-twitter fa-lg" style="color:#e7e8e2"&gt;&lt;/i&gt; @t_hlb](https://twitter.com/t_hlb)
+
+---
+
+# Capaian Pembelajaran
+
+1. Menjelaskan ide dasar regresi
+2. Menjelaskan asumsi-asumsi OLS
+3. Menentukan estimator OLS yang BLUE
+4. Menentukan ketepatan estimator OLS dan kebaikan regresi metode OLS
+5. Menjelaskan arti koefisien regresi
+6. Menjelaskan teknik variabel dummy dan mengartikan koefisiennya.
+
+---
+
+# Pembelajaran Sesi sebelumnya
+
+Orang ekonomi seringkali tertarik menganalisis hubungan antara kuantitas berbeda:
+
+- Hubungan antara tingkat pendapatan rumah tangga dengan konsumsinya
+- Hubungan antara gaji seseorang dengan pendapatannya
+- Hubungan antara tingkat bunga jangka panjang dengan jangka pendek
+
+Ekonometrika mengkuantifikasi hubungan ini dengan menggunakan:
+
+- Data yang tersedia
+- Menggunakan teknik statistika
+- Menginterpretasikan atau mengeksploitasi hasil secara tepat.
+
+&gt; Ekonometrika: interaksi antara teori ekonomi, data dan metode statistika.
+Inilah yang menjadi tantangan sekaligus menariknya ekonometrika!
+
+---
+class: center, middle
+
+&gt; &lt;span style="color:gold"&gt;‘Econometrics is much easier without data’&lt;/span&gt;
+
+&gt; &lt;span style="color:blue"&gt;Belajar ekonometrika seperti belajar naik sepeda: praktik sangat penting&lt;/span&gt;
+
+&gt; &lt;span style="color:brown"&gt;Praktik sangat krusial dalam proses memahami berbagai metode, bagaimana dan kapan menggunakan metode-metode itu, yang benar/salah.&lt;/span&gt;
+
+---
+
+# Regresi Linier Sederhana
+
+- Kombinasi model regresi linier dengan *Ordinary Least Squares (OLS)* menjadi batu loncatan di dalam ekonometrika
+
+- Regresi menjadi alat yang paling penting yang dipakai ekonomi untuk memahami hubungan antara dua atau lebih variabel.
+    + Misalkan variabel-variabel tingkat pengangguran dan suku bunga, pasokan uang, inflasi, nilai tukar, neraca perdagangan, dimana hubungan antara variabel-variabel in kompleks. 
+
+---
+# Seorang mahasiswa mencoba membuat model harga rumah
+
+- Hal-hal apa saja yang mempengaruhi harga rumah:
+    + luas rumah,
+    + jumlah kamar,
+    + luas tanah,
+    + lokasi rumah (dekat dengan sekolah, tempat ibadah, jalan tol, dll),
+    + jumlah kamar mandi (mungkin)
+    + dll
+    
+---
+# Notasi Teoritis
+
+`$$Y=f(X_1,X_2,X_i,..., \epsilon),$$`
+- Y: variabel dependen,
+- `\(X_1, X_2, . . ., X_i\)`: variabel variabel independen,
+- `\(\epsilon\)`: residu dari model (sebagian dari variabilitas dari variabel dependen yang tidak dijelaskan oleh model).
+
+Jika diasumsikan hubungan antar variabel itu linier maka:
+
+`$$Y=\beta_0 + \beta_1X_1 + \beta_2X_2+ ... \beta_iX_i + \epsilon,$$`
+- `\(\beta_0, \beta_1, \beta_2\)`: koefisien model/parameter struktural yang mengkuantifikasi arah dan kekuatan hubungan statistik antara variabel independen dan dependen.
+- `\(\epsilon\)`: residu dari model 
+---
+# Catatan
+- Jika di dalam aktualitas kita bisa mengetahui nilai-nilai `\(\beta_0, \beta_1, \beta_2\)`, maka kita akan tahu hubungan antara Y dengan `\(X_i\)`.
+
+- Di dalam praktik, informasi ini tidak kita miliki
+
+- Jika di dalam model regresi hubungan antara Y dengan X memang linier, di dunia sebenarnya, kita tidak akan pernah menemukan bahwa data terletak persis pada garis lurus.
+- Model regresi selalu hanya merupakan aproksimasi/pendekatan dari hubungan yang sebenarnya (hubungan yang sebenarnya mungkin saja berbeda dari pendekatan implisit model regresi linier).
+
+- Faktor kesalahan pengukuran membuat data tersebar dekat tetapi tidak persis berada di garis regresi.
+
+---
+# Sebuah model pasti mengandung kesalahan
+
+- *missing variables* (atau karena kita tidak bisa mengamatinya)
+- kesulitan mengukur, mengumpulkan atau bahkan data tidak mungkin dapat dikumpulkan
+- penghilangan variabel ini dari model regresi membuat model mengandung kesalahan `\(\epsilon\)`.
+
+---
+
+# Prosedur Membangun Model Regresi&lt;sup&gt;*&lt;/sup&gt;:
+1. Menentukan variabel dependen yang perilakunya ingin dijelaskan di dalam model.
+2. Menentukan kandidat variabel independen yang relevan (variabel independen yang diperkirakan memiliki hubungan statistik dan teoritis dengan variabel dependen). 
+3. Analisis pendahuluan dan *plotting* data (cek pencilan data, data yang hilang, salah input dll) 
+4. Membuang calon-calon variabel dependen yang *redundant* atau tidak signifikan dengan cara:
+    + Metode statistik (e.g., the procedure of “general to speciﬁc modeling”).
+    + Teori ekonomi, pendapat ahli atau penilain subyektif
+5. Estimasi final parameter model
+6. Verifikasi kebenaran dan kecocokan model dengan data aktual
+7. Penerapan model yang diperoleh
+
+---
+
+# Elemen-elemen Dasar Model Regresi Linier
+Koefisien Model:
+- Intersep/konstanta: nilai yang diharapkan dari variabel dependen jika nilai variabel independen sama dengan nol. Perpotongan garis regresi dengan sumbu axis.
+- Koefisien kemiringan/slope: kuantifikasi arah dan ukuran dampak variabel independen tertentu terhadap variabel dependen.
+
+Standard errors of individual structural parameters
+
+---
+
+# Bagaimana menentukan signifikansi statistik dari masing-masing koefisien model regresi
+Cek t-statistics of individual coefﬁcients
+- Dihitung dengan membagi koefisien dengan standar errornya. 
+
+---
+# Koefisien Determinasi `\(R^2\)`
+
+- Mengukur goodness of ﬁt dari model dibandingkan dengan data aktual.
+- R-squared equaling zero artinya:
+- R-squared equaling unity artinya:
+- Mungkinkan di dalam riset ekonomi mendapatkan `\(R^2\)` sama dengan 0 atau 1?
+
+Koefisien Determinasi yang Disesuaikan (the adjusted R-squared)
+---
+# Evaluasi Regresi dan Model
+- Normality of errors.
+- Homoscedasticity of Errors.
+- Absence of Outlying
+
+---
+# [Kasus 1: Model Pengeluaran Pangan](https://rdrr.io/github/ccolonescu/PoEdata/man/food.html)
+
+**Deskripsi Kasus**
+
+Data frame terdiri dari 40 pengamatan pada dua variabel yaitu: 
+- food_exp: weekly food expenditure in $
+- income: weekly income in $100
+- Data ini bisa dipanggil dari **PoEdata** R library.
+- Kita akan melihat pengaruh kenaikan pendapatan terhadap kenaikan pengeluaran pangan per minggu: 
+
+`$$food-exp=\beta_1 + \beta_2income + e$$`
+---
+
+# Data bisa dipanggil dari PoEdata package, dan kita plot
+
+
+```r
+library(PoEdata)
+data(food)
+attach(food)
+plot(income, food_exp)
+```
+
+&lt;img src="sesi2_files/figure-html/plot-food-1.png" width="504" style="display: block; margin: auto;" /&gt;
+---
+Estimasi model
+
+```r
+(summary (lm(food_exp ~ income, data = food)))
+# 
+# Call:
+# lm(formula = food_exp ~ income, data = food)
+# 
+# Residuals:
+#      Min       1Q   Median       3Q      Max 
+# -223.025  -50.816   -6.324   67.879  212.044 
+# 
+# Coefficients:
+#             Estimate Std. Error t value Pr(&gt;|t|)    
+# (Intercept)   83.416     43.410   1.922   0.0622 .  
+# income        10.210      2.093   4.877 1.95e-05 ***
+# ---
+# Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+# 
+# Residual standard error: 89.52 on 38 degrees of freedom
+# Multiple R-squared:  0.385,	Adjusted R-squared:  0.3688 
+# F-statistic: 23.79 on 1 and 38 DF,  p-value: 1.946e-05
+```
+---
+
+# Sehingga model yang diperoleh adalah:
+
+`$$food-exp = 83.416 +  10.210 income$$`
+---
+# Latihan: Perhatikan halaman 2.23 Tabel 2.1.1
+Anda diminta menghitung regresi sederhana besarnya pengaruh pengeluaran iklan terhadap volume penjualan. Datanya adalah sebagai berikut:
+
+
+
+
+
+
+&lt;table class=" lightable-classic table table-striped" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto; font-size: 24px; margin-left: auto; margin-right: auto;"&gt;
+&lt;caption style="font-size: initial !important;"&gt;&lt;/caption&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:right;"&gt; perusahaan &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; penjualan &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; iklan &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 100 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 20 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 250 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 60 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 500 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 15 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 100 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 80 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 750 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 6 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 85 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 800 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 7 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 50 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 450 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 8 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 40 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 300 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+---
+# Plot Data Penjualan dan Pengeluaran Iklan
+.pull-left[
+
+
+```r
+plot(iklan$iklan, iklan$penjualan,
+ylim=c(0, max(iklan$penjualan)),
+xlim=c(0, max(iklan$iklan)),
+xlab="Pengeluaran iklan dalam juta rupiah",
+ylab="Volume penjualan dalam juta unit",
+type = "p")
+```
+]
+
+.pull-right[
+
+![](sesi2_files/figure-html/plot-iklan-1.png)
+]
+
+---
+# Estimasi Model
+.pull-left[
+
+```r
+model.iklan &lt;- lm(penjualan~iklan, data = iklan)
+plot(iklan$iklan, iklan$penjualan,
+xlab="Pengeluaran iklan dalam juta rupiah",
+ylab="Volume penjualan dalam juta unit",
+type = "p")
+abline(model.iklan, col="blue")
+```
+]
+
+.pull-right[
+
+![](sesi2_files/figure-html/plot-estimasi-1.png)
+]
+---
+
+```r
+summary(model.iklan)
+# 
+# Call:
+# lm(formula = penjualan ~ iklan, data = iklan)
+# 
+# Residuals:
+#     Min      1Q  Median      3Q     Max 
+# -9.7414 -0.8892  0.7358  2.0880  5.5994 
+# 
+# Coefficients:
+#             Estimate Std. Error t value Pr(&gt;|t|)    
+# (Intercept) 5.082276   3.881881   1.309    0.238    
+# iklan       0.098637   0.006541  15.079 5.36e-06 ***
+# ---
+# Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+# 
+# Residual standard error: 5.333 on 6 degrees of freedom
+# Multiple R-squared:  0.9743,	Adjusted R-squared:   0.97 
+# F-statistic: 227.4 on 1 and 6 DF,  p-value: 5.362e-06
+```
+---
+# Kasus: Gaji Karyawan di Indonesia
+Misalkan Anda ingin membuat model tentang faktor-faktor yang mempengaruhi gaji karyawan di Indonesia.
+
+1. Variabel-variabel independen apa yang akan Anda masukkan ke dalam model?
+2. Bagaimana perkiraan Anda tentang arah hubungan dan kekuatan pengaruh dari variabel-variabel pada no.1?
+3. Bagaimana Anda akan mengumpulkan data variabel pada pertanyaan no.1?
+
+---
+# Wooldridge, Contoh 2.3: Gaji CEO dan Return on Equity (ROE)
+
+Pada kasus ini, penulis membuat model pengaruh ROE terhadap gaji yang diterima CEO. Model yang diduga adalah `\(gaji = \beta_0 + \beta_1 roe + e\)`. Persamaan regresi linier dengan OLS yang didapatkan adalah `\(\widehat{gaji}= 963.1913 + 18.50119 roe\)`.
+
+- Asumsikan bahwa persamaan diatas sudah tepat dan signifikan. Jelaskan makna dari koefisien-koefisien yang didapat!
+- Jika ROE sebuah perusahaan adalah sebesar 10 satuan, berapa gaji yang akan didapat oleh CEO-nya?
+
+---
+Halaman ini memang sengaja dibiarkan kosong.
+
+---
+class: inverse, right, bottom
+
+# Kso'on, find me at...
+&lt;hr width="45%" align="right" size="0.3" color="orange"&gt;&lt;/hr&gt;
+
+[&lt;i class="fa fa-twitter fa-lg" style="color:#fc911e"&gt;&lt;/i&gt; &lt;span style="color:#fc911e"&gt; @t_hlb &lt;/span&gt;](https://twitter.com/t_hlb)
+[&lt;i class="fas fa-blog" style="color:#fc911e"&gt;&lt;/i&gt;&lt;span style="color:#fc911e"&gt; bangtedy.github.io&lt;/span&gt;](https://bangtedy.github.io)
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="conf/js/gifffer.min.js"></script>
+<script src="conf/js/style-macros.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

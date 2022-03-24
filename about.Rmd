@@ -1,0 +1,100 @@
+---
+title: "Ekonometrika"
+description: |
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Apakah Ekonometrika itu?
+
+- Kebenaran teori ekonomi perlu dibuktikan secara empiris melalui riset
+- Ekonometrika adalah mata kuliah terapan yang digunakan dalam riset ekonomi.
+- Ekonometrika mencakup seperangkat teknik yang memungkinkan pengukuran dan analisis fenomena ekonomi serta memprediksi tren ekonomi masa depan.
+- Secara harfiah ekonometrika berarti 'pengukuran ekonomi' yaitu pengukuran dan analisis kuantitatif fenomena ekonomi dan bisnis aktual.
+- Ekonometrika mencoba mengkuantifikasi realitas ekonomi dan menjembatani 'gap' antara teori ekonomi yang abstrak dan dunia nyata kegiatan manusia (Studenmund, 2017)
+
+---
+
+# Cara Belajar Ekonometrika
+
+- Mahasiswa yang mengambil ekonometrika diasumsikan sudah mengambil mata kuliah Teori Mikroekonomi dan Makroekonomi, Matematika dan Statistika Dasar.
+
+> Belajar ekonometrika seperti belajar naik sepeda. Kita akan belajar lebih banyak jika mempraktikkannya dibandingkan dengan membaca buku saja.
+
+---
+
+# Cakupan Materi
+
+Mata kuliah ini akan menyajikan materi yang terbagi dalam sembilan modul yaitu: 
+1. Definisi, ruang lingkup, metodologi, dan dasar-dasar statistika untuk ekonometrika
+2. Analisis regresi dengan OLS
+3. Modeling regresi dan evaluasi regresi
+4. Asumsi OLS
+5. Regresi dengan variabel dependen kualitatif
+6. Model regresi dinamis
+7. Model sistem persamaan
+8. Regresi data time series
+9. Regresi data panel
+
+---
+
+# Strategi Tutorial
+
+- Mahasiswa belajar aktif, 
+- Mahasiswa belajar mandiri, 
+- Mahasiswa belajar kooperatif dan kolaboratif, 
+- *Self-regulated learning*
+- Tutor adalah fasilitator, motivator, fasilitator, evaluator dan mitra pembelajaran
+- Mahasiswa aktif berpartisipasi dalam tutorial dengan berbagi informasi, pengalaman pribadi dengan cara brainstorming, Kooperatif, Kolaboratif, diskusi kelompok;
+- Mahasiswa secara aktif, mandiri dan tidak tergantung pada tutor untuk mengembangkan potensi dirinya untuk memiliki kekuatan spiritual keagamaan, pengendalian diri, kepribadian, kecerdasan, akhlak mulia, serta keterampilan yang diperlukan dirinya, masyarakat, bangsa dan negara. 
+
+---
+
+# Belajar Mandiri
+
+- Belajar mandiri dalam banyak hal ditentukan oleh kemampuan belajar secara efisien dan efektif. 
+- Kemampuan belajar bergantung pada kecepatan membaca dan kemampuan memahami isi bacaan. 
+- Untuk dapat belajar mandiri secara efisien dan efektif, mahasiswa dituntut memiliki disiplin diri, inisiatif, dan motivasi belajar yang kuat.
+- Mahasiswa juga dituntut untuk dapat mengatur waktunya dengan efisien, sehingga dapat belajar secara teratur berdasarkan jadwal belajar yang ditentukan sendiri.
+
+---
+
+# Cara Mempelajari Modul
+
+- Mempelajari tinjauan mata kuliah
+- Membaca sepintas, kemudian mengulangi dengan lebih cermat
+- Membuat catatan / rangkuman 
+- Memberi tanda pada konsep penting 
+- Menyaksikan bahan ajar non cetak
+- Mengerjakan latihan dan  tes formatif
+- Memanfaatkan kegiatan tutorial dengan menanyakan materi yang belum dipahami
+- Aktif berdiskusi pada saat kegiatan tutorial
+
+---
+
+# Rancangan Aktivitas Tutorial:
+
+- [Sesi 1: Ekonometrika: Pendahuluan](https://bangtedy.github.io/ekonometrika/sesi1/sesi1#1)
+- [Sesi 2: Regresi Linier](https://bangtedy.github.io/ekonometrika/sesi2/sesi2#1)
+- [Sesi 3: Evaluasi Regresi](https://bangtedy.github.io/ekonometrika/sesi3/sesi3#1)
+- [Sesi 4: Uji Asumsi Ordinary Least Squares](https://bangtedy.github.io/ekonometrika/sesi4/sesi4#1)
+- [Sesi 5: Regresi dengan Respons Kualitatif](https://bangtedy.github.io/ekonometrika/sesi5/sesi5#1)
+- [Sesi 6: Model Dinamis](https://bangtedy.github.io/ekonometrika/sesi6/sesi6#1)
+- [Sesi 7: Persamaan Simultan](https://bangtedy.github.io/ekonometrika/sesi7/sesi7#1)
+- [Sesi 8: Ekonometrika Time Series dan Regresi Data Panel](https://bangtedy.github.io/ekonometrika/sesi8/sesi8#1)
+
+---
+
+### Rujukan Utama:
+
+- Widarjono, Agus. 2018. Buku Materi Pokok (BMP) ESPA4312 Ekonometrika, Edisi 2. Penerbit Universitas Terbuka, Tangerang Selatan.
+
+### Rujukan Tambahan:
+
+- Studenmund, A.H. 2016. Using Econometrics : A Practical Guide. Seventh edition. Pearson
+- Wooldridge, Jeffrey M. 2020. Introductory Econometrics: A Modern Approach, Seventh Edition. Cengage.
+
+

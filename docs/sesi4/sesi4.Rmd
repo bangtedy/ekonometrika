@@ -1,0 +1,193 @@
+---
+title: Tedy Herlambang/ekonometrika
+output:
+  xaringan::moon_reader:
+  #  self_contained: TRUE
+    includes:
+      in_header: conf/style-header.html
+    lib_dir: libs
+    seal: false
+    css: ["default", "conf/css/style.css", "conf/css/fonts.css"]
+    nature:
+      beforeInit: ["conf/js/gifffer.min.js", "conf/js/style-macros.js"]
+      ratio: 16:9
+---
+
+```{r, echo = FALSE}
+# google scholar metadata
+library(metathis)
+
+if (knitr::is_html_output()) {
+  meta() |> 
+    meta_google_scholar(
+      title = "Uji Asumsi Ordinary Least Squares",
+      author = "Tedy Herlambang",
+      publication_date = "2021",
+      isbn = ""
+    ) 
+}
+```
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(
+  comment = "#",
+  #cache = TRUE,
+  collapse = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  fig.width = 7,
+  fig.height = 5.25,
+  fig.align = 'center',
+  fig.retina = 3
+)
+
+# base plot layout
+mypar = list(mar = c(3,3,0.5,0.5), mgp = c(1.5, 0.3, 0), tck = -.008)
+
+# xaringan Extra
+xaringanExtra::use_xaringan_extra(c("tile_view", "animate_css", "tachyons"))
+xaringanExtra::use_extra_styles(
+  hover_code_line = TRUE,         #<<
+  mute_unhighlighted_code = TRUE  #<<
+)
+xaringanExtra::use_editable(expires = 1)
+xaringanExtra::use_panelset()
+xaringanExtra::use_scribble()
+```
+class: middle, title-slide
+
+<!-- top logo (comment to remove or edit on `conf/css/style.css:23`) -->
+<div class="lab-logo"></div>
+<!-- <div class="uni-logo"></div> -->
+
+# Uji Asumsi Ordinary Least Squares
+
+<hr width="100%" align="left" size="0.3" color="yellow"></hr>
+
+## <span style="color:yellow">Ekonometrika Sesi 4</span>
+
+### Tedy Herlambang .small[<br> ]
+
+<br><br><br><br><br>
+[<i class="fas fa-blog" style="color:#e7e8e2"></i> bangtedy.github.io](https://bangtedy.github.io)
+
+[<i class="fa fa-twitter fa-lg" style="color:#e7e8e2"></i> @t_hlb](https://twitter.com/t_hlb)
+
+---
+
+# Pendahuluan
+
+Metode OLS jika terpenuhi asumsinya akan menghasilkan estimator yang *best linear ubiased estimator*(**BLUE**). Modul 4 ini akan mempelajari asumsi OLS, bagaimana mendeteksi asumsi OLS dan bagaimana cara mengatasi asumsi OLS jika tidak terpenuhi.
+
+Setelah mempelajari modul 4 ini diharapkan Anda mampu melakukan uji asumsi metode OLS dan mengatasi jika asumsi tidak terpenuhi. Secara khusus, Anda diharapkan mampu menguji dan mengatasi masalah:
+
+1. heteroskedastisitas
+2. autokorelasi
+3. multikolinieritas
+4. normalitas
+5. linieritas
+
+---
+
+class: middle, center, inverse
+
+# HETEROSKEDASTISITAS
+<hr width="100%" align="left" size="0.3" color="gold"></hr>
+
+
+---
+# Heteroskedastisitas: 
+- *when error terms doesn't have the same variance*
+- Sering muncul pada data cross section
+- standard error OLS tidak bisa lagi dipercaya kebenarannya karena varian tidak minimum
+- evaluasi hasil regresi dengan t dan F menjadi tidak akurat
+---
+# MENDETEKSI HETEROSKEDASTISITAS
+
+1. Metode Park dan Glejser
+2. Metode Korelasi Spearman
+3. Metode White
+
+<span style="color:#c391a4">.font100[Praktek mendeteksi heteroskedastisitas]</span>
+---
+# MENGATASI HETEROSKEDASTISITAS
+
+1. Metode White
+2. Mengetahui Pola Heteroskedastisitas
+
+<span style="color:#91c3b0">.font100[Praktek mengatasi heteroskedastisitas]</span>
+---
+class: middle, center, inverse
+
+# AUTOKORELASI
+<hr width="100%" align="left" size="0.3" color="gold"></hr>
+
+
+---
+# MENDETEKSI MASALAH AUTOKORELASI
+
+1. Metode Durbin-Watson (DW)
+2. Metode Breusch-Godfrey
+
+<span style="color:#91c397">.font100[Praktek mendeteksi autokorelasi]</span>
+---
+# MENGATASI MASALAH AUTOKORELASI
+1. Menguji Kesalahan Spesifikasi Model
+2. Model Diferensi Tingkat Pertama
+3. Estimasi dengan model Autoregressive (AR)
+4. Metode Newey, Whitney dan Kenneth
+
+<span style="color:#c391bd">.font100[Praktek mengatasi autokorelasi]</span>
+---
+
+class: middle, center, inverse
+
+# MULTIKOLINIERITAS, NORMALITAS DAN LINIERITAS
+
+<hr width="100%" align="left" size="0.3" color="gold"></hr>
+
+---
+# MULTIKOLINIERITAS
+
+1. Deteksi Multikolinieritas
+  - Korelasi parsial antarvariabel independen
+  - Regresi auxiliary
+2. Metode Deteksi Klien
+3. Variance Inflation Factor dan Tolerance
+
+<span style="color:#f14c1b">.font100[Praktek mendeteksi multikolinieritas]</span>
+---
+# MENGATASI MASALAH MULTIKOLINIERITAS
+1. Menghilangkan Variabel Independen
+2. Transformasi Variabel
+3. Penambahan Data
+
+<span style="color:#1bc0f1">.font100[Praktek mengatasi multikolinieritas]</span>
+---
+
+# UJI NORMALITAS
+
+---
+# UJI KOLMOGOROV-SMIRNOV
+
+---
+# UJI JARQUE-BERA
+
+<span style="color:#1bc0f1">.font100[Praktek menguji normalitas dengan uji Jarque-Bera]</span>
+
+---
+# UJI LINIERITAS RAMSEY
+
+<span style="color:#f11b55">.font100[Praktek Uji Linieritas Ramsey]</span>
+
+---
+
+class: inverse, right, bottom
+
+Matur nuwun, find me at...
+
+<hr width="25%" align="right" size="0.3" color="#f11b55"></hr>
+
+[<i class="fa fa-twitter fa-lg" style="color:#fc911e"></i> <span style="color:#fc911e"> @t_hlb </span>](https://twitter.com/t_hlb)
+
+[<i class="fas fa-blog" style="color:#fc911e"></i><span style="color:#fc911e"> bangtedy.github.io</span>](https://bangtedy.github.io)

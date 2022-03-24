@@ -1,0 +1,158 @@
+---
+title: Tedy Herlambang/ekonometrika
+output:
+  xaringan::moon_reader:
+    chakra: libs/remark-latest.min.js
+  #  self_contained: TRUE
+    includes:
+      in_header: conf/style-header.html
+    lib_dir: libs
+    seal: false
+    css: ["default", "conf/css/style.css", "conf/css/fonts.css"]
+    nature:
+      beforeInit: ["conf/js/gifffer.min.js", "conf/js/style-macros.js"]
+      ratio: 16:9
+---
+
+
+```{r, echo = FALSE}
+# google scholar metadata
+library(metathis)
+
+if (knitr::is_html_output()) {
+  meta() |> 
+    meta_google_scholar(
+      title = "Ekonometrika Time Series dan Regresi Data Panel",
+      author = "Tedy Herlambang",
+      publication_date = "2021",
+      isbn = ""
+    ) 
+}
+```
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(
+  comment = "#",
+  #cache = TRUE,
+  collapse = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  fig.width = 7,
+  fig.height = 5.25,
+  fig.align = 'center',
+  fig.retina = 3
+)
+
+# base plot layout
+mypar = list(mar = c(3,3,0.5,0.5), mgp = c(1.5, 0.3, 0), tck = -.008)
+
+# xaringan Extra
+xaringanExtra::use_xaringan_extra(c("tile_view", "animate_css", "tachyons"))
+xaringanExtra::use_extra_styles(
+  hover_code_line = TRUE,         #<<
+  mute_unhighlighted_code = TRUE  #<<
+)
+xaringanExtra::use_editable(expires = 1)
+xaringanExtra::use_panelset()
+xaringanExtra::use_scribble()
+```
+class: middle, title-slide
+
+<!-- top logo (comment to remove or edit on `conf/css/style.css:23`) -->
+<div class="lab-logo"></div>
+<!-- <div class="uni-logo"></div> -->
+
+# Ekonometrika Time Series dan Regresi Data Panel
+
+<hr width="100%" align="left" size="0.3" color="gold"></hr>
+
+## <span style="color:gold">Ekonometrika Sesi 8</span>
+
+### Tedy Herlambang .small[<br> ]
+
+<br><br><br><br><br>
+[<i class="fas fa-blog" style="color:#e7e8e2"></i> bangtedy.github.io](https://bangtedy.github.io)
+
+[<i class="fa fa-twitter fa-lg" style="color:#e7e8e2"></i> @t_hlb](https://twitter.com/t_hlb)
+
+---
+
+# Pendahuluan
+
+Modul 8 Ekonometrika time series: Anda mampu mengestimasi model ekonometrika time series dengan menggunakan ECM dan VAR
+
+Modul 9 Regresi data panel: Anda mampu melakukan regresi data panel, memilih regresi data panel yang tepat dan mengestimasi model regresi data panel.
+
+
+---
+
+class: middle, center, inverse
+
+# Modul 8: EKONOMETRIKA TIME SERIES
+<hr width="100%" align="left" size="0.3" color="gold"></hr>
+
+---
+
+# MODEL KOREKSI KESALAHAN (Error correction model/ECM):
+
+1. Uji stasionaritas data
+  - Grafik
+  - Uji ADF
+2. Jika data stasioner
+  - model regresi data level
+3. Jika data tidak stasioner
+  - Diferensi data
+4. Tidak Terjadi kointegrasi
+  - Regresi bentuk diferensi
+5. Terjadi kointegrasi
+  - ECM  
+---
+
+# Model Vector Autoregression (VAR)
+
+1. Uji stasionaritas data
+  - Grafik
+  - Uji ADF
+2. Jika data stasioner
+  - VAR bentul level
+3. Jika data tidak stasioner
+  - Diferensi data
+4. Tidak Terjadi kointegrasi
+  - VAR bentuk diferensi
+5. Terjadi kointegrasi
+  - VECM
+  
+---
+
+
+class: middle, center, inverse
+
+# Modul 9: REGRESI DATA PANEL
+<hr width="100%" align="left" size="0.3" color="red"></hr>
+
+---
+
+# Regresi Data Panel
+
+1. Tiga Pendekatan:
+  - Common effect --> metode OLS, data digabung
+  - Fixed effect --> slope konstan, intersep beda
+  - Random effect 
+  
+2. Pilih dari 3 model yang terbaik menjelaskan data dengan uji estimasi regresi data panel 
+  - Uji Signifikansi Fixed Effect --> OLS atau FE -- > uji F
+  - Uji signifikansi Random Effect --> OLS atau RE --> uji LM
+  - Uji signifikansi FE atau RE --> uji Hausman
+  
+---
+
+
+class: inverse, right, bottom
+
+Matur nuwun, find me at...
+
+<hr width="25%" align="right" size="0.3" color="#f11b55"></hr>
+
+[<i class="fa fa-twitter fa-lg" style="color:#fc911e"></i> <span style="color:#fc911e"> @t_hlb </span>](https://twitter.com/t_hlb)
+
+[<i class="fas fa-blog" style="color:#fc911e"></i><span style="color:#fc911e"> bangtedy.github.io</span>](https://bangtedy.github.io)

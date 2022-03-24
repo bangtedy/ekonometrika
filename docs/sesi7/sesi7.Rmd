@@ -1,0 +1,261 @@
+---
+title: Tedy Herlambang/ekonometrika
+output:
+  xaringan::moon_reader:
+    chakra: libs/remark-latest.min.js
+  #  self_contained: TRUE
+    includes:
+      in_header: conf/style-header.html
+    lib_dir: libs
+    seal: false
+    css: ["default", "conf/css/style.css", "conf/css/fonts.css"]
+    nature:
+      beforeInit: ["conf/js/gifffer.min.js", "conf/js/style-macros.js"]
+      ratio: 16:9
+---
+
+
+```{r, echo = FALSE}
+# google scholar metadata
+library(metathis)
+
+if (knitr::is_html_output()) {
+  meta() |> 
+    meta_google_scholar(
+      title = "Persamaan Simultan",
+      author = "Tedy Herlambang",
+      publication_date = "2021",
+      isbn = ""
+    ) 
+}
+```
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(
+  comment = "#",
+  #cache = TRUE,
+  collapse = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  fig.width = 7,
+  fig.height = 5.25,
+  fig.align = 'center',
+  fig.retina = 3
+)
+
+# base plot layout
+mypar = list(mar = c(3,3,0.5,0.5), mgp = c(1.5, 0.3, 0), tck = -.008)
+
+# xaringan Extra
+xaringanExtra::use_xaringan_extra(c("tile_view", "animate_css", "tachyons"))
+xaringanExtra::use_extra_styles(
+  hover_code_line = TRUE,         #<<
+  mute_unhighlighted_code = TRUE  #<<
+)
+xaringanExtra::use_editable(expires = 1)
+xaringanExtra::use_panelset()
+xaringanExtra::use_scribble()
+```
+class: middle, title-slide
+
+<!-- top logo (comment to remove or edit on `conf/css/style.css:23`) -->
+<div class="lab-logo"></div>
+<!-- <div class="uni-logo"></div> -->
+
+# Persamaan Simultan
+
+<hr width="100%" align="left" size="0.3" color="gold"></hr>
+
+## <span style="color:gold">Ekonometrika Sesi 7</span>
+
+### Tedy Herlambang .small[<br> ]
+
+<br><br><br><br><br>
+[<i class="fas fa-blog" style="color:#e7e8e2"></i> bangtedy.github.io](https://bangtedy.github.io)
+
+[<i class="fa fa-twitter fa-lg" style="color:#e7e8e2"></i> @t_hlb](https://twitter.com/t_hlb)
+
+---
+
+# Pendahuluan
+
+Dengan mempelajari modul 7, Anda diharapkan dapat secara umum mampu mengidentifikasi dan mengestimasi persamaan simultan. Secara khusus Anda diharapkan mampu:
+
+1. Mengidentifikasi model persamaan simultan
+2. Mencari persamaan bentuk turunan (*reduced form*) 
+3. Mengidentifikasi persamaan simultan melalui order condition dan rank condition
+4. Mengestimasi persamaan simultan dengan metode indirect least squares (ILS) dan two-stage least squares (TSLS)
+5. Melakukan uji simultanitas dan uji eksogenitas 
+---
+
+class: middle, center, inverse
+
+# KB1: IDENTIFIKASI PERSAMAAN SIMULTAN
+<hr width="100%" align="left" size="0.3" color="gold"></hr>
+
+---
+
+# Basic Deﬁnitions
+
+- All econometric models covered so far have dealt with a single dependent variable and estimations of single equations. 
+- However, in modern world economics, interdependence is frequently encountered. 
+- Several dependent variables are determined simultaneously, therefore appearing both as dependent and explanatory variables in a set of different equations.
+
+---
+
+# Market Model
+$$
+\begin{aligned}
+Q^d_t &= β_1 + β_2P_t + β_3Y_t + u_{1t}  \dots \dots &(1)\\
+Q^s_t &= γ_1 + γ_2P_t + u_{2t}  \dots \dots \dots \dots &(2)\\
+Q^d_t &= Q^s_t  \dots \dots \dots \dots \dots \dots \dots \dots &(3)\\
+\end{aligned}
+$$
+- These equations are called structural equations of the simultaneous equations model
+- The coefficients β and γ are called structural parameters.
+- Because price and quantity are jointly determined, they are endogenous variables
+- Because income is not determined by the specified model, it is characterized as an exogenous variable. 
+- Reduced form equations can be obtained by solving for each of the endogenous variables in terms of the exogenous variables, the unknown parameters and the error terms.
+- Consequences of ignoring simultaneity --> OLS regression equation is biased
+
+---
+
+#The identiﬁcation problem
+
+- OLS can be applied to reduced form to obtain consistent and efficient estimations of parameters.
+- Can we obtain consistent estimates (the βs and the γs) by going back and solving for those parameters:
+  -  it is not possible to go back from the reduced form to the structural form --> under-identification;
+  -  it is possible to go back in a unique way --> exact identification; or
+  -  there is more than one way to go back --> over-identification.
+---
+
+# Conditions for identification
+
+1. The order condition
+2. The rank condition
+---
+
+# The order condition
+
+- G the number of endogenous variables in the system
+- M the number of variables missing from the equation under consideration (these can be endogenous, exogenous or lagged endogenous variables). 
+- Then the order condition states that:
+  - if M < G − 1, the equation is under-identified;
+  - if M = G − 1, the equation is exactly identified; and
+  - if M > G − 1, the equation is over-identified.
+
+- The order condition is necessary but not sufficient. 
+  - if this condition does not hold then the equation is not identified
+  - if it does hold we cannot be certain that it is identified, thus we still need to use the rank condition to conclude
+
+---
+
+# The rank condition
+
+- construct a table with a column for each variable and a row for each equation. 
+- For each equation put a $\checkmark$ in the column if the variable that corresponds to this column is included in the equation, otherwise put a 0.
+- This gives an array of $\checkmark$s and 0s for each equation.
+- Then, for a particular equation:
+
+  - delete the row of the equation that is under examination;
+  - write out the remaining elements of each column for which there is a zero in the equation under examination; and
+  - consider the resulting array: if there are at least G − 1 rows and columns that are not all zeros then the equation is identified; otherwise it is not identified.
+- The rank condition is necessary and sufficient, but the order condition is needed to indicate whether the equation is exactly identified or over-identified.
+
+---
+
+# Example of the identification procedure 1
+
+- Consider the demand and supply model described previously.
+- First produce a table with a column for each variable and a row for each of
+the three equations:
+
+|Persamaan | Qd |Qs| P|Y|
+|----|----|---|---|---|
+|Persamaan 1| $\checkmark$ | 0 | $\checkmark$ | $\checkmark$ |
+|Persamaan 2| 0 | $\checkmark$ | $\checkmark$ | 0 |
+|Persamaan 3| $\checkmark$ | $\checkmark$ | 0 | 0 |
+
+- Here we have three endogenous variables (Qd, Qs and P), so G = 3 and G − 1 = 2.
+- Now consider the order condition. 
+  - For the demand function the number of excluded variables is 1, so M = 1, and because M < G − 1 the demand function is not identified.
+  - For the supply function, M = 1 and because M = G − 1 the supply function is exactly identified.
+
+---
+
+# Example of the identification procedure 2
+
+- Proceeding with the rank condition we need to check only for the supply function (because we saw that the demand is not identified). 
+- The resulting array (after deleting the Qs and P columns and the Equation 2 line) will be given by:
+
+.pull-left[
+|Persamaan | Qd |Qs| P|Y|
+|----|----|---|---|---|
+|Persamaan 1| $\checkmark$ | 0 | $\checkmark$ | $\checkmark$ |
+|Persamaan 2| 0 | $\checkmark$ | $\checkmark$ | 0 |
+|Persamaan 3| $\checkmark$ | $\checkmark$ | 0 | 0 |
+]
+
+.pull-right[
+
+|Persamaan | Qd | Y |
+|----|---|---|
+|Persamaan 1| $\checkmark$ |  $\checkmark$ |
+|Persamaan 3| $\checkmark$ |  0 |
+]
+
+
+- Are there at least G−1 = 2 rows and columns that are not all zeros? 
+- The answer is ‘yes’, and therefore the rank condition is satisfied and the supply function is indeed exactly identified.
+
+---
+
+class: middle, center, inverse
+
+# KB2: ESTIMASI PERSAMAAN SIMULTAN
+<hr width="100%" align="left" size="0.3" color="gold"></hr>
+
+
+---
+
+# Estimation of simultaneous equation models
+
+- When an equation is not identified, such an estimation is not possible. 
+- In cases of exact identification or overidentification there are procedures that allow us to obtain estimates of the structural parameters. 
+- These procedures are different from simple OLS in order to avoid the
+simultaneity bias presented earlier.
+- In cases of exact identification the appropriate method is indirect least squares (ILS)
+- In cases of over-identified equations the appropriate method is the two-stage least squares (TSLS)
+
+---
+
+# The ILS method
+
+1. Find the reduced form equations.
+2. Estimate the reduced form parameters by applying simple OLS to the reduced form equations.
+3. Obtain unique estimates of the structural parameters from the estimates of the parameters of the reduced form equation in step 2.
+
+However, the ILS method is not commonly used, for two reasons:
+
+- most simultaneous equation models tend to be over-identified.
+- if the system has several equations, solving for the reduced form and then for the structural form can be very tedious. 
+- An alternative is the TSLS method.
+
+---
+
+# The TSLS method
+
+1. Regress each endogenous variable that is also a regressor on all the endogenous and lagged endogenous variables in the entire system by using simple OLS (this is equivalent to estimating the reduced form equations) and obtain the fitted values of the endogenous variables of these regressions $\hat Y$.
+2. Use the fitted values from stage 1 as proxies or instruments for the endogenous regressors in the original (structural form) equations.
+
+---
+
+class: inverse, right, bottom
+
+Matur nuwun, find me at...
+
+<hr width="25%" align="right" size="0.3" color="#f11b55"></hr>
+
+[<i class="fa fa-twitter fa-lg" style="color:#fc911e"></i> <span style="color:#fc911e"> @t_hlb </span>](https://twitter.com/t_hlb)
+
+[<i class="fas fa-blog" style="color:#fc911e"></i><span style="color:#fc911e"> bangtedy.github.io</span>](https://bangtedy.github.io)

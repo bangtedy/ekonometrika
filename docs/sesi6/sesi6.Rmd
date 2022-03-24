@@ -1,0 +1,206 @@
+---
+title: Tedy Herlambang/ekonometrika
+output:
+  xaringan::moon_reader:
+    chakra: libs/remark-latest.min.js
+  #  self_contained: TRUE
+    includes:
+      in_header: conf/style-header.html
+    lib_dir: libs
+    seal: false
+    css: ["default", "conf/css/style.css", "conf/css/fonts.css"]
+    nature:
+      beforeInit: ["conf/js/gifffer.min.js", "conf/js/style-macros.js"]
+      ratio: 16:9
+---
+
+
+```{r, echo = FALSE}
+# google scholar metadata
+library(metathis)
+
+if (knitr::is_html_output()) {
+  meta() |> 
+    meta_google_scholar(
+      title = "Model Dinamis",
+      author = "Tedy Herlambang",
+      publication_date = "2021",
+      isbn = ""
+    ) 
+}
+```
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(
+  comment = "#",
+  #cache = TRUE,
+  collapse = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  fig.width = 7,
+  fig.height = 5.25,
+  fig.align = 'center',
+  fig.retina = 3
+)
+
+# base plot layout
+mypar = list(mar = c(3,3,0.5,0.5), mgp = c(1.5, 0.3, 0), tck = -.008)
+
+# xaringan Extra
+xaringanExtra::use_xaringan_extra(c("tile_view", "animate_css", "tachyons"))
+xaringanExtra::use_extra_styles(
+  hover_code_line = TRUE,         #<<
+  mute_unhighlighted_code = TRUE  #<<
+)
+xaringanExtra::use_editable(expires = 1)
+xaringanExtra::use_panelset()
+xaringanExtra::use_scribble()
+```
+class: middle, title-slide
+
+<!-- top logo (comment to remove or edit on `conf/css/style.css:23`) -->
+<div class="lab-logo"></div>
+<!-- <div class="uni-logo"></div> -->
+
+# Model Dinamis
+
+<hr width="100%" align="left" size="0.3" color="gold"></hr>
+
+## <span style="color:gold">Ekonometrika Sesi 6</span>
+
+### Tedy Herlambang .small[<br> ]
+
+<br><br><br><br><br>
+[<i class="fas fa-blog" style="color:#e7e8e2"></i> bangtedy.github.io](https://bangtedy.github.io)
+
+[<i class="fa fa-twitter fa-lg" style="color:#e7e8e2"></i> @t_hlb](https://twitter.com/t_hlb)
+
+---
+
+# Pendahuluan
+
+- Kebijakan ekonomi dampaknya tidak instan, ada kelambanan (lag)
+- Model regresi yang memasukkan unsur lag disebut model dinamis
+
+Dengan mempeljari modul 6, Anda diharapkan dapat:
+
+1. Menjelaskan model autoregressive
+2. Membentuk model penyesuaian parsial, mengestimasi, mengevaluasi dan mengartikan arti koefisien regresi model penyesuaian parsial
+3. Membentuk parsial adjustment model (PAM) mengestimasi, mengevaluasi dan menratikan arti koefisien regresi model PAM
+4. Mengkaji autokorelasi jika model dalam bentuk autoregressive
+5. Membentuk, mengestimasi, mengevaluasi hasil model kausalitas Granger
+
+---
+
+class: middle, center, inverse
+
+# KB1: MODEL REGRESI DENGAN KELAMBANAN
+<hr width="100%" align="left" size="0.3" color="gold"></hr>
+
+
+---
+# Model Kelambanan
+
+- Pengaruh kebijakan fiskal dan moneter tidak instan --> perlu waktu 6-12 bulan
+- Kebijakan ekonomi $X_t$ mempunyai dampak ekonomi $Y_t$, $Y_{t+1}$, $Y_{t+2}$, dst.
+- Atau jika dibalik: variabel dependen $Y_t$ dipengaruhi oleh $X_t$, $X_{t-1}$, $X_{t-2}$, dst.
+- Model yang memasukkan nilai current dan juga kelambanan disebut model kelambanan/*distributed-lag model*:
+
+$$Y_t = \alpha+\beta_0X_t+\beta_1X_{t-1}+\beta_2X_{t-2}+...+\beta_kX_{t-k}+\epsilon$$
+
+---
+
+# Model Kelambanan Geometrik
+
+- Dibentuk dari pendekatan matematis dimana setiap variabel ekonomi akan mempunyai pengaruh yang semakin mengecil
+
+---
+# Model Penyesuaian Adaptif
+- Nilai harapan dimasa mendatang hanya tergantung dari informasi periode sebelumnya
+
+---
+# Partial Adjustment Model (PAM)
+- Dibangun atas dasar teori penyesuaian persediaan (*stock*)
+- Persediaan optimal merupakan perbedaan persediaan yang diinginkan dan persediaan periode sebelumnya.
+- Suppose the adjustment of the actual value of a variable Yt to its optimal (or desired) level (denoted by Yt∗) needs to be modelled.
+- Assumes that the change in actual Yt (that is, Yt − Yt−1) will
+be equal to a proportion of the optimal change (Yt∗ − Yt−1), or:
+
+$$Y_t − Y_{t−1} = λ(Y^*_t − Y_{t-1})$$
+- λ is the adjustment coefﬁcient, which takes values from 0 to 1, and 1/λ denotes the speed of adjustment
+> Perhatikan dan praktekkan contoh yang diberikan Tutor
+---
+# Estimasi Model Autoregresif
+> Ketiga model kelambanan sebelumnya akan menghasilkan suatu model akhir yaitu model *autoregresif*
+
+- An autoregressive equation is a model with a lagged dependent variable
+---
+# Deteksi Autokorelasi Model Autoregresif
+
+
+---
+# Model Polinomial
+
+---
+# Pemilihan Panjang Kelambanan
+
+
+---
+# An Example of a Dynamic Model
+- let’s look at an aggregate consumption function from a macroeconomic equilibrium GDP model. 
+- Many economists argue that in such a model, consumption (COt) is not just an instantaneous function of disposable income (YDt). - Instead, they believe that current consumption is also influenced by past levels of disposable income (YDt - 1, YDt - 2, etc.)
+
+$$CO_t = \alpha_0 + \beta_0YD_t + \beta_1YD_{t - 1} + \beta_2YD_{t -2} + ... + \beta_pYD_{t-p} + \epsilon_t$$
+
+- The coefficients of past levels of income decrease as the length of the lag increases. 
+- The impact of lagged income on current consumption should decrease as the lag gets bigger. 
+- Thus we’d expect the coefficient of YDt - 2 to be less than the coefficient of YDt - 1, and so on.
+
+---
+
+
+class: middle, center, inverse
+
+# KB2: MODEL KAUSALITAS
+<hr width="100%" align="left" size="0.3" color="gold"></hr>
+
+
+
+---
+# Kausalitas dalam Teori Ekonomi
+- Banyak variabel ekonomi menunjukkan hubungan dua arah atau kausalitas
+  - nilai tukar mempengaruhi inflasi
+  - inflasi mempengaruhi nilai tukar
+  - Ekspor dengan GDP
+  - Pertumbuhan ekonomi dengan jumlah uang beredar
+  - Pengeluaran pemerintah dan penerimaan pemerintah
+---
+# Model Kausalitas Granger
+- Regresi menunjukkan hubungan satu arah: dari variabel independen ke variabel dependen
+- Kausalitas menunjukkan hubungan dua arah --> semua variabel dependen, tidak ada variabel independen
+- Salah satu uji kausalitas adalah uji Granger
+  - To provide evidence about the direction of causality in economic relationships. 
+  - The  test is useful when we know that two variables are related but we don’t know which variable causes the other to move
+
+---
+# Granger causality
+
+- Granger causality, or precedence, is a circumstance in which one time-series variable consistently and predictably changes before another variable.
+- Granger causality is important because it allows us to analyze which variable precedes or “leads” the other.
+- Despite the value of Granger causality, however, we shouldn’t let ourselves be lured into thinking that it allows us to prove economic causality in any rigorous way. 
+- If one variable precedes (“Granger causes”) another, we can’t 
+be sure that the first variable “causes” the other to change.
+- As a result, even if we’re able to show that event A always happens before event B, we have not shown that event A “causes” event B.
+
+> Perhatikan dan praktekkan contoh yang diberikan Tutor
+---
+
+class: inverse, right, bottom
+
+Matur nuwun, find me at...
+
+<hr width="25%" align="right" size="0.3" color="#f11b55"></hr>
+
+[<i class="fa fa-twitter fa-lg" style="color:#fc911e"></i> <span style="color:#fc911e"> @t_hlb </span>](https://twitter.com/t_hlb)
+
+[<i class="fas fa-blog" style="color:#fc911e"></i><span style="color:#fc911e"> bangtedy.github.io</span>](https://bangtedy.github.io)

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Tedy Herlambang/ekonometrika</title>
+    <meta charset="utf-8" />
+    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <meta name="citation_title" content="Model Dinamis"/>
+    <meta name="citation_author" content="Tedy Herlambang"/>
+    <meta name="citation_publication_date" content="2021"/>
+    <meta name="citation_isbn" content=""/>
+    <link href="libs/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view-0.2.6/tile-view.js"></script>
+    <link href="libs/animate.css-3.7.2/animate.xaringan.css" rel="stylesheet" />
+    <link href="libs/tachyons-4.12.0/tachyons.min.css" rel="stylesheet" />
+    <link href="libs/xaringanExtra-extra-styles-0.2.6/xaringanExtra-extra-styles.css" rel="stylesheet" />
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"xc663c24c09d4282bd044cbe85ddec9d","expires":1}</script>
+    <script src="libs/himalaya-1.1.0/himalaya.js"></script>
+    <script src="libs/js-cookie-3.0.0/js.cookie.js"></script>
+    <link href="libs/editable-0.2.6/editable.css" rel="stylesheet" />
+    <script src="libs/editable-0.2.6/editable.js"></script>
+    <link href="libs/panelset-0.2.6/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset-0.2.6/panelset.js"></script>
+    <script src="libs/fabric-4.3.1/fabric.min.js"></script>
+    <link href="libs/xaringanExtra-scribble-0.0.1/scribble.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-scribble-0.0.1/scribble.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', function() { window.xeScribble = new Scribble({"pen_color":["#FF0000"],"pen_size":3,"eraser_size":30,"palette":[]}) })</script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/v4-shims.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+    <!--hauisdhah087hbdu1h0781gd10gdasdgh0172gd1d8h0781dgiqubsdoqusgd9712gdqiudh917gdqiuhxb0182gd12gs9712g-->
+    <link rel="stylesheet" href="conf/css/style.css" type="text/css" />
+    <link rel="stylesheet" href="conf/css/fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+class: middle, title-slide
+
+&lt;!-- top logo (comment to remove or edit on `conf/css/style.css:23`) --&gt;
+&lt;div class="lab-logo"&gt;&lt;/div&gt;
+&lt;!-- &lt;div class="uni-logo"&gt;&lt;/div&gt; --&gt;
+
+# Model Dinamis
+
+&lt;hr width="100%" align="left" size="0.3" color="gold"&gt;&lt;/hr&gt;
+
+## &lt;span style="color:gold"&gt;Ekonometrika Sesi 6&lt;/span&gt;
+
+### Tedy Herlambang .small[&lt;br&gt; ]
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+[&lt;i class="fas fa-blog" style="color:#e7e8e2"&gt;&lt;/i&gt; bangtedy.github.io](https://bangtedy.github.io)
+
+[&lt;i class="fa fa-twitter fa-lg" style="color:#e7e8e2"&gt;&lt;/i&gt; @t_hlb](https://twitter.com/t_hlb)
+
+---
+
+# Pendahuluan
+
+- Kebijakan ekonomi dampaknya tidak instan, ada kelambanan (lag)
+- Model regresi yang memasukkan unsur lag disebut model dinamis
+
+Dengan mempeljari modul 6, Anda diharapkan dapat:
+
+1. Menjelaskan model autoregressive
+2. Membentuk model penyesuaian parsial, mengestimasi, mengevaluasi dan mengartikan arti koefisien regresi model penyesuaian parsial
+3. Membentuk parsial adjustment model (PAM) mengestimasi, mengevaluasi dan menratikan arti koefisien regresi model PAM
+4. Mengkaji autokorelasi jika model dalam bentuk autoregressive
+5. Membentuk, mengestimasi, mengevaluasi hasil model kausalitas Granger
+
+---
+
+class: middle, center, inverse
+
+# KB1: MODEL REGRESI DENGAN KELAMBANAN
+&lt;hr width="100%" align="left" size="0.3" color="gold"&gt;&lt;/hr&gt;
+
+
+---
+# Model Kelambanan
+
+- Pengaruh kebijakan fiskal dan moneter tidak instan --&gt; perlu waktu 6-12 bulan
+- Kebijakan ekonomi `\(X_t\)` mempunyai dampak ekonomi `\(Y_t\)`, `\(Y_{t+1}\)`, `\(Y_{t+2}\)`, dst.
+- Atau jika dibalik: variabel dependen `\(Y_t\)` dipengaruhi oleh `\(X_t\)`, `\(X_{t-1}\)`, `\(X_{t-2}\)`, dst.
+- Model yang memasukkan nilai current dan juga kelambanan disebut model kelambanan/*distributed-lag model*:
+
+`$$Y_t = \alpha+\beta_0X_t+\beta_1X_{t-1}+\beta_2X_{t-2}+...+\beta_kX_{t-k}+\epsilon$$`
+
+---
+
+# Model Kelambanan Geometrik
+
+- Dibentuk dari pendekatan matematis dimana setiap variabel ekonomi akan mempunyai pengaruh yang semakin mengecil
+
+---
+# Model Penyesuaian Adaptif
+- Nilai harapan dimasa mendatang hanya tergantung dari informasi periode sebelumnya
+
+---
+# Partial Adjustment Model (PAM)
+- Dibangun atas dasar teori penyesuaian persediaan (*stock*)
+- Persediaan optimal merupakan perbedaan persediaan yang diinginkan dan persediaan periode sebelumnya.
+- Suppose the adjustment of the actual value of a variable Yt to its optimal (or desired) level (denoted by Yt∗) needs to be modelled.
+- Assumes that the change in actual Yt (that is, Yt − Yt−1) will
+be equal to a proportion of the optimal change (Yt∗ − Yt−1), or:
+
+`$$Y_t − Y_{t−1} = λ(Y^*_t − Y_{t-1})$$`
+- λ is the adjustment coefﬁcient, which takes values from 0 to 1, and 1/λ denotes the speed of adjustment
+&gt; Perhatikan dan praktekkan contoh yang diberikan Tutor
+---
+# Estimasi Model Autoregresif
+&gt; Ketiga model kelambanan sebelumnya akan menghasilkan suatu model akhir yaitu model *autoregresif*
+
+- An autoregressive equation is a model with a lagged dependent variable
+---
+# Deteksi Autokorelasi Model Autoregresif
+
+
+---
+# Model Polinomial
+
+---
+# Pemilihan Panjang Kelambanan
+
+
+---
+# An Example of a Dynamic Model
+- let’s look at an aggregate consumption function from a macroeconomic equilibrium GDP model. 
+- Many economists argue that in such a model, consumption (COt) is not just an instantaneous function of disposable income (YDt). - Instead, they believe that current consumption is also influenced by past levels of disposable income (YDt - 1, YDt - 2, etc.)
+
+`$$CO_t = \alpha_0 + \beta_0YD_t + \beta_1YD_{t - 1} + \beta_2YD_{t -2} + ... + \beta_pYD_{t-p} + \epsilon_t$$`
+
+- The coefficients of past levels of income decrease as the length of the lag increases. 
+- The impact of lagged income on current consumption should decrease as the lag gets bigger. 
+- Thus we’d expect the coefficient of YDt - 2 to be less than the coefficient of YDt - 1, and so on.
+
+---
+
+
+class: middle, center, inverse
+
+# KB2: MODEL KAUSALITAS
+&lt;hr width="100%" align="left" size="0.3" color="gold"&gt;&lt;/hr&gt;
+
+
+
+---
+# Kausalitas dalam Teori Ekonomi
+- Banyak variabel ekonomi menunjukkan hubungan dua arah atau kausalitas
+  - nilai tukar mempengaruhi inflasi
+  - inflasi mempengaruhi nilai tukar
+  - Ekspor dengan GDP
+  - Pertumbuhan ekonomi dengan jumlah uang beredar
+  - Pengeluaran pemerintah dan penerimaan pemerintah
+---
+# Model Kausalitas Granger
+- Regresi menunjukkan hubungan satu arah: dari variabel independen ke variabel dependen
+- Kausalitas menunjukkan hubungan dua arah --&gt; semua variabel dependen, tidak ada variabel independen
+- Salah satu uji kausalitas adalah uji Granger
+  - To provide evidence about the direction of causality in economic relationships. 
+  - The  test is useful when we know that two variables are related but we don’t know which variable causes the other to move
+
+---
+# Granger causality
+
+- Granger causality, or precedence, is a circumstance in which one time-series variable consistently and predictably changes before another variable.
+- Granger causality is important because it allows us to analyze which variable precedes or “leads” the other.
+- Despite the value of Granger causality, however, we shouldn’t let ourselves be lured into thinking that it allows us to prove economic causality in any rigorous way. 
+- If one variable precedes (“Granger causes”) another, we can’t 
+be sure that the first variable “causes” the other to change.
+- As a result, even if we’re able to show that event A always happens before event B, we have not shown that event A “causes” event B.
+
+&gt; Perhatikan dan praktekkan contoh yang diberikan Tutor
+---
+
+class: inverse, right, bottom
+
+Matur nuwun, find me at...
+
+&lt;hr width="25%" align="right" size="0.3" color="#f11b55"&gt;&lt;/hr&gt;
+
+[&lt;i class="fa fa-twitter fa-lg" style="color:#fc911e"&gt;&lt;/i&gt; &lt;span style="color:#fc911e"&gt; @t_hlb &lt;/span&gt;](https://twitter.com/t_hlb)
+
+[&lt;i class="fas fa-blog" style="color:#fc911e"&gt;&lt;/i&gt;&lt;span style="color:#fc911e"&gt; bangtedy.github.io&lt;/span&gt;](https://bangtedy.github.io)
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="libs/remark-latest.min.js"></script>
+<script src="conf/js/gifffer.min.js"></script>
+<script src="conf/js/style-macros.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

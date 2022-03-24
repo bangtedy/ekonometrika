@@ -1,0 +1,334 @@
+---
+title: Tedy Herlambang/ekonometrika
+output:
+  xaringan::moon_reader:
+  #  self_contained: TRUE
+    includes:
+      in_header: conf/style-header.html
+    lib_dir: libs
+    seal: false
+    css: ["default", "conf/css/style.css", "conf/css/fonts.css"]
+    nature:
+      beforeInit: ["conf/js/gifffer.min.js", "conf/js/style-macros.js"]
+      ratio: 16:9
+---
+
+```{r, echo = FALSE}
+# google scholar metadata
+library(metathis)
+
+if (knitr::is_html_output()) {
+  meta() |> 
+    meta_google_scholar(
+      title = "Regresi Linier",
+      author = "Tedy Herlambang",
+      publication_date = "2021",
+      isbn = ""
+    ) 
+}
+```
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(
+  comment = "#",
+  #cache = TRUE,
+  collapse = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  fig.width = 7,
+  fig.height = 5.25,
+  fig.align = 'center',
+  fig.retina = 3
+)
+
+# base plot layout
+mypar = list(mar = c(3,3,0.5,0.5), mgp = c(1.5, 0.3, 0), tck = -.008)
+
+# xaringan Extra
+xaringanExtra::use_xaringan_extra(c("tile_view", "animate_css", "tachyons"))
+xaringanExtra::use_extra_styles(
+  hover_code_line = TRUE,         #<<
+  mute_unhighlighted_code = TRUE  #<<
+)
+xaringanExtra::use_editable(expires = 1)
+xaringanExtra::use_panelset()
+xaringanExtra::use_scribble()
+
+```
+
+
+class: middle, title-slide
+
+<!-- top logo (comment to remove or edit on `conf/css/style.css:23`) -->
+<div class="lab-logo"></div>
+<!-- <div class="uni-logo"></div> -->
+
+# Regresi Linier
+
+<hr width="100%" align="left" size="1.3" color="gold"></hr>
+
+## <span style="color:gold">Ekonometrika Sesi 2</span>
+
+### Tedy Herlambang .small[<br> ]
+
+<br><br><br><br><br>
+[<i class="fas fa-blog" style="color:#e7e8e2"></i> bangtedy](https://bangtedy.github.io)
+
+[<i class="fa fa-twitter fa-lg" style="color:#e7e8e2"></i> @t_hlb](https://twitter.com/t_hlb)
+
+---
+
+# Capaian Pembelajaran
+
+1. Menjelaskan ide dasar regresi
+2. Menjelaskan asumsi-asumsi OLS
+3. Menentukan estimator OLS yang BLUE
+4. Menentukan ketepatan estimator OLS dan kebaikan regresi metode OLS
+5. Menjelaskan arti koefisien regresi
+6. Menjelaskan teknik variabel dummy dan mengartikan koefisiennya.
+
+---
+
+# Pembelajaran Sesi sebelumnya
+
+Orang ekonomi seringkali tertarik menganalisis hubungan antara kuantitas berbeda:
+
+- Hubungan antara tingkat pendapatan rumah tangga dengan konsumsinya
+- Hubungan antara gaji seseorang dengan pendapatannya
+- Hubungan antara tingkat bunga jangka panjang dengan jangka pendek
+
+Ekonometrika mengkuantifikasi hubungan ini dengan menggunakan:
+
+- Data yang tersedia
+- Menggunakan teknik statistika
+- Menginterpretasikan atau mengeksploitasi hasil secara tepat.
+
+> Ekonometrika: interaksi antara teori ekonomi, data dan metode statistika.
+Inilah yang menjadi tantangan sekaligus menariknya ekonometrika!
+
+---
+class: center, middle
+
+> <span style="color:gold">‘Econometrics is much easier without data’</span>
+
+> <span style="color:blue">Belajar ekonometrika seperti belajar naik sepeda: praktik sangat penting</span>
+
+> <span style="color:brown">Praktik sangat krusial dalam proses memahami berbagai metode, bagaimana dan kapan menggunakan metode-metode itu, yang benar/salah.</span>
+
+---
+
+# Regresi Linier Sederhana
+
+- Kombinasi model regresi linier dengan *Ordinary Least Squares (OLS)* menjadi batu loncatan di dalam ekonometrika
+
+- Regresi menjadi alat yang paling penting yang dipakai ekonomi untuk memahami hubungan antara dua atau lebih variabel.
+    + Misalkan variabel-variabel tingkat pengangguran dan suku bunga, pasokan uang, inflasi, nilai tukar, neraca perdagangan, dimana hubungan antara variabel-variabel in kompleks. 
+
+---
+# Seorang mahasiswa mencoba membuat model harga rumah
+
+- Hal-hal apa saja yang mempengaruhi harga rumah:
+    + luas rumah,
+    + jumlah kamar,
+    + luas tanah,
+    + lokasi rumah (dekat dengan sekolah, tempat ibadah, jalan tol, dll),
+    + jumlah kamar mandi (mungkin)
+    + dll
+    
+---
+# Notasi Teoritis
+
+$$Y=f(X_1,X_2,X_i,..., \epsilon),$$
+- Y: variabel dependen,
+- $X_1, X_2, . . ., X_i$: variabel variabel independen,
+- $\epsilon$: residu dari model (sebagian dari variabilitas dari variabel dependen yang tidak dijelaskan oleh model).
+
+Jika diasumsikan hubungan antar variabel itu linier maka:
+
+$$Y=\beta_0 + \beta_1X_1 + \beta_2X_2+ ... \beta_iX_i + \epsilon,$$
+- $\beta_0, \beta_1, \beta_2$: koefisien model/parameter struktural yang mengkuantifikasi arah dan kekuatan hubungan statistik antara variabel independen dan dependen.
+- $\epsilon$: residu dari model 
+---
+# Catatan
+- Jika di dalam aktualitas kita bisa mengetahui nilai-nilai $\beta_0, \beta_1, \beta_2$, maka kita akan tahu hubungan antara Y dengan $X_i$.
+
+- Di dalam praktik, informasi ini tidak kita miliki
+
+- Jika di dalam model regresi hubungan antara Y dengan X memang linier, di dunia sebenarnya, kita tidak akan pernah menemukan bahwa data terletak persis pada garis lurus.
+- Model regresi selalu hanya merupakan aproksimasi/pendekatan dari hubungan yang sebenarnya (hubungan yang sebenarnya mungkin saja berbeda dari pendekatan implisit model regresi linier).
+
+- Faktor kesalahan pengukuran membuat data tersebar dekat tetapi tidak persis berada di garis regresi.
+
+---
+# Sebuah model pasti mengandung kesalahan
+
+- *missing variables* (atau karena kita tidak bisa mengamatinya)
+- kesulitan mengukur, mengumpulkan atau bahkan data tidak mungkin dapat dikumpulkan
+- penghilangan variabel ini dari model regresi membuat model mengandung kesalahan $\epsilon$.
+
+---
+
+# Prosedur Membangun Model Regresi<sup>*</sup>:
+1. Menentukan variabel dependen yang perilakunya ingin dijelaskan di dalam model.
+2. Menentukan kandidat variabel independen yang relevan (variabel independen yang diperkirakan memiliki hubungan statistik dan teoritis dengan variabel dependen). 
+3. Analisis pendahuluan dan *plotting* data (cek pencilan data, data yang hilang, salah input dll) 
+4. Membuang calon-calon variabel dependen yang *redundant* atau tidak signifikan dengan cara:
+    + Metode statistik (e.g., the procedure of “general to speciﬁc modeling”).
+    + Teori ekonomi, pendapat ahli atau penilain subyektif
+5. Estimasi final parameter model
+6. Verifikasi kebenaran dan kecocokan model dengan data aktual
+7. Penerapan model yang diperoleh
+
+---
+
+# Elemen-elemen Dasar Model Regresi Linier
+Koefisien Model:
+- Intersep/konstanta: nilai yang diharapkan dari variabel dependen jika nilai variabel independen sama dengan nol. Perpotongan garis regresi dengan sumbu axis.
+- Koefisien kemiringan/slope: kuantifikasi arah dan ukuran dampak variabel independen tertentu terhadap variabel dependen.
+
+Standard errors of individual structural parameters
+
+---
+
+# Bagaimana menentukan signifikansi statistik dari masing-masing koefisien model regresi
+Cek t-statistics of individual coefﬁcients
+- Dihitung dengan membagi koefisien dengan standar errornya. 
+
+---
+# Koefisien Determinasi $R^2$
+
+- Mengukur goodness of ﬁt dari model dibandingkan dengan data aktual.
+- R-squared equaling zero artinya:
+- R-squared equaling unity artinya:
+- Mungkinkan di dalam riset ekonomi mendapatkan $R^2$ sama dengan 0 atau 1?
+
+Koefisien Determinasi yang Disesuaikan (the adjusted R-squared)
+---
+# Evaluasi Regresi dan Model
+- Normality of errors.
+- Homoscedasticity of Errors.
+- Absence of Outlying
+
+---
+# [Kasus 1: Model Pengeluaran Pangan](https://rdrr.io/github/ccolonescu/PoEdata/man/food.html)
+
+**Deskripsi Kasus**
+
+Data frame terdiri dari 40 pengamatan pada dua variabel yaitu: 
+- food_exp: weekly food expenditure in $
+- income: weekly income in $100
+- Data ini bisa dipanggil dari **PoEdata** R library.
+- Kita akan melihat pengaruh kenaikan pendapatan terhadap kenaikan pengeluaran pangan per minggu: 
+
+$$food-exp=\beta_1 + \beta_2income + e$$
+---
+
+# Data bisa dipanggil dari PoEdata package, dan kita plot
+
+```{r plot-food, echo =-1, comment='#'}
+par(mypar)
+library(PoEdata)
+data(food)
+attach(food)
+plot(income, food_exp)
+
+```
+---
+Estimasi model
+```{r, echo=TRUE}
+(summary (lm(food_exp ~ income, data = food)))
+```
+---
+
+# Sehingga model yang diperoleh adalah:
+
+$$food-exp = 83.416 +  10.210 income$$
+---
+# Latihan: Perhatikan halaman 2.23 Tabel 2.1.1
+Anda diminta menghitung regresi sederhana besarnya pengaruh pengeluaran iklan terhadap volume penjualan. Datanya adalah sebagai berikut:
+
+```{r, echo=FALSE}
+iklan <- read.csv("~/BLOG-SOURCES/ekonometrika/iklan.csv", sep="")
+
+```
+
+
+```{r eval=requireNamespace("dplyr", quietly=TRUE), echo=FALSE}
+library('dplyr')
+```
+
+```{r eval=requireNamespace("kableExtra", quietly=TRUE), echo=FALSE}
+library('kableExtra')
+iklan %>%
+  kbl(caption = "") %>%
+  kable_classic(full_width = F, html_font = "Cambria") %>%   kable_styling(bootstrap_options = "striped", font_size = 24)
+
+```
+---
+# Plot Data Penjualan dan Pengeluaran Iklan
+.pull-left[
+
+```{r plot-iklan, fig.show='hide'}
+plot(iklan$iklan, iklan$penjualan,
+ylim=c(0, max(iklan$penjualan)),
+xlim=c(0, max(iklan$iklan)),
+xlab="Pengeluaran iklan dalam juta rupiah",
+ylab="Volume penjualan dalam juta unit",
+type = "p")
+```
+]
+
+.pull-right[
+
+![](`r knitr::fig_chunk("plot-iklan", "png")`)
+]
+
+---
+# Estimasi Model
+.pull-left[
+```{r plot-estimasi, fig.show='hide'}
+model.iklan <- lm(penjualan~iklan, data = iklan)
+plot(iklan$iklan, iklan$penjualan,
+xlab="Pengeluaran iklan dalam juta rupiah",
+ylab="Volume penjualan dalam juta unit",
+type = "p")
+abline(model.iklan, col="blue")
+```
+]
+
+.pull-right[
+
+![](`r knitr::fig_chunk("plot-estimasi", "png")`)
+]
+---
+```{r}
+summary(model.iklan)
+```
+---
+# Kasus: Gaji Karyawan di Indonesia
+Misalkan Anda ingin membuat model tentang faktor-faktor yang mempengaruhi gaji karyawan di Indonesia.
+
+1. Variabel-variabel independen apa yang akan Anda masukkan ke dalam model?
+2. Bagaimana perkiraan Anda tentang arah hubungan dan kekuatan pengaruh dari variabel-variabel pada no.1?
+3. Bagaimana Anda akan mengumpulkan data variabel pada pertanyaan no.1?
+
+---
+# Wooldridge, Contoh 2.3: Gaji CEO dan Return on Equity (ROE)
+
+Pada kasus ini, penulis membuat model pengaruh ROE terhadap gaji yang diterima CEO. Model yang diduga adalah $gaji = \beta_0 + \beta_1 roe + e$. Persamaan regresi linier dengan OLS yang didapatkan adalah $\widehat{gaji}= 963.1913 + 18.50119 roe$.
+
+- Asumsikan bahwa persamaan diatas sudah tepat dan signifikan. Jelaskan makna dari koefisien-koefisien yang didapat!
+- Jika ROE sebuah perusahaan adalah sebesar 10 satuan, berapa gaji yang akan didapat oleh CEO-nya?
+
+---
+Halaman ini memang sengaja dibiarkan kosong.
+
+---
+class: inverse, right, bottom
+
+# Kso'on, find me at...
+<hr width="45%" align="right" size="0.3" color="orange"></hr>
+
+[<i class="fa fa-twitter fa-lg" style="color:#fc911e"></i> <span style="color:#fc911e"> @t_hlb </span>](https://twitter.com/t_hlb)
+[<i class="fas fa-blog" style="color:#fc911e"></i><span style="color:#fc911e"> bangtedy.github.io</span>](https://bangtedy.github.io)
+
