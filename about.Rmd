@@ -16,19 +16,13 @@ knitr::opts_chunk$set(echo = FALSE)
 - Secara harfiah ekonometrika berarti 'pengukuran ekonomi' yaitu pengukuran dan analisis kuantitatif fenomena ekonomi dan bisnis aktual.
 - Ekonometrika mencoba mengkuantifikasi realitas ekonomi dan menjembatani 'gap' antara teori ekonomi yang abstrak dan dunia nyata kegiatan manusia (Studenmund, 2017)
 
----
-
-# Cara Belajar Ekonometrika
-
-- Mahasiswa yang mengambil ekonometrika diasumsikan sudah mengambil mata kuliah Teori Mikroekonomi dan Makroekonomi, Matematika dan Statistika Dasar.
-
-> Belajar ekonometrika seperti belajar naik sepeda. Kita akan belajar lebih banyak jika mempraktikkannya dibandingkan dengan membaca buku saja.
 
 ---
 
 # Cakupan Materi
 
 Mata kuliah ini akan menyajikan materi yang terbagi dalam sembilan modul yaitu: 
+
 1. Definisi, ruang lingkup, metodologi, dan dasar-dasar statistika untuk ekonometrika
 2. Analisis regresi dengan OLS
 3. Modeling regresi dan evaluasi regresi
@@ -38,6 +32,39 @@ Mata kuliah ini akan menyajikan materi yang terbagi dalam sembilan modul yaitu:
 7. Model sistem persamaan
 8. Regresi data time series
 9. Regresi data panel
+
+---
+
+# Rancangan Aktivitas Tutorial:
+
+- [Sesi 1: Ekonometrika: Pendahuluan](https://bangtedy.github.io/ekonometrika/sesi1/sesi1#1)
+- [Sesi 2: Regresi Linier](https://bangtedy.github.io/ekonometrika/sesi2/sesi2#1)
+- [Sesi 3: Evaluasi Regresi](https://bangtedy.github.io/ekonometrika/sesi3/sesi3#1)
+- [Sesi 4: Uji Asumsi Ordinary Least Squares](https://bangtedy.github.io/ekonometrika/sesi4/sesi4#1)
+- [Sesi 5: Regresi dengan Respons Kualitatif](https://bangtedy.github.io/ekonometrika/sesi5/sesi5#1)
+- [Sesi 6: Model Dinamis](https://bangtedy.github.io/ekonometrika/sesi6/sesi6#1)
+- [Sesi 7: Persamaan Simultan](https://bangtedy.github.io/ekonometrika/sesi7/sesi7#1)
+- [Sesi 8: Ekonometrika Time Series dan Regresi Data Panel](https://bangtedy.github.io/ekonometrika/sesi8/sesi8#1)
+
+---
+
+### Rujukan Utama:
+
+- Widarjono, Agus. 2018. Buku Materi Pokok (BMP) ESPA4312 Ekonometrika, Edisi 2. Penerbit Universitas Terbuka, Tangerang Selatan.
+
+### Rujukan Tambahan:
+
+- Studenmund, A.H. 2016. Using Econometrics : A Practical Guide. Seventh edition. Pearson
+- Wooldridge, Jeffrey M. 2020. Introductory Econometrics: A Modern Approach, Seventh Edition. Cengage.
+
+
+---
+
+# Cara Belajar Ekonometrika
+
+- Mahasiswa yang mengambil ekonometrika diasumsikan sudah mengambil mata kuliah Teori Mikroekonomi dan Makroekonomi, Matematika dan Statistika Dasar.
+
+> Belajar ekonometrika seperti belajar naik sepeda. Kita akan belajar lebih banyak jika mempraktikkannya dibandingkan dengan membaca buku saja.
 
 ---
 
@@ -72,29 +99,4 @@ Mata kuliah ini akan menyajikan materi yang terbagi dalam sembilan modul yaitu:
 - Mengerjakan latihan dan  tes formatif
 - Memanfaatkan kegiatan tutorial dengan menanyakan materi yang belum dipahami
 - Aktif berdiskusi pada saat kegiatan tutorial
-
----
-
-# Rancangan Aktivitas Tutorial:
-
-- [Sesi 1: Ekonometrika: Pendahuluan](https://bangtedy.github.io/ekonometrika/sesi1/sesi1#1)
-- [Sesi 2: Regresi Linier](https://bangtedy.github.io/ekonometrika/sesi2/sesi2#1)
-- [Sesi 3: Evaluasi Regresi](https://bangtedy.github.io/ekonometrika/sesi3/sesi3#1)
-- [Sesi 4: Uji Asumsi Ordinary Least Squares](https://bangtedy.github.io/ekonometrika/sesi4/sesi4#1)
-- [Sesi 5: Regresi dengan Respons Kualitatif](https://bangtedy.github.io/ekonometrika/sesi5/sesi5#1)
-- [Sesi 6: Model Dinamis](https://bangtedy.github.io/ekonometrika/sesi6/sesi6#1)
-- [Sesi 7: Persamaan Simultan](https://bangtedy.github.io/ekonometrika/sesi7/sesi7#1)
-- [Sesi 8: Ekonometrika Time Series dan Regresi Data Panel](https://bangtedy.github.io/ekonometrika/sesi8/sesi8#1)
-
----
-
-### Rujukan Utama:
-
-- Widarjono, Agus. 2018. Buku Materi Pokok (BMP) ESPA4312 Ekonometrika, Edisi 2. Penerbit Universitas Terbuka, Tangerang Selatan.
-
-### Rujukan Tambahan:
-
-- Studenmund, A.H. 2016. Using Econometrics : A Practical Guide. Seventh edition. Pearson
-- Wooldridge, Jeffrey M. 2020. Introductory Econometrics: A Modern Approach, Seventh Edition. Cengage.
-
 
